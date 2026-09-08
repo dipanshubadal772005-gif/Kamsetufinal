@@ -3815,20 +3815,14 @@ input:focus,select:focus,textarea:focus{
 /* Shared layout for pages that now use the master sidebar. */
 body:has(.sidebar) > .tracking-page,
 body:has(.sidebar) > .gb-main,
-body:has(.sidebar) > .p-main,
-body:has(.sidebar) > .page{
+body:has(.sidebar) > .p-main{
   width:calc(100% - 225px) !important;
   margin-left:225px !important;
   box-sizing:border-box !important;
 }
-
-body:has(.sidebar) .main-content .page,
-body:has(.sidebar) .main-content > .page{
-  width:100% !important;
-  max-width:100% !important;
-  min-width:0 !important;
-  margin-left:0 !important;
-  margin-right:0 !important;
+body:has(.sidebar) .page{
+  width:calc(100% - 225px) !important;
+  margin-left:225px !important;
   box-sizing:border-box !important;
 }
 
@@ -3836,7 +3830,7 @@ body:has(.sidebar) .main-content > .page{
   body:has(.sidebar) > .tracking-page,
   body:has(.sidebar) > .gb-main,
   body:has(.sidebar) > .p-main,
-  body:has(.sidebar) > .page{
+  body:has(.sidebar) .page{
     width:100% !important;
     margin-left:0 !important;
   }
@@ -3918,144 +3912,3 @@ body:has(.sidebar) > header{
     flex: 0 0 auto !important;
 }
 
-
-
-/* =========================================================
-   CUSTOMER SHELL — FINAL FULL-WIDTH LAYOUT
-   The shared customer sidebar provides the only left offset.
-   Prevent legacy page rules from adding a second offset or
-   constraining the content to a narrow centered column.
-   ========================================================= */
-
-html,
-body {
-    width: 100% !important;
-    min-width: 0 !important;
-    overflow-x: hidden !important;
-}
-
-body.customer-shell {
-    padding-left: var(--customer-sidebar-width) !important;
-    margin: 0 !important;
-}
-
-/* Every customer page fills all space to the right of sidebar. */
-body.customer-shell > .main-content,
-body.customer-shell > main.main-content,
-body.customer-shell .main-content {
-    width: 100% !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-}
-
-/* My Bookings content */
-body.customer-shell .booking-page {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-}
-
-body.customer-shell .booking-stats {
-    width: 100% !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-}
-
-body.customer-shell .booking-list {
-    width: 100% !important;
-}
-
-body.customer-shell .booking-card {
-    width: 100% !important;
-}
-
-/* =========================================================
-   NEGOTIATION — FULL AVAILABLE WIDTH
-   ========================================================= */
-
-body.customer-shell > header.topbar,
-body.customer-shell > .topbar {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-}
-
-body.customer-shell > main.page,
-body.customer-shell .page {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 35px 60px !important;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) !important;
-    box-sizing: border-box !important;
-}
-
-body.customer-shell .page .card {
-    width: 100% !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-}
-
-body.customer-shell .form-grid {
-    width: 100% !important;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-}
-
-body.customer-shell .form-grid input,
-body.customer-shell .form-grid textarea {
-    width: 100% !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-}
-
-@media (max-width: 760px) {
-    body.customer-shell {
-        padding-left: 0 !important;
-    }
-
-    body.customer-shell > main.page,
-    body.customer-shell .page {
-        padding: 20px 16px 50px !important;
-    }
-
-    body.customer-shell .form-grid {
-        grid-template-columns: 1fr !important;
-    }
-}
-
-
-/* =========================================================
-   CUSTOMER SIDEBAR FINAL FIX
-   Prevent legacy 220/225/270px layout rules from shrinking
-   or clipping the page after the shared 252px sidebar loads.
-   ========================================================= */
-body:has(.customer-sidebar) .main-content,
-body:has(.customer-sidebar) > main.main-content {
-    width: 100% !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-}
-
-body:has(.customer-sidebar) .booking-page,
-body:has(.customer-sidebar) .notification-page,
-body:has(.customer-sidebar) .profile-page,
-body:has(.customer-sidebar) .profile-container,
-body:has(.customer-sidebar) .profile-content {
-    width: 100% !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-}
-
-@media (max-width: 760px) {
-    body:has(.customer-sidebar) .main-content,
-    body:has(.customer-sidebar) > main.main-content {
-        width: 100% !important;
-        margin-left: 0 !important;
-    }
-}

@@ -4076,20 +4076,14 @@ input:focus,select:focus,textarea:focus{
 /* Shared layout for pages that now use the master sidebar. */
 body:has(.sidebar) > .tracking-page,
 body:has(.sidebar) > .gb-main,
-body:has(.sidebar) > .p-main,
-body:has(.sidebar) > .page{
+body:has(.sidebar) > .p-main{
   width:calc(100% - 225px) !important;
   margin-left:225px !important;
   box-sizing:border-box !important;
 }
-
-body:has(.sidebar) .main-content .page,
-body:has(.sidebar) .main-content > .page{
-  width:100% !important;
-  max-width:100% !important;
-  min-width:0 !important;
-  margin-left:0 !important;
-  margin-right:0 !important;
+body:has(.sidebar) .page{
+  width:calc(100% - 225px) !important;
+  margin-left:225px !important;
   box-sizing:border-box !important;
 }
 
@@ -4097,7 +4091,7 @@ body:has(.sidebar) .main-content > .page{
   body:has(.sidebar) > .tracking-page,
   body:has(.sidebar) > .gb-main,
   body:has(.sidebar) > .p-main,
-  body:has(.sidebar) > .page{
+  body:has(.sidebar) .page{
     width:100% !important;
     margin-left:0 !important;
   }
@@ -4233,65 +4227,5 @@ body.customer-shell .topbar {
 @media (max-width: 600px) {
     body.customer-shell .dashboard-content {
         padding: 24px 16px 50px !important;
-    }
-}
-
-
-/* =========================================================
-   FINAL CUSTOMER DASHBOARD LAYOUT FIX
-   The shared customer sidebar is the only left offset.
-   Do not add another margin-left to the dashboard.
-   ========================================================= */
-
-html,
-body {
-    width: 100% !important;
-    min-width: 0 !important;
-    overflow-x: hidden !important;
-}
-
-body.customer-shell .dashboard-main {
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-}
-
-body.customer-shell .dashboard-content {
-    width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-}
-
-body.customer-shell .topbar {
-    width: 100% !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-}
-
-body.customer-shell .welcome-section,
-body.customer-shell .dashboard-search,
-body.customer-shell .quick-services,
-body.customer-shell .dashboard-grid,
-body.customer-shell .dashboard-trust,
-body.customer-shell .group-booking-banner {
-    width: 100% !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-}
-
-@media (max-width: 700px) {
-    body.customer-shell .dashboard-main {
-        width: 100% !important;
-        margin-left: 0 !important;
-    }
-
-    body.customer-shell .dashboard-content {
-        width: 100% !important;
     }
 }

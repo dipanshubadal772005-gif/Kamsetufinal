@@ -3359,20 +3359,14 @@ input:focus,select:focus,textarea:focus{
 /* Shared layout for pages that now use the master sidebar. */
 body:has(.sidebar) > .tracking-page,
 body:has(.sidebar) > .gb-main,
-body:has(.sidebar) > .p-main,
-body:has(.sidebar) > .page{
+body:has(.sidebar) > .p-main{
   width:calc(100% - 225px) !important;
   margin-left:225px !important;
   box-sizing:border-box !important;
 }
-
-body:has(.sidebar) .main-content .page,
-body:has(.sidebar) .main-content > .page{
-  width:100% !important;
-  max-width:100% !important;
-  min-width:0 !important;
-  margin-left:0 !important;
-  margin-right:0 !important;
+body:has(.sidebar) .page{
+  width:calc(100% - 225px) !important;
+  margin-left:225px !important;
   box-sizing:border-box !important;
 }
 
@@ -3380,7 +3374,7 @@ body:has(.sidebar) .main-content > .page{
   body:has(.sidebar) > .tracking-page,
   body:has(.sidebar) > .gb-main,
   body:has(.sidebar) > .p-main,
-  body:has(.sidebar) > .page{
+  body:has(.sidebar) .page{
     width:100% !important;
     margin-left:0 !important;
   }
@@ -3462,36 +3456,3 @@ body:has(.sidebar) > header{
     flex: 0 0 auto !important;
 }
 
-
-
-/* =========================================================
-   CUSTOMER SIDEBAR FINAL FIX
-   Prevent legacy 220/225/270px layout rules from shrinking
-   or clipping the page after the shared 252px sidebar loads.
-   ========================================================= */
-body:has(.customer-sidebar) .main-content,
-body:has(.customer-sidebar) > main.main-content {
-    width: 100% !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
-}
-
-body:has(.customer-sidebar) .booking-page,
-body:has(.customer-sidebar) .notification-page,
-body:has(.customer-sidebar) .profile-page,
-body:has(.customer-sidebar) .profile-container,
-body:has(.customer-sidebar) .profile-content {
-    width: 100% !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-}
-
-@media (max-width: 760px) {
-    body:has(.customer-sidebar) .main-content,
-    body:has(.customer-sidebar) > main.main-content {
-        width: 100% !important;
-        margin-left: 0 !important;
-    }
-}
