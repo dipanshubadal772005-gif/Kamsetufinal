@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KAMSETU - My Bookings</title>
+
+    <link rel="stylesheet" href="customer-bookings.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="../theme-light.css">
+<link rel="stylesheet" href="customer-sidebar.css">
+</head>
+
+
+<body>
+
+
+    <!-- SIDEBAR -->
+<!-- MOBILE HEADER -->
+
+    <header class="mobile-header">
+
+        <button
+            onclick="toggleSidebar()"
+            class="menu-btn"
+        >
+            ☰
+        </button>
+
+        <strong>KAMSETU</strong>
+
+        <button
+            onclick="showNotifications()"
+            class="mobile-notification"
+        >
+            🔔
+        </button>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div class="page-heading">
+
+                <span>KAMSETU MARKETPLACE</span>
+
+                <h1>My Bookings</h1>
+
+            </div>
+
+
+            <div class="top-profile">
+
+
+                <button
+                    class="notification"
+                    onclick="showNotifications()"
+                >
+
+                    🔔
+
+                    <small>3</small>
+
+                </button>
+
+
+                <!-- DYNAMIC USER PROFILE -->
+
+                <button
+                    class="user-profile"
+                    onclick="openProfile()"
+                >
+
+                    <div
+                        class="user-avatar"
+                        id="topUserAvatar"
+                    >
+                        U
+                    </div>
+
+                    <div>
+
+                        <strong id="topUserName">
+                            User
+                        </strong>
+
+                        <span>Customer</span>
+
+                    </div>
+
+                    <i>▾</i>
+
+                </button>
+
+
+            </div>
+
+        </header>
+
+
+
+        <!-- PAGE CONTENT -->
+
+        <section class="booking-page">
+
+
+            <!-- HEADER -->
+
+            <div class="booking-heading">
+
+                <div>
+
+                    <span>YOUR ACTIVITY</span>
+
+                    <h2>
+                        Manage your bookings
+                    </h2>
+
+                    <p>
+                        Track your services,
+                        appointments and completed work.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="find-service-btn"
+                    onclick="findService()"
+                >
+
+                    + Find a Service
+
+                </button>
+
+            </div>
+
+
+
+            <!-- STATS -->
+
+            <div class="booking-stats">
+
+
+                <div class="stat-card">
+
+                    <span>UPCOMING</span>
+
+                    <strong id="upcomingCount">
+                        2
+                    </strong>
+
+                    <p>
+                        Active bookings
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>COMPLETED</span>
+
+                    <strong>
+                        18
+                    </strong>
+
+                    <p>
+                        Services completed
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>TOTAL SPENT</span>
+
+                    <strong>
+                        ₹8,450
+                    </strong>
+
+                    <p>
+                        On KAMSETU
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TABS -->
+
+            <div class="booking-tabs">
+
+
+                <button
+                    class="tab active"
+                    onclick="filterBookings('all', this)"
+                >
+                    All
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="filterBookings('upcoming', this)"
+                >
+                    Upcoming
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="filterBookings('completed', this)"
+                >
+                    Completed
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="filterBookings('cancelled', this)"
+                >
+                    Cancelled
+                </button>
+
+
+            </div>
+
+
+
+            <!-- BOOKINGS -->
+
+            <div
+                class="booking-list"
+                id="bookingList"
+            >
+
+                <div
+                    class="no-bookings"
+                    id="noBookings"
+                >
+
+                    <h3>
+                        Loading bookings...
+                    </h3>
+
+                    <p>
+                        Your real MongoDB bookings will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+        onclick="toggleSidebar()"
+    ></div>
+
+
+
+    <!-- PAYMENT MODAL -->
+
+    <div
+        class="payment-modal"
+        id="paymentModal"
+        onclick="handlePaymentOverlay(event)"
+        aria-hidden="true"
+    >
+
+        <div
+            class="payment-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="paymentTitle"
+        >
+
+            <button
+                type="button"
+                class="payment-close"
+                onclick="closePayment()"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+
+            <span class="payment-kicker">
+                PAY AFTER COMPLETION
+            </span>
+
+
+            <h3 id="paymentTitle">
+                Pay your service provider
+            </h3>
+
+
+            <p class="payment-subtitle">
+                Confirm the final payment after the provider has completed the work.
+            </p>
+
+
+            <div class="payment-summary">
+
+                <div>
+
+                    <span>PROVIDER</span>
+
+                    <strong id="paymentProvider">
+                        Service Provider
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>AMOUNT</span>
+
+                    <strong id="paymentAmount">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <label for="paymentMethod">
+                Payment method
+            </label>
+
+
+            <select id="paymentMethod">
+
+                <option value="upi">
+                    UPI
+                </option>
+
+                <option value="cash">
+                    Cash
+                </option>
+
+            </select>
+
+
+            <label for="paymentReference">
+                UPI transaction/reference ID
+                <span>
+                    (required for UPI)
+                </span>
+            </label>
+
+
+            <input
+                id="paymentReference"
+                type="text"
+                maxlength="100"
+                placeholder="Enter transaction ID"
+            >
+
+
+            <input
+                id="paymentBookingId"
+                type="hidden"
+            >
+
+
+            <p class="payment-note">
+                Prototype payment confirmation: this records the payment status in KAMSETU.
+                No card or bank transaction is processed by this demo.
+            </p>
+
+
+            <div class="payment-actions">
+
+
+                <button
+                    type="button"
+                    class="payment-secondary-btn"
+                    onclick="closePayment()"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="button"
+                    class="payment-primary-btn"
+                    id="confirmPaymentBtn"
+                    onclick="confirmPayment()"
+                >
+                    Confirm Payment
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+
+    <script src="customer-bookings.js"></script>
+    <script src="../ai-assistant.js"></script>
+
+
+    <!-- LOAD ACTUAL LOGGED-IN USER -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let userData =
+                localStorage.getItem("KAMSETUUser");
+
+            if (!userData) {
+                userData =
+                    sessionStorage.getItem("KAMSETUUser");
+            }
+
+            if (!userData) {
+                return;
+            }
+
+            try {
+
+                const user =
+                    JSON.parse(userData);
+
+                const topUserName =
+                    document.getElementById("topUserName");
+
+                const topUserAvatar =
+                    document.getElementById("topUserAvatar");
+
+
+                if (topUserName) {
+
+                    topUserName.textContent =
+                        user.name || "User";
+
+                }
+
+
+                if (topUserAvatar) {
+
+                    topUserAvatar.textContent =
+                        (user.name || "U")
+                            .charAt(0)
+                            .toUpperCase();
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Could not load logged-in user:",
+                    error
+                );
+
+            }
+
+        });
+    </script>
+
+
+<script src="customer-sidebar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - My Services</title>
+
+    <link
+        rel="stylesheet"
+        href="provider-services.css"
+    >
+
+        <link rel="stylesheet" href="../theme-light.css">
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+
+            <div class="logo-icon">
+                ⌂
+            </div>
+
+            <div>
+
+                <strong>
+                    KAMSETU
+                </strong>
+
+                <span>
+                    Get Things Done
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- PROVIDER -->
+
+        <div class="provider-mini">
+
+            <div class="mini-avatar" id="providerSidebarAvatar">
+                U
+            </div>
+
+            <div>
+
+                <strong id="providerSidebarName">
+                    User
+                </strong>
+
+                <span>
+                    Electrician
+                </span>
+
+            </div>
+
+            <i></i>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <nav>
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="provider-dashboard.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ▦
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+
+            <!-- REQUESTS -->
+
+            <a
+                href="provider-requests.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ◈
+                </span>
+
+                Service Requests
+
+                <b>
+                    5
+                </b>
+
+            </a>
+
+
+
+            <!-- BOOKINGS -->
+
+            <a
+                href="provider-bookings.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ◫
+                </span>
+
+                My Bookings
+
+                <b>
+                    2
+                </b>
+
+            </a>
+
+
+
+            <!-- MESSAGES -->
+
+            <a
+                href="provider-message.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ◌
+                </span>
+
+                Messages
+
+                <b>
+                    3
+                </b>
+
+            </a>
+
+
+
+            <!-- SERVICES -->
+
+            <a
+                href="provider-services.html"
+                class="nav-item active"
+            >
+
+                <span>
+                    ⚒
+                </span>
+
+                My Services
+
+            </a>
+
+
+
+           
+
+
+
+            <!-- EARNINGS -->
+
+            <a
+                href="provider-earnings.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ₹
+                </span>
+
+                Earnings
+
+            </a>
+
+
+
+            <!-- PROFILE -->
+
+            <a
+                href="provider-profile.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ◎
+                </span>
+
+                Profile
+
+            </a>
+
+ <!-- NEGOTIATIONS -->
+
+            <a
+                href="provider-negotiations.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ⇄
+                </span>
+
+                Negotiations
+
+                <b>
+                    2
+                </b>
+
+         
+        </nav>
+
+
+
+        <!-- =================================================
+             SIDEBAR BOTTOM
+        ================================================== -->
+
+        <div class="sidebar-bottom">
+
+
+            <a
+                href="#"
+                class="nav-item"
+                onclick="showToast('Settings coming soon'); return false;"
+            >
+
+                <span>
+                    ⚙
+                </span>
+
+                Settings
+
+            </a>
+
+
+
+            <button
+                type="button"
+                class="nav-item logout"
+                onclick="logoutProvider()"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                Logout
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MOBILE HEADER
+    ====================================================== -->
+
+    <header class="mobile-header">
+
+
+        <button
+            type="button"
+            onclick="toggleSidebar()"
+        >
+            ☰
+        </button>
+
+
+        <strong>
+            KAMSETU
+        </strong>
+
+
+        <button
+            type="button"
+            onclick="showToast('No new notifications')"
+        >
+            🔔
+        </button>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <span>
+                    PROFESSIONAL PANEL
+                </span>
+
+                <h1>
+                    My Services
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    type="button"
+                    class="notification"
+                    onclick="showToast('You have 3 new notifications')"
+                >
+
+                    🔔
+
+                    <small>
+                        3
+                    </small>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="user-profile"
+                    onclick="openProfile()"
+                >
+
+                    <div
+                        class="user-avatar"
+                        id="topUserAvatar"
+                    >
+                        U
+                    </div>
+
+                    <div>
+
+                        <strong id="topUserName">
+                            User
+                        </strong>
+
+                        <span>
+                            Provider
+                        </span>
+
+                    </div>
+
+                    <i>
+                        ▾
+                    </i>
+
+                </button>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE
+        ================================================== -->
+
+        <section class="page">
+
+
+            <!-- PAGE HEADING -->
+
+            <div class="page-heading">
+
+
+                <div>
+
+                    <span>
+                        SERVICE MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Your services.
+                    </h2>
+
+                    <p>
+                        Manage what you offer,
+                        your pricing and service details.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="add-btn"
+                    onclick="openServiceForm()"
+                >
+
+                    + Add Service
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SERVICE GRID
+            ================================================== -->
+
+            <div
+                class="service-grid"
+                id="serviceGrid"
+            >
+
+
+                <!-- SERVICE 1 -->
+
+                <article class="service-card">
+
+
+                    <div class="service-icon">
+                        ⚡
+                    </div>
+
+
+                    <div class="service-top">
+
+
+                        <div>
+
+                            <span>
+                                ACTIVE SERVICE
+                            </span>
+
+                            <h3>
+                                Electrical Repair
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="toggleService(this)"
+                        >
+                            ● Active
+                        </button>
+
+
+                    </div>
+
+
+                    <p>
+                        Home electrical repair including
+                        switches, sockets, fans and minor
+                        wiring issues.
+                    </p>
+
+
+                    <div class="service-meta">
+
+                        <span>
+                            ★ 4.8
+                        </span>
+
+                        <span>
+                            86 Jobs
+                        </span>
+
+                        <span>
+                            ₹400 starting
+                        </span>
+
+                    </div>
+
+
+                    <div class="service-footer">
+
+
+                        <span>
+                            Updated 2 days ago
+                        </span>
+
+
+                        <div>
+
+                            <button
+                                type="button"
+                                onclick="editService()"
+                            >
+                                Edit
+                            </button>
+
+
+                            <button
+                                type="button"
+                                onclick="deleteService(this)"
+                            >
+                                Delete
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- SERVICE 2 -->
+
+                <article class="service-card">
+
+
+                    <div class="service-icon blue">
+                        ◉
+                    </div>
+
+
+                    <div class="service-top">
+
+
+                        <div>
+
+                            <span>
+                                ACTIVE SERVICE
+                            </span>
+
+                            <h3>
+                                Fan Installation
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="toggleService(this)"
+                        >
+                            ● Active
+                        </button>
+
+
+                    </div>
+
+
+                    <p>
+                        Ceiling fan installation,
+                        replacement, testing and basic
+                        electrical connection.
+                    </p>
+
+
+                    <div class="service-meta">
+
+                        <span>
+                            ★ 4.9
+                        </span>
+
+                        <span>
+                            31 Jobs
+                        </span>
+
+                        <span>
+                            ₹500 starting
+                        </span>
+
+                    </div>
+
+
+                    <div class="service-footer">
+
+
+                        <span>
+                            Updated 5 days ago
+                        </span>
+
+
+                        <div>
+
+                            <button
+                                type="button"
+                                onclick="editService()"
+                            >
+                                Edit
+                            </button>
+
+
+                            <button
+                                type="button"
+                                onclick="deleteService(this)"
+                            >
+                                Delete
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- SERVICE 3 -->
+
+                <article class="service-card">
+
+
+                    <div class="service-icon purple">
+                        ◎
+                    </div>
+
+
+                    <div class="service-top">
+
+
+                        <div>
+
+                            <span>
+                                ACTIVE SERVICE
+                            </span>
+
+                            <h3>
+                                Wiring Inspection
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            onclick="toggleService(this)"
+                        >
+                            ● Active
+                        </button>
+
+
+                    </div>
+
+
+                    <p>
+                        Professional inspection of
+                        household electrical wiring
+                        and safety points.
+                    </p>
+
+
+                    <div class="service-meta">
+
+                        <span>
+                            ★ 4.7
+                        </span>
+
+                        <span>
+                            18 Jobs
+                        </span>
+
+                        <span>
+                            ₹700 starting
+                        </span>
+
+                    </div>
+
+
+                    <div class="service-footer">
+
+
+                        <span>
+                            Updated 1 week ago
+                        </span>
+
+
+                        <div>
+
+                            <button
+                                type="button"
+                                onclick="editService()"
+                            >
+                                Edit
+                            </button>
+
+
+                            <button
+                                type="button"
+                                onclick="deleteService(this)"
+                            >
+                                Delete
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <div>
+                    ⚒
+                </div>
+
+                <h3>
+                    No services yet
+                </h3>
+
+                <p>
+                    Add your first service to start
+                    receiving customers.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="openServiceForm()"
+                >
+                    + Add Service
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         ADD SERVICE MODAL
+    ====================================================== -->
+
+    <div
+        class="modal"
+        id="serviceModal"
+    >
+
+
+        <div class="modal-box">
+
+
+            <button
+                type="button"
+                class="close"
+                onclick="closeServiceForm()"
+            >
+                ×
+            </button>
+
+
+            <span>
+                NEW SERVICE
+            </span>
+
+
+            <h2>
+                Add a service
+            </h2>
+
+
+            <div class="form-group">
+
+                <label>
+                    SERVICE NAME
+                </label>
+
+                <input
+                    id="serviceName"
+                    type="text"
+                    placeholder="Example: Electrical Repair"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    STARTING PRICE
+                </label>
+
+                <input
+                    id="servicePrice"
+                    type="number"
+                    placeholder="400"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    DESCRIPTION
+                </label>
+
+                <textarea
+                    id="serviceDescription"
+                    placeholder="Describe your service"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="create-btn"
+                onclick="createService()"
+            >
+
+                Create Service →
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+
+    <!-- SIDEBAR OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="overlay"
+        onclick="toggleSidebar()"
+    ></div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <!-- LOAD ACTUAL LOGGED-IN PROVIDER -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let userData =
+                localStorage.getItem("KAMSETUUser");
+
+            if (!userData) {
+                userData =
+                    sessionStorage.getItem("KAMSETUUser");
+            }
+
+            if (!userData) {
+                console.log("No logged-in provider found.");
+                return;
+            }
+
+            try {
+
+                const user =
+                    JSON.parse(userData);
+
+                const cleanName =
+                    String(user.name || "User").trim();
+
+                const firstLetter =
+                    cleanName.charAt(0).toUpperCase();
+
+                const topUserName =
+                    document.getElementById("topUserName");
+
+                const topUserAvatar =
+                    document.getElementById("topUserAvatar");
+
+                const providerSidebarName =
+                    document.getElementById("providerSidebarName");
+
+                const providerSidebarAvatar =
+                    document.getElementById("providerSidebarAvatar");
+
+                if (topUserName) {
+                    topUserName.textContent =
+                        cleanName;
+                }
+
+                if (topUserAvatar) {
+                    topUserAvatar.textContent =
+                        firstLetter;
+                }
+
+                if (providerSidebarName) {
+                    providerSidebarName.textContent =
+                        cleanName;
+                }
+
+                if (providerSidebarAvatar) {
+                    providerSidebarAvatar.textContent =
+                        firstLetter;
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Could not load logged-in provider:",
+                    error
+                );
+
+            }
+
+        });
+    </script>
+
+
+    <script src="provider-services.js"></script>
+
+    <script src="../ai-assistant.js"></script>
+
+</body>
+
+</html>

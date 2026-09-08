@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Provider Profile</title>
+
+    <link
+        rel="stylesheet"
+        href="customer-provider-profile.css"
+    >
+
+        <link rel="stylesheet" href="../theme-light.css">
+<link rel="stylesheet" href="customer-sidebar.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+<!-- MOBILE HEADER -->
+
+    <header class="mobile-header">
+
+        <button
+            onclick="toggleSidebar()"
+        >
+            ☰
+        </button>
+
+        <strong>KAMSETU</strong>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span>
+                    KAMSETU MARKETPLACE
+                </span>
+
+                <h1>
+                    Provider Profile
+                </h1>
+
+            </div>
+
+            <button
+                class="back-btn"
+                onclick="goBack()"
+            >
+                ← Back
+            </button>
+
+        </header>
+
+
+        <!-- PROVIDER HERO -->
+
+        <section class="provider-hero">
+
+            <div class="provider-avatar" id="providerAvatar">
+                AS
+            </div>
+
+
+            <div class="provider-main-info">
+
+                <div class="name-row">
+
+                    <h2 id="providerName">
+                        Provider
+                    </h2>
+
+                    <span
+                        class="verified"
+                        id="verifiedBadge"
+                    >
+                        ✓ Verified
+                    </span>
+
+                </div>
+
+
+                <p
+                    class="provider-service"
+                    id="providerService"
+                >
+                    Service Provider
+                </p>
+
+
+                <p
+                    class="provider-location"
+                    id="providerLocation"
+                >
+                    📍 Gurgaon
+                </p>
+
+
+                <div class="rating">
+
+                    <strong id="providerRating">
+                        ★ 4.8
+                    </strong>
+
+                    <span>
+                        Professional
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-actions">
+
+                <button
+                    class="book-btn"
+                    onclick="bookProvider()"
+                >
+                    Book This Provider
+                </button>
+
+
+                <button
+                    class="message-btn"
+                    onclick="messageProvider()"
+                >
+                    Message
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- STATS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <span>
+                    JOBS COMPLETED
+                </span>
+
+                <strong id="jobsCompleted">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    EXPERIENCE
+                </span>
+
+                <strong id="experience">
+                    0 Years
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    STARTING PRICE
+                </span>
+
+                <strong id="startingPrice">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    RATING
+                </span>
+
+                <strong id="ratingStat">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <span>
+                    ABOUT PROVIDER
+                </span>
+
+                <h2>
+                    Professional Information
+                </h2>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <p id="aboutText">
+                    This provider has not added an introduction yet.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- WORK HISTORY -->
+
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <span>
+                    PORTFOLIO
+                </span>
+
+                <h2>
+                    Completed Work
+                </h2>
+
+                <p>
+                    See examples of work completed by this provider.
+                </p>
+
+            </div>
+
+
+            <div
+                class="work-grid"
+                id="workHistory"
+            >
+
+                <div class="empty-work">
+
+                    <div>
+                        ▣
+                    </div>
+
+                    <h3>
+                        No work history yet
+                    </h3>
+
+                    <p>
+                        This provider has not posted completed work yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REVIEWS -->
+
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <span>
+                    CUSTOMER FEEDBACK
+                </span>
+
+                <h2>
+                    Reviews
+                </h2>
+
+            </div>
+
+
+            <div
+                class="reviews-list"
+                id="reviewsList"
+            >
+
+                <div class="empty-review">
+
+                    No reviews yet.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOTTOM BOOK -->
+
+        <section class="bottom-book">
+
+            <div>
+
+                <span>
+                    READY TO HIRE?
+                </span>
+
+                <h2>
+                    Book <span id="bottomProviderName">
+                    this provider
+                    </span>
+                </h2>
+
+            </div>
+
+
+            <button
+                onclick="bookProvider()"
+            >
+                Book This Provider →
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- WORK MODAL -->
+
+    <div
+        class="modal"
+        id="workModal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close-modal"
+                onclick="closeWorkModal()"
+            >
+                ×
+            </button>
+
+
+            <div
+                id="workModalContent"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <script
+        src="customer-provider-profile.js"
+    ></script>
+
+    <script src="../ai-assistant.js"></script>
+
+<script src="customer-sidebar.js"></script>
+</body>
+
+</html>

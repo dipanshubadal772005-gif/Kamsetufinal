@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script src="config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Find Professionals</title>
+
+    <link
+        rel="stylesheet"
+        href="service.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="theme-light.css"
+    >
+
+<link rel="stylesheet" href="customer/customer-sidebar.css">
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+<!-- =====================================================
+     MOBILE HEADER
+===================================================== -->
+
+<header class="mobile-header">
+
+    <button
+        class="menu-btn"
+        onclick="toggleSidebar()"
+    >
+        ☰
+    </button>
+
+
+    <a
+        href="index.html"
+        class="mobile-logo"
+    >
+        KAMSETU
+    </a>
+
+
+    <button
+        class="mobile-notification"
+        onclick="showNotifications()"
+    >
+        🔔
+    </button>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main-content">
+
+
+    <!-- =================================================
+         TOP BAR
+    ================================================== -->
+
+    <div class="topbar">
+
+        <div class="page-heading">
+
+            <span>
+                KAMSETU MARKETPLACE
+            </span>
+
+            <h1>
+                Find Professionals
+            </h1>
+
+        </div>
+
+
+        <div class="top-profile">
+
+            <!-- NOTIFICATIONS -->
+
+            <button
+                class="notification"
+                onclick="showNotifications()"
+            >
+                🔔
+
+                <small>3</small>
+            </button>
+
+
+            <!-- USER PROFILE -->
+
+            <button
+                class="user-profile"
+                onclick="openProfile()"
+            >
+
+                <div
+                    class="user-avatar"
+                    id="topUserAvatar"
+                >
+                    U
+                </div>
+
+
+                <div>
+
+                    <strong id="userName">
+                        User
+                    </strong>
+
+                    <span>
+                        Customer
+                    </span>
+
+                </div>
+
+
+                <i>
+                    ▾
+                </i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         SEARCH HEADER
+    ================================================== -->
+
+    <section class="search-section">
+
+        <div class="search-title">
+
+            <span>
+                FIND YOUR EXPERT
+            </span>
+
+            <h2>
+                What do you need help with?
+            </h2>
+
+            <p>
+                Search trusted professionals,
+                compare their profiles and
+                negotiate your price.
+            </p>
+
+        </div>
+
+
+        <!-- MAIN SEARCH -->
+
+        <div class="main-search">
+
+            <div class="search-input">
+
+                <span>
+                    ⚒
+                </span>
+
+                <div>
+
+                    <label>
+                        SERVICE
+                    </label>
+
+                    <input
+                        type="text"
+                        id="serviceSearch"
+                        placeholder="Electrician, Plumber, Carpenter..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="search-line"></div>
+
+
+            <div class="search-input">
+
+                <span>
+                    📍
+                </span>
+
+                <div>
+
+                    <label>
+                        LOCATION
+                    </label>
+
+                    <input
+                        type="text"
+                        id="locationSearch"
+                        placeholder="Gurgaon, Delhi..."
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="search-btn"
+                onclick="performSearch()"
+            >
+                Search
+
+                <span>
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         RESULTS LAYOUT
+    ================================================== -->
+
+    <div class="results-layout">
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
+
+        <aside class="filters">
+
+            <div class="filter-header">
+
+                <h3>
+                    Filters
+                </h3>
+
+                <button
+                    onclick="clearFilters()"
+                >
+                    Clear all
+                </button>
+
+            </div>
+
+
+            <!-- SERVICE FILTER -->
+
+            <div class="filter-group">
+
+                <label>
+                    SERVICE
+                </label>
+
+                <select id="serviceFilter">
+
+                    <option value="all">
+                        All Services
+                    </option>
+
+                    <option value="Electrician">
+                        Electrician
+                    </option>
+
+                    <option value="Plumber">
+                        Plumber
+                    </option>
+
+                    <option value="Carpenter">
+                        Carpenter
+                    </option>
+
+                    <option value="AC Repair">
+                        AC Repair
+                    </option>
+
+                    <option value="Cleaning">
+                        Cleaning
+                    </option>
+
+                    <option value="Painter">
+                        Painter
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- RATING FILTER -->
+
+            <div class="filter-group">
+
+                <label>
+                    MINIMUM RATING
+                </label>
+
+
+                <div class="rating-options">
+
+                    <label class="check-option">
+
+                        <input
+                            type="radio"
+                            name="rating"
+                            value="4.5"
+                        >
+
+                        <span>
+                            ★ 4.5 & above
+                        </span>
+
+                    </label>
+
+
+                    <label class="check-option">
+
+                        <input
+                            type="radio"
+                            name="rating"
+                            value="4"
+                        >
+
+                        <span>
+                            ★ 4.0 & above
+                        </span>
+
+                    </label>
+
+
+                    <label class="check-option">
+
+                        <input
+                            type="radio"
+                            name="rating"
+                            value="3"
+                        >
+
+                        <span>
+                            ★ 3.0 & above
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRICE FILTER -->
+
+            <div class="filter-group">
+
+                <label>
+                    PRICE RANGE
+                </label>
+
+
+                <div class="price-values">
+
+                    <span>
+                        ₹300
+                    </span>
+
+                    <span>
+                        ₹1500+
+                    </span>
+
+                </div>
+
+
+                <input
+                    type="range"
+                    id="priceFilter"
+                    min="300"
+                    max="1500"
+                    value="1500"
+                >
+
+
+                <p class="range-value">
+
+                    Up to
+
+                    <strong id="priceValue">
+                        ₹1500
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+
+            <!-- AVAILABILITY -->
+
+            <div class="filter-group">
+
+                <label>
+                    AVAILABILITY
+                </label>
+
+
+                <label class="check-option">
+
+                    <input
+                        type="checkbox"
+                        id="availableToday"
+                    >
+
+                    <span>
+                        Available today
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- VERIFIED -->
+
+            <div class="filter-group">
+
+                <label>
+                    PROFESSIONAL
+                </label>
+
+
+                <label class="check-option">
+
+                    <input
+                        type="checkbox"
+                        id="verifiedOnly"
+                    >
+
+                    <span>
+                        ✓ Verified only
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <button
+                class="apply-filter"
+                onclick="applyFilters()"
+            >
+                Apply Filters
+            </button>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             PROVIDERS
+        ================================================== -->
+
+<section class="providers-section">
+
+
+            <div class="results-header">
+
+                <div>
+
+                    <span>
+                        SEARCH RESULTS
+                    </span>
+
+                    <h2>
+
+                        <strong id="resultCount">
+                            4
+                        </strong>
+
+                        professionals found
+
+                    </h2>
+
+                </div>
+
+
+                <div class="sort-box">
+
+                    <label>
+                        Sort by
+                    </label>
+
+                    <select id="sortSelect">
+
+                        <option value="recommended">
+                            Recommended
+                        </option>
+
+                        <option value="rating">
+                            Highest Rated
+                        </option>
+
+                        <option value="price-low">
+                            Price: Low to High
+                        </option>
+
+                        <option value="price-high">
+                            Price: High to Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROVIDER 1
+            ================================================== -->
+
+            <article
+                class="provider-card"
+                data-service="Electrician"
+                data-location="Sector 34 Gurgaon"
+                data-rating="4.8"
+                data-price="400"
+                data-available="true"
+                data-verified="true"
+            >
+
+                <div class="provider-main">
+
+                    <div class="provider-image">
+
+                        RK
+
+                        <span class="online-dot"></span>
+
+                    </div>
+
+
+                    <div class="provider-details">
+
+                        <div class="provider-name">
+
+                            <h3>
+                                Rahul Kumar
+                            </h3>
+
+                            <span class="verified-badge">
+                                ✓ Verified
+                            </span>
+
+                        </div>
+
+
+                        <p class="provider-service">
+                            ⚡ Electrician
+                        </p>
+
+
+                        <div class="provider-meta">
+
+                            <span>
+                                ★ 4.8
+                            </span>
+
+                            <span>
+                                120 Jobs
+                            </span>
+
+                            <span>
+                                5 Years Experience
+                            </span>
+
+                        </div>
+
+
+                        <p class="provider-location">
+                            📍 Sector 34, Gurgaon
+                        </p>
+
+                    </div>
+
+
+                    <div class="provider-price">
+
+                        <span>
+                            STARTING FROM
+                        </span>
+
+                        <strong>
+                            ₹400
+                        </strong>
+
+                        <small>
+                            per service
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="provider-footer">
+
+                    <div class="availability">
+
+                        <span>
+                            ●
+                        </span>
+
+                        Available Today
+
+                    </div>
+
+
+                    <div class="provider-actions">
+
+                        <button
+                            class="outline-btn"
+                            onclick="viewProvider(
+                                'Rahul Kumar',
+                                'Electrician',
+                                'Sector 34, Gurgaon',
+                                '5',
+                                '4.8',
+                                '120',
+                                '400',
+                                true
+                            )"
+                        >
+                            View Profile
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="negotiate-btn"
+                            onclick="startNegotiation('Rahul Kumar')"
+                        >
+                            Negotiate →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PROVIDER 2
+            ================================================== -->
+
+            <article
+                class="provider-card"
+                data-service="Plumber"
+                data-location="Sector 45 Gurgaon"
+                data-rating="4.9"
+                data-price="350"
+                data-available="true"
+                data-verified="true"
+            >
+
+                <div class="provider-main">
+
+                    <div class="provider-image blue">
+
+                        AS
+
+                        <span class="online-dot"></span>
+
+                    </div>
+
+
+                    <div class="provider-details">
+
+                        <div class="provider-name">
+
+                            <h3>
+                                Amit Sharma
+                            </h3>
+
+                            <span class="verified-badge">
+                                ✓ Verified
+                            </span>
+
+                        </div>
+
+
+                        <p class="provider-service">
+                            🚰 Plumber
+                        </p>
+
+
+                        <div class="provider-meta">
+
+                            <span>
+                                ★ 4.9
+                            </span>
+
+                            <span>
+                                186 Jobs
+                            </span>
+
+                            <span>
+                                7 Years Experience
+                            </span>
+
+                        </div>
+
+
+                        <p class="provider-location">
+                            📍 Sector 45, Gurgaon
+                        </p>
+
+                    </div>
+
+
+                    <div class="provider-price">
+
+                        <span>
+                            STARTING FROM
+                        </span>
+
+                        <strong>
+                            ₹350
+                        </strong>
+
+                        <small>
+                            per service
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="provider-footer">
+
+                    <div class="availability">
+
+                        <span>
+                            ●
+                        </span>
+
+                        Available Today
+
+                    </div>
+
+
+                    <div class="provider-actions">
+
+                        <button
+                            class="outline-btn"
+                            onclick="viewProvider(
+                                'Amit Sharma',
+                                'Plumber',
+                                'Sector 45, Gurgaon',
+                                '7',
+                                '4.9',
+                                '186',
+                                '350',
+                                true
+                            )"
+                        >
+                            View Profile
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="negotiate-btn"
+                            onclick="startNegotiation('Amit Sharma')"
+                        >
+                            Negotiate →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PROVIDER 3
+            ================================================== -->
+
+            <article
+                class="provider-card"
+                data-service="AC Repair"
+                data-location="DLF Phase 3 Gurgaon"
+                data-rating="4.7"
+                data-price="600"
+                data-available="false"
+                data-verified="true"
+            >
+
+                <div class="provider-main">
+
+                    <div class="provider-image purple">
+
+                        RK
+
+                        <span class="offline-dot"></span>
+
+                    </div>
+
+
+                    <div class="provider-details">
+
+                        <div class="provider-name">
+
+                            <h3>
+                                RK Cooling Services
+                            </h3>
+
+                            <span class="verified-badge">
+                                ✓ Verified
+                            </span>
+
+                        </div>
+
+
+                        <p class="provider-service">
+                            ❄ AC Repair
+                        </p>
+
+
+                        <div class="provider-meta">
+
+                            <span>
+                                ★ 4.7
+                            </span>
+
+                            <span>
+                                92 Jobs
+                            </span>
+
+                            <span>
+                                6 Years Experience
+                            </span>
+
+                        </div>
+
+
+                        <p class="provider-location">
+                            📍 DLF Phase 3, Gurgaon
+                        </p>
+
+                    </div>
+
+
+                    <div class="provider-price">
+
+                        <span>
+                            STARTING FROM
+                        </span>
+
+                        <strong>
+                            ₹600
+                        </strong>
+
+                        <small>
+                            per service
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="provider-footer">
+
+                    <div class="availability unavailable">
+
+                        <span>
+                            ●
+                        </span>
+
+                        Available Tomorrow
+
+                    </div>
+
+
+                    <div class="provider-actions">
+
+                        <button
+                            class="outline-btn"
+                            onclick="viewProvider(
+                                'RK Cooling Services',
+                                'AC Repair',
+                                'DLF Phase 3, Gurgaon',
+                                '6',
+                                '4.7',
+                                '92',
+                                '600',
+                                true
+                            )"
+                        >
+                            View Profile
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="negotiate-btn"
+                            onclick="startNegotiation('RK Cooling Services')"
+                        >
+                            Negotiate →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PROVIDER 4
+            ================================================== -->
+
+            <article
+                class="provider-card"
+                data-service="Carpenter"
+                data-location="Sector 21 Gurgaon"
+                data-rating="4.6"
+                data-price="500"
+                data-available="true"
+                data-verified="false"
+            >
+
+                <div class="provider-main">
+
+                    <div class="provider-image green">
+
+                        MS
+
+                        <span class="online-dot"></span>
+
+                    </div>
+
+
+                    <div class="provider-details">
+
+                        <div class="provider-name">
+
+                            <h3>
+                                Mohit Singh
+                            </h3>
+
+                        </div>
+
+
+                        <p class="provider-service">
+                            🪚 Carpenter
+                        </p>
+
+
+                        <div class="provider-meta">
+
+                            <span>
+                                ★ 4.6
+                            </span>
+
+                            <span>
+                                74 Jobs
+                            </span>
+
+                            <span>
+                                4 Years Experience
+                            </span>
+
+                        </div>
+
+
+                        <p class="provider-location">
+                            📍 Sector 21, Gurgaon
+                        </p>
+
+                    </div>
+
+
+                    <div class="provider-price">
+
+                        <span>
+                            STARTING FROM
+                        </span>
+
+                        <strong>
+                            ₹500
+                        </strong>
+
+                        <small>
+                            per service
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="provider-footer">
+
+                    <div class="availability">
+
+                        <span>
+                            ●
+                        </span>
+
+                        Available Today
+
+                    </div>
+
+
+                    <div class="provider-actions">
+
+                        <button
+                            class="outline-btn"
+                            onclick="viewProvider(
+                                'Mohit Singh',
+                                'Carpenter',
+                                'Sector 21, Gurgaon',
+                                '4',
+                                '4.6',
+                                '74',
+                                '500',
+                                false
+                            )"
+                        >
+                            View Profile
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="negotiate-btn"
+                            onclick="startNegotiation('Mohit Singh')"
+                        >
+                            Negotiate →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 NO RESULTS
+            ================================================== -->
+
+            <div
+                class="no-results"
+                id="noResults"
+            >
+
+                <div>
+                    🔍
+                </div>
+
+                <h3>
+                    No professionals found
+                </h3>
+
+                <p>
+                    Try changing your search
+                    or filters.
+                </p>
+
+                <button
+                    onclick="clearFilters()"
+                >
+                    Clear Filters
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     SIDEBAR OVERLAY
+===================================================== -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+    onclick="toggleSidebar()"
+></div>
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="service.js"></script>
+
+<script src="ai-assistant.js"></script>
+
+
+<script src="customer/customer-sidebar.js"></script>
+</body>
+
+</html>

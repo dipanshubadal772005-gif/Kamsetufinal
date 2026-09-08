@@ -1,0 +1,8 @@
+node_modules/
+.env
+.env.*
+backend/node_modules/
+backend/.env
+backend/.env.*
+.vscode/
+desktop.ini

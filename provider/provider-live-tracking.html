@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Live Tracking</title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="provider-live-tracking.css"
+    >
+
+        <link rel="stylesheet" href="../theme-light.css">
+</head>
+
+
+<body>
+
+    <div class="tracking-page">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="tracking-header">
+
+            <div class="header-left">
+
+                <button
+                    type="button"
+                    class="back-btn"
+                    onclick="goBack()"
+                >
+                    ←
+                </button>
+
+                <div>
+
+                    <h1>
+                        Live Tracking
+                    </h1>
+
+                    <p>
+                        Track your customer
+                    </p>
+
+                </div>
+
+            </div>
+
+<button onclick="startProviderLocation('6a99b2b4dc1f96c86f0df6f3')">
+            Start Live Location
+        </button>
+
+        <button onclick="stopProviderLocation()">
+            Stop Live Location
+        </button>
+
+            <div class="live-status">
+
+                <span class="live-dot"></span>
+
+                LIVE
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CUSTOMER INFORMATION
+        ================================================== -->
+
+        <section class="customer-info">
+
+            <div class="customer-avatar">
+                C
+            </div>
+
+
+            <div class="customer-details">
+
+                <h2 id="customerName">
+                    Customer
+                </h2>
+
+                <p id="serviceName">
+                    Navigate to your customer
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAP
+        ================================================== -->
+
+        <section class="map-section">
+
+            <div id="trackingMap"></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DISTANCE + ETA
+        ================================================== -->
+
+        <section class="tracking-info">
+
+
+            <div class="tracking-card">
+
+                <div class="tracking-icon">
+                    📍
+                </div>
+
+                <div class="tracking-text">
+
+                    <span>
+                        Distance
+                    </span>
+
+                    <strong id="customerDistance">
+                        Calculating...
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="tracking-card">
+
+                <div class="tracking-icon">
+                    🚗
+                </div>
+
+                <div class="tracking-text">
+
+                    <span>
+                        Estimated Travel Time
+                    </span>
+
+                    <strong id="customerETA">
+                        Calculating...
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATUS
+        ================================================== -->
+
+        <section class="arrival-status">
+
+            <div class="status-icon">
+                📍
+            </div>
+
+            <div>
+
+                <strong id="trackingMessage">
+                    Waiting for customer location
+                </strong>
+
+                <p>
+                    Customer location updates automatically
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOOKING INFORMATION
+        ================================================== -->
+
+        <section class="booking-info">
+
+            <div>
+
+                <span>
+                    Booking
+                </span>
+
+                <strong id="bookingCode">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Service
+                </span>
+
+                <strong id="bookingService">
+                    --
+                </strong>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         LEAFLET
+    ================================================== -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+
+    <!-- =================================================
+         SOCKET.IO
+    ================================================== -->
+
+    <script
+        src="https://cdn.socket.io/4.8.1/socket.io.min.js"
+    ></script>
+
+
+    <!-- =================================================
+         PROVIDER TRACKING JS
+    ================================================== -->
+
+    <script
+        src="provider-live-tracking.js"
+    ></script>
+
+
+    <script src="../ai-assistant.js"></script>
+
+</body>
+
+</html>

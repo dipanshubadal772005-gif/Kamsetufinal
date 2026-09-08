@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../config.js"></script>
+    <title>KAMSETU Socket Test</title>
+        <link rel="stylesheet" href="../theme-light.css">
+<link rel="stylesheet" href="customer-sidebar.css">
+</head>
+<body>
+
+    <h2>KAMSETU Live Location Test</h2>
+
+    <p id="status">Connecting...</p>
+
+    <button onclick="joinBooking()">
+        Join Booking
+    </button>
+
+    <button onclick="sendLocation()">
+        Send Test Location
+    </button>
+
+    <h3>Latest Location:</h3>
+
+    <pre id="location">Waiting...</pre>
+
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+
+    <script>
+        const socket = io(window.KAMSETU_SOCKET_URL);
+
+        const bookingId = "6a99b2b4dc1f96c86f0df6f3";
+
+        socket.on("connect", () => {
+            document.getElementById("status").textContent =
+                "Socket connected: " + socket.id;
+        });
+
+        socket.on("connect_error", (error) => {
+            document.getElementById("status").textContent =
+                "Connection error: " + error.message;
+        });
+
+        function joinBooking() {
+            socket.emit("join-booking", bookingId);
+
+            document.getElementById("status").textContent =
+                "Joined booking room";
+        }
+
+        function sendLocation() {
+            const location = {
+                bookingId: bookingId,
+                latitude: 28.4595,
+                longitude: 77.0266
+            };
+
+            socket.emit("provider-location", location);
+        }
+
+        socket.on("provider-location-update", (data) => {
+            document.getElementById("location").textContent =
+                JSON.stringify(data, null, 2);
+        });
+    </script>
+
+<script src="customer-sidebar.js"></script>
+</body>
+</html>

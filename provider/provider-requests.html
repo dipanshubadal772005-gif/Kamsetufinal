@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Service Requests</title>
+
+    <link
+        rel="stylesheet"
+        href="provider-requests.css"
+    >
+
+        <link rel="stylesheet" href="../theme-light.css">
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+
+            <div class="logo-icon">
+                ⌂
+            </div>
+
+            <div>
+
+                <strong>
+                    KAMSETU
+                </strong>
+
+                <span>
+                    Get Things Done
+                </span>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- PROVIDER -->
+
+        <div class="provider-mini">
+
+            <div class="mini-avatar" id="providerSidebarAvatar">
+                U
+            </div>
+
+            <div>
+
+                <strong id="providerSidebarName">
+                    User
+                </strong>
+
+                <span>
+                    Electrician
+                </span>
+
+            </div>
+
+            <i></i>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <nav>
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="provider-dashboard.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ▦
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+
+            <!-- REQUESTS -->
+
+            <a
+                href="provider-requests.html"
+                class="nav-item active"
+            >
+
+                <span>
+                    ◈
+                </span>
+
+                Service Requests
+
+                <b>
+                    5
+                </b>
+
+            </a>
+
+
+
+            <!-- BOOKINGS -->
+
+            <a
+                href="provider-bookings.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ◫
+                </span>
+
+                My Bookings
+
+                <b>
+                    2
+                </b>
+
+            </a>
+
+
+
+            <!-- MESSAGES -->
+
+            <a
+                href="provider-message.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ◌
+                </span>
+
+                Messages
+
+                <b>
+                    3
+                </b>
+
+            </a>
+
+
+
+            <!-- SERVICES -->
+
+            <a
+                href="provider-services.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ⚒
+                </span>
+
+                My Services
+
+            </a>
+
+
+
+           
+
+
+
+            <!-- EARNINGS -->
+
+            <a
+                href="provider-earnings.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ₹
+                </span>
+
+                Earnings
+
+            </a>
+
+
+
+            <!-- PROFILE -->
+
+            <a
+                href="provider-profile.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ◎
+                </span>
+
+                Profile
+
+            </a>
+
+ <!-- NEGOTIATIONS -->
+
+            <a
+                href="provider-negotiations.html"
+                class="nav-item"
+            >
+
+                <span>
+                    ⇄
+                </span>
+
+                Negotiations
+
+                <b>
+                    2
+                </b>
+
+           
+        </nav>
+
+
+
+        <!-- =================================================
+             SIDEBAR BOTTOM
+        ================================================== -->
+
+        <div class="sidebar-bottom">
+
+
+            <a
+                href="#"
+                class="nav-item"
+                onclick="showToast('Settings coming soon'); return false;"
+            >
+
+                <span>
+                    ⚙
+                </span>
+
+                Settings
+
+            </a>
+
+
+            <button
+                type="button"
+                class="nav-item logout"
+                onclick="logoutProvider()"
+            >
+
+                <span>
+                    ↪
+                </span>
+
+                Logout
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MOBILE HEADER
+    ====================================================== -->
+
+    <header class="mobile-header">
+
+
+        <button
+            type="button"
+            onclick="toggleSidebar()"
+        >
+            ☰
+        </button>
+
+
+        <strong>
+            KAMSETU
+        </strong>
+
+
+        <button
+            type="button"
+            onclick="showToast('No new notifications')"
+        >
+            🔔
+        </button>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div>
+
+                <span>
+                    PROFESSIONAL PANEL
+                </span>
+
+                <h1>
+                    Service Requests
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    type="button"
+                    class="notification"
+                    onclick="showToast('You have 3 new notifications')"
+                >
+
+                    🔔
+
+                    <small>
+                        3
+                    </small>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="user-profile"
+                    onclick="openProfile()"
+                >
+
+                    <div
+                        class="user-avatar"
+                        id="topUserAvatar"
+                    >
+                        U
+                    </div>
+
+                    <div>
+
+                        <strong id="topUserName">
+                            User
+                        </strong>
+
+                        <span>
+                            Provider
+                        </span>
+
+                    </div>
+
+                    <i>
+                        ▾
+                    </i>
+
+                </button>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE
+        ================================================== -->
+
+        <section class="page">
+
+
+            <!-- HEADING -->
+
+            <div class="heading">
+
+
+                <div>
+
+                    <span>
+                        CUSTOMER OPPORTUNITIES
+                    </span>
+
+                    <h2>
+                        Requests near you.
+                    </h2>
+
+                    <p>
+                        Review customer requirements
+                        and decide whether to accept
+                        or negotiate.
+                    </p>
+
+                </div>
+
+
+                <div class="request-count">
+                    5 NEW
+                </div>
+
+
+            </div>
+
+
+
+            <!-- FILTERS -->
+
+            <div class="filters">
+
+
+                <button
+                    type="button"
+                    class="filter active"
+                    onclick="filterRequests('all', this)"
+                >
+                    All
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter"
+                    onclick="filterRequests('new', this)"
+                >
+                    New
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter"
+                    onclick="filterRequests('urgent', this)"
+                >
+                    Urgent
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter"
+                    onclick="filterRequests('today', this)"
+                >
+                    Today
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REQUEST LIST
+            ================================================== -->
+
+            <div
+                class="request-list"
+                id="requestList"
+            >
+
+
+                <!-- REQUEST 1 -->
+
+                <article
+                    class="request-card"
+                    data-type="new"
+                >
+
+                    <div class="request-icon">
+                        ⚡
+                    </div>
+
+
+                    <div class="request-content">
+
+
+                        <div class="request-head">
+
+
+                            <div>
+
+                                <span>
+                                    NEW REQUEST · 8 MIN AGO
+                                </span>
+
+                                <h3>
+                                    Electrical Repair
+                                </h3>
+
+                            </div>
+
+
+                            <strong>
+                                ₹500
+                            </strong>
+
+
+                        </div>
+
+
+                        <p>
+                            Fan not working and two switches
+                            need replacement. Customer is
+                            looking for service today.
+                        </p>
+
+
+                        <div class="request-info">
+
+                            <span>
+                                👤 Amit Sharma
+                            </span>
+
+                            <span>
+                                📍 Sector 45, Gurgaon
+                            </span>
+
+                            <span>
+                                🕐 Today · 10:00 AM
+                            </span>
+
+                        </div>
+
+
+                        <div class="request-actions">
+
+
+                            <button
+                                type="button"
+                                class="decline"
+                                onclick="declineRequest(this)"
+                            >
+                                Decline
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="negotiate"
+                                onclick="negotiateRequest()"
+                            >
+                                Negotiate
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="accept"
+                                onclick="acceptRequest(this)"
+                            >
+                                Accept Request →
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- REQUEST 2 -->
+
+                <article
+                    class="request-card"
+                    data-type="urgent"
+                >
+
+                    <div class="request-icon blue">
+                        ❄
+                    </div>
+
+
+                    <div class="request-content">
+
+
+                        <div class="request-head">
+
+
+                            <div>
+
+                                <span>
+                                    URGENT · 24 MIN AGO
+                                </span>
+
+                                <h3>
+                                    AC Electrical Repair
+                                </h3>
+
+                            </div>
+
+
+                            <strong>
+                                ₹800
+                            </strong>
+
+
+                        </div>
+
+
+                        <p>
+                            AC power connection issue.
+                            Customer needs urgent inspection
+                            and repair.
+                        </p>
+
+
+                        <div class="request-info">
+
+                            <span>
+                                👤 Neha Gupta
+                            </span>
+
+                            <span>
+                                📍 Sector 52, Gurgaon
+                            </span>
+
+                            <span>
+                                🕐 Today · 12:30 PM
+                            </span>
+
+                        </div>
+
+
+                        <div class="request-actions">
+
+
+                            <button
+                                type="button"
+                                class="decline"
+                                onclick="declineRequest(this)"
+                            >
+                                Decline
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="negotiate"
+                                onclick="negotiateRequest()"
+                            >
+                                Negotiate
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="accept"
+                                onclick="acceptRequest(this)"
+                            >
+                                Accept Request →
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- REQUEST 3 -->
+
+                <article
+                    class="request-card"
+                    data-type="today"
+                >
+
+                    <div class="request-icon green">
+                        ◉
+                    </div>
+
+
+                    <div class="request-content">
+
+
+                        <div class="request-head">
+
+
+                            <div>
+
+                                <span>
+                                    TODAY · 41 MIN AGO
+                                </span>
+
+                                <h3>
+                                    Wiring Inspection
+                                </h3>
+
+                            </div>
+
+
+                            <strong>
+                                ₹700
+                            </strong>
+
+
+                        </div>
+
+
+                        <p>
+                            Complete home wiring inspection
+                            before renovation work.
+                        </p>
+
+
+                        <div class="request-info">
+
+                            <span>
+                                👤 Rohan Mehta
+                            </span>
+
+                            <span>
+                                📍 Sector 40, Gurgaon
+                            </span>
+
+                            <span>
+                                🕐 Today · 3:00 PM
+                            </span>
+
+                        </div>
+
+
+                        <div class="request-actions">
+
+
+                            <button
+                                type="button"
+                                class="decline"
+                                onclick="declineRequest(this)"
+                            >
+                                Decline
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="negotiate"
+                                onclick="negotiateRequest()"
+                            >
+                                Negotiate
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="accept"
+                                onclick="acceptRequest(this)"
+                            >
+                                Accept Request →
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- EMPTY -->
+
+            <div
+                class="empty"
+                id="empty"
+            >
+
+                <h3>
+                    No requests found
+                </h3>
+
+                <p>
+                    There are no matching service requests.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+
+    <!-- SIDEBAR OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="overlay"
+        onclick="toggleSidebar()"
+    ></div>
+
+
+
+    <!-- LOAD ACTUAL LOGGED-IN PROVIDER -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let userData =
+                localStorage.getItem("KAMSETUUser");
+
+            if (!userData) {
+                userData =
+                    sessionStorage.getItem("KAMSETUUser");
+            }
+
+            if (!userData) {
+                return;
+            }
+
+            try {
+
+                const user =
+                    JSON.parse(userData);
+
+                const cleanName =
+                    String(user.name || "User").trim();
+
+                const firstLetter =
+                    cleanName.charAt(0).toUpperCase();
+
+                const topUserName =
+                    document.getElementById("topUserName");
+
+                const topUserAvatar =
+                    document.getElementById("topUserAvatar");
+
+                const providerSidebarName =
+                    document.getElementById("providerSidebarName");
+
+                const providerSidebarAvatar =
+                    document.getElementById("providerSidebarAvatar");
+
+                if (topUserName) {
+                    topUserName.textContent = cleanName;
+                }
+
+                if (topUserAvatar) {
+                    topUserAvatar.textContent = firstLetter;
+                }
+
+                if (providerSidebarName) {
+                    providerSidebarName.textContent = cleanName;
+                }
+
+                if (providerSidebarAvatar) {
+                    providerSidebarAvatar.textContent = firstLetter;
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Could not load logged-in provider:",
+                    error
+                );
+
+            }
+
+        });
+    </script>
+
+
+    <script src="provider-requests.js"></script>
+
+    <script src="../ai-assistant.js"></script>
+
+</body>
+
+</html>

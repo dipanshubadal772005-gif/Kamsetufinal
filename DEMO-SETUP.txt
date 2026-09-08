@@ -1,0 +1,26 @@
+KAMSETU DEMO
+
+1. Backend:
+   cd backend
+   npm install
+   npm run seed:demo
+   npm run dev
+
+2. Frontend: open the project with VS Code Live Server.
+
+Demo customer:
+   customer.demo@kamsetu.test
+   Customer@12345
+
+Demo provider:
+   provider.demo@kamsetu.test
+   Provider@12345
+
+Demo booking:
+   KM-DEMO001
+   Sector 45, Gurgaon
+   Coordinates: 28.4370, 77.0500
+
+Flow:
+Customer login -> Find Service -> Negotiate -> send offer -> Provider login -> Negotiations -> Accept -> booking becomes accepted/tracking enabled.
+No live GPS is required; the map uses the sample booking coordinates.

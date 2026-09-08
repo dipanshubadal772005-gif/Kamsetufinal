@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../config.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work History - KAMSETU</title>
+
+    <link rel="stylesheet" href="provider-history.css">
+        <link rel="stylesheet" href="../theme-light.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-logo">
+            <a href="../index.html" class="logo-link">
+
+                <div class="logo-mark">
+                    <span>⌂  </span>
+                </div>
+
+                <div class="logo-text">
+                    <h2>KAMSETU</h2>
+                    <span>Get Things Done</span>
+                </div>
+
+            </a>
+        </div>
+
+
+        <!-- PROVIDER -->
+        <div class="provider-mini">
+
+            <div class="mini-avatar">
+                RK
+            </div>
+
+            <div class="provider-info">
+                <strong>Rahul Kumar</strong>
+                <span>Electrician</span>
+            </div>
+
+            <i class="online"></i>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+        <nav class="sidebar-nav">
+
+            <a href="provider-dashboard.html" class="nav-item">
+                <span>▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="provider-requests.html" class="nav-item">
+                <span>◈</span>
+                <span>Service Requests</span>
+                <b>5</b>
+            </a>
+
+            <a href="provider-bookings.html" class="nav-item">
+                <span>◫</span>
+                <span>My Bookings</span>
+                <b>2</b>
+            </a>
+
+            <a href="provider-message.html" class="nav-item">
+                <span>◌</span>
+                <span>Messages</span>
+                <b>3</b>
+            </a>
+
+            <a href="provider-services.html" class="nav-item">
+                <span>⚒</span>
+                <span>My Services</span>
+            </a>
+
+            <a href="provider-negotiations.html" class="nav-item">
+                <span>⇄</span>
+                <span>Negotiations</span>
+                <b>2</b>
+            </a>
+
+            <a href="provider-earnings.html" class="nav-item">
+                <span>₹</span>
+                <span>Earnings</span>
+            </a>
+
+            <a href="provider-history.html" class="nav-item">
+                <span>▣</span>
+                <span>Work History</span>
+            </a>
+
+            <a href="provider-profile.html" class="nav-item">
+                <span>◎</span>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+
+        <!-- BOTTOM -->
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item" onclick="showToast('Settings coming soon'); return false;">
+                <span>⚙</span>
+                <span>Settings</span>
+            </a>
+
+            <button class="nav-item logout" onclick="logoutProvider()">
+                <span>↪</span>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MOBILE HEADER -->
+    <header class="mobile-header">
+
+        <button class="mobile-menu" onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <div class="mobile-brand">
+
+            <div class="mobile-mark">
+                K
+            </div>
+
+            <strong>KAMSETU</strong>
+
+        </div>
+
+        <button
+            class="mobile-notification"
+            onclick="showToast('You have 3 new notifications')"
+        >
+            ♧
+            <b>3</b>
+        </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <span class="panel-label">
+                    PROFESSIONAL PANEL
+                </span>
+
+                <h1>
+                    Work History
+                </h1>
+            </div>
+
+            <button
+                class="notification-btn"
+                onclick="showToast('You have 3 new notifications')"
+            >
+                ♧
+                <span>3</span>
+            </button>
+
+        </header>
+
+
+        <!-- PAGE -->
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        PROVIDER PORTFOLIO
+                    </span>
+
+                    <h2>
+                        My Work History
+                    </h2>
+
+                    <p>
+                        Showcase your completed work and build trust with customers.
+                    </p>
+
+                </div>
+
+                <button
+                    class="add-work-btn"
+                    onclick="openWorkModal()"
+                >
+                    <span>+</span>
+                    Add Completed Work
+                </button>
+
+            </div>
+
+
+            <!-- STATS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            COMPLETED WORK
+                        </span>
+
+                        <strong id="totalWorks">
+                            0
+                        </strong>
+
+                        <small>
+                            Projects showcased
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ★
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            AVERAGE RATING
+                        </span>
+
+                        <strong id="averageRating">
+                            0.0
+                        </strong>
+
+                        <small>
+                            From customer feedback
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ₹
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            TOTAL VALUE
+                        </span>
+
+                        <strong id="totalValue">
+                            ₹0
+                        </strong>
+
+                        <small>
+                            Work showcased
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SEARCH / FILTER -->
+            <section class="toolbar">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchWork"
+                        placeholder="Search your work..."
+                        oninput="renderWorks()"
+                    >
+
+                </div>
+
+
+                <select
+                    id="categoryFilter"
+                    onchange="renderWorks()"
+                >
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="Electrical">
+                        Electrical
+                    </option>
+
+                    <option value="Plumbing">
+                        Plumbing
+                    </option>
+
+                    <option value="AC Repair">
+                        AC Repair
+                    </option>
+
+                    <option value="Carpentry">
+                        Carpentry
+                    </option>
+
+                    <option value="Painting">
+                        Painting
+                    </option>
+
+                    <option value="Cleaning">
+                        Cleaning
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </section>
+
+
+            <!-- PROJECTS -->
+            <section class="work-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span>
+                            PORTFOLIO
+                        </span>
+
+                        <h2>
+                            Completed Projects
+                        </h2>
+
+                    </div>
+
+                    <span id="workCount">
+                        0 works
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="workGrid"
+                    class="work-grid"
+                ></div>
+
+
+                <!-- EMPTY STATE -->
+                <div
+                    id="emptyState"
+                    class="empty-state"
+                >
+
+                    <div class="empty-icon">
+                        ▣
+                    </div>
+
+                    <h3>
+                        No work added yet
+                    </h3>
+
+                    <p>
+                        Add your completed projects to showcase your experience to customers.
+                    </p>
+
+                    <button
+                        class="empty-btn"
+                        onclick="openWorkModal()"
+                    >
+                        + Add Your First Work
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- MODAL -->
+    <div
+        class="modal-overlay"
+        id="workModal"
+        onclick="handleModalClick(event)"
+    >
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span>
+                        PROVIDER PORTFOLIO
+                    </span>
+
+                    <h2>
+                        Add Completed Work
+                    </h2>
+
+                </div>
+
+                <button
+                    class="close-btn"
+                    onclick="closeWorkModal()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form
+                id="workForm"
+                onsubmit="saveWork(event)"
+            >
+
+
+                <div class="form-group">
+
+                    <label>
+                        Work Title *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="workTitle"
+                        placeholder="Example: Fan & Switchboard Repair"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Service Category *
+                        </label>
+
+                        <select
+                            id="workCategory"
+                            required
+                        >
+
+                            <option value="">
+                                Select category
+                            </option>
+
+                            <option value="Electrical">
+                                Electrical
+                            </option>
+
+                            <option value="Plumbing">
+                                Plumbing
+                            </option>
+
+                            <option value="AC Repair">
+                                AC Repair
+                            </option>
+
+                            <option value="Carpentry">
+                                Carpentry
+                            </option>
+
+                            <option value="Painting">
+                                Painting
+                            </option>
+
+                            <option value="Cleaning">
+                                Cleaning
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Completion Date *
+                        </label>
+
+                        <input
+                            type="date"
+                            id="workDate"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="workLocation"
+                        placeholder="Example: Sector 34, Gurgaon"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Description *
+                    </label>
+
+                    <textarea
+                        id="workDescription"
+                        rows="4"
+                        placeholder="Describe what work you completed..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Final Price
+                        </label>
+
+                        <div class="price-input">
+
+                            <span>₹</span>
+
+                            <input
+                                type="number"
+                                id="workPrice"
+                                min="0"
+                                placeholder="450"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Customer Rating
+                        </label>
+
+                        <select id="workRating">
+
+                            <option value="5">
+                                ★ 5.0
+                            </option>
+
+                            <option value="4.5">
+                                ★ 4.5
+                            </option>
+
+                            <option value="4">
+                                ★ 4.0
+                            </option>
+
+                            <option value="3.5">
+                                ★ 3.5
+                            </option>
+
+                            <option value="3">
+                                ★ 3.0
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IMAGES -->
+                <div class="image-upload-grid">
+
+
+                    <div class="upload-box">
+
+                        <label>
+                            Before Photo
+                        </label>
+
+                        <div
+                            class="image-input"
+                            onclick="document.getElementById('beforeImage').click()"
+                        >
+
+                            <span>
+                                ＋
+                            </span>
+
+                            <p>
+                                Add photo
+                            </p>
+
+                            <small>
+                                JPG, PNG
+                            </small>
+
+                        </div>
+
+                        <input
+                            type="file"
+                            id="beforeImage"
+                            accept="image/*"
+                            hidden
+                            onchange="previewImage(this,'beforePreview')"
+                        >
+
+                        <img
+                            id="beforePreview"
+                            class="preview-image"
+                            alt="Before preview"
+                        >
+
+                    </div>
+
+
+                    <div class="upload-box">
+
+                        <label>
+                            After Photo
+                        </label>
+
+                        <div
+                            class="image-input"
+                            onclick="document.getElementById('afterImage').click()"
+                        >
+
+                            <span>
+                                ＋
+                            </span>
+
+                            <p>
+                                Add photo
+                            </p>
+
+                            <small>
+                                JPG, PNG
+                            </small>
+
+                        </div>
+
+                        <input
+                            type="file"
+                            id="afterImage"
+                            accept="image/*"
+                            hidden
+                            onchange="previewImage(this,'afterPreview')"
+                        >
+
+                        <img
+                            id="afterPreview"
+                            class="preview-image"
+                            alt="After preview"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="closeWorkModal()"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="publish-btn"
+                    >
+                        Publish Work
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div
+        class="toast"
+        id="toast"
+    >
+        <span id="toastMessage"></span>
+    </div>
+
+
+    <script src="provider-history.js"></script>
+
+    <script src="../ai-assistant.js"></script>
+
+</body>
+</html>

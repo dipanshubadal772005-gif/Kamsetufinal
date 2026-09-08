@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KAMSETU - Messages</title>
+
+    <link rel="stylesheet" href="provider-message.css">
+
+        <link rel="stylesheet" href="../theme-light.css">
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+  
+<!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <a href="../index.html" class="logo">
+
+            <div class="logo-icon">⌂</div>
+
+            <div>
+                <strong>KAMSETU</strong>
+                <span>Get Things Done</span>
+            </div>
+
+        </a>
+
+
+        <div class="provider-mini">
+
+            <div class="mini-avatar" id="providerSidebarAvatar">U</div>
+
+            <div>
+                <strong id="providerSidebarName">User</strong>
+                <span>Electrician</span>
+            </div>
+
+            <i></i>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="provider-dashboard.html" class="nav-item">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+
+
+
+
+
+
+
+            <a href="provider-requests.html" class="nav-item">
+                <span>◫</span>
+                Service Requests
+
+                <b>4</b>
+
+            </a>
+
+
+
+
+            <a href="provider-bookings.html" class="nav-item">
+                <span>▤</span>
+                My Bookings
+            </a>
+
+
+            <a href="provider-message.html" class="nav-item active">
+                <span>◌</span>
+                Messages
+
+                <b>3</b>
+
+            </a>
+
+            <a href="provider-services.html" class="nav-item">
+                <span>⚒</span>
+                My Service
+            </a>
+            <a href="provider-earnings.html" class="nav-item">
+                <span>₹</span>
+                Earnings
+            </a>
+            <a href="provider-profile.html" class="nav-item">
+                <span>◎</span>
+                Profile
+            </a>
+            <a href="provider-negotiations.html" class="nav-item">
+                <span>⇄</span>
+                Negotiations
+
+                <b>2</b>
+
+            </a>
+  
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+
+            <button class="logout-btn" onclick="logoutProvider()">
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MOBILE HEADER
+    ========================================== -->
+
+    <header class="mobile-header">
+
+        <button class="menu-btn" onclick="toggleSidebar()">
+            ☰
+        </button>
+
+
+        <strong>
+            KAMSETU
+        </strong>
+
+
+        <button class="mobile-menu-icon" onclick="showToast('Notifications opened')">
+            🔔
+        </button>
+
+    </header>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span>
+                    PROVIDER CENTER
+                </span>
+
+                <h1>
+                    Messages
+                </h1>
+
+            </div>
+
+
+            <div class="top-right">
+
+                <button class="notification" onclick="showToast('No new notifications')">
+                    🔔
+                    <small>3</small>
+                </button>
+
+
+                <button class="profile" onclick="openProfile()">
+
+                    <div class="avatar" id="topUserAvatar">
+                        U
+                    </div>
+
+                    <div>
+
+                        <strong id="topUserName">
+                            User
+                        </strong>
+
+                        <span>
+                            Provider
+                        </span>
+
+                    </div>
+
+                    <span>
+                        ▾
+                    </span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <span>
+                    COMMUNICATION CENTER
+                </span>
+
+                <h2>
+                    Customer Messages
+                </h2>
+
+                <p>
+                    Communicate with customers,
+                    discuss service requirements and
+                    negotiate prices before accepting a job.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             MESSAGES APPLICATION
+        ========================================== -->
+
+        <section class="messages-layout">
+
+
+            <!-- =====================================
+                 CONVERSATIONS
+            ====================================== -->
+
+            <aside class="conversation-panel">
+
+
+                <div class="conversation-header">
+
+                    <div>
+
+                        <span>
+                            INBOX
+                        </span>
+
+                        <h3>
+                            Conversations
+                        </h3>
+
+                    </div>
+
+
+                    <button onclick="markAllRead()" class="mark-read">
+                        Mark all read
+                    </button>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="conversation-search">
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <input type="text" id="conversationSearch" placeholder="Search conversations..."
+                        oninput="searchConversations()">
+
+                </div>
+
+
+
+                <!-- LIST -->
+
+                <div class="conversation-list" id="conversationList">
+
+
+                    <!-- CUSTOMER 1 -->
+
+                    <button class="conversation active" data-name="Amit Sharma" onclick="openConversation('amit')">
+
+                        <div class="conversation-avatar orange">
+                            AS
+
+                            <i></i>
+                        </div>
+
+
+                        <div class="conversation-info">
+
+                            <div class="conversation-name">
+
+                                <strong>
+                                    Amit Sharma
+                                </strong>
+
+                                <time>
+                                    10:42 AM
+                                </time>
+
+                            </div>
+
+
+                            <span class="service-name">
+                                Plumbing Service
+                            </span>
+
+
+                            <p>
+                                Can you do it for ₹450?
+                            </p>
+
+                        </div>
+
+
+                        <b class="unread">
+                            2
+                        </b>
+
+                    </button>
+
+
+
+                    <!-- CUSTOMER 2 -->
+
+                    <button class="conversation" data-name="Priya Singh" onclick="openConversation('priya')">
+
+                        <div class="conversation-avatar purple">
+                            PS
+
+                            <i></i>
+                        </div>
+
+
+                        <div class="conversation-info">
+
+                            <div class="conversation-name">
+
+                                <strong>
+                                    Priya Singh
+                                </strong>
+
+                                <time>
+                                    9:18 AM
+                                </time>
+
+                            </div>
+
+
+                            <span class="service-name">
+                                AC Repair
+                            </span>
+
+
+                            <p>
+                                Is tomorrow available?
+                            </p>
+
+                        </div>
+
+
+                        <b class="unread">
+                            1
+                        </b>
+
+                    </button>
+
+
+
+                    <!-- CUSTOMER 3 -->
+
+                    <button class="conversation" data-name="Vikash Mehta" onclick="openConversation('vikash')">
+
+                        <div class="conversation-avatar blue">
+                            VM
+                        </div>
+
+
+                        <div class="conversation-info">
+
+                            <div class="conversation-name">
+
+                                <strong>
+                                    Vikash Mehta
+                                </strong>
+
+                                <time>
+                                    Yesterday
+                                </time>
+
+                            </div>
+
+
+                            <span class="service-name">
+                                Electrical Work
+                            </span>
+
+
+                            <p>
+                                Thanks, I'll confirm soon.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- CUSTOMER 4 -->
+
+                    <button class="conversation" data-name="Neha Kapoor" onclick="openConversation('neha')">
+
+                        <div class="conversation-avatar green">
+                            NK
+                        </div>
+
+
+                        <div class="conversation-info">
+
+                            <div class="conversation-name">
+
+                                <strong>
+                                    Neha Kapoor
+                                </strong>
+
+                                <time>
+                                    Yesterday
+                                </time>
+
+                            </div>
+
+
+                            <span class="service-name">
+                                Carpenter Service
+                            </span>
+
+
+                            <p>
+                                What is your final price?
+                            </p>
+
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </aside>
+
+
+
+            <!-- =====================================
+                 CHAT
+            ====================================== -->
+
+            <section class="chat-panel">
+
+
+                <!-- CHAT HEADER -->
+
+                <header class="chat-header">
+
+
+                    <div class="customer-info">
+
+                        <div class="chat-avatar" id="chatAvatar">
+                            AS
+                        </div>
+
+
+                        <div>
+
+                            <div class="customer-name">
+
+                                <h3 id="customerName">
+                                    Amit Sharma
+                                </h3>
+
+                                <span class="online">
+                                    ● Online
+                                </span>
+
+                            </div>
+
+
+                            <p id="customerService">
+                                Plumbing Service
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="more-btn" onclick="showToast('More options')">
+                        ⋮
+                    </button>
+
+                </header>
+
+
+
+                <!-- SERVICE REQUEST -->
+
+                <div class="request-summary">
+
+
+                    <div class="request-icon">
+                        ⚒
+                    </div>
+
+
+                    <div class="request-info">
+
+                        <span>
+                            SERVICE REQUEST
+                        </span>
+
+                        <strong id="requestTitle">
+                            Kitchen Sink Repair
+                        </strong>
+
+                        <p id="requestLocation">
+                            📍 Sector 45, Gurgaon
+                        </p>
+
+                    </div>
+
+
+                    <div class="request-status">
+                        NEGOTIATING
+                    </div>
+
+                </div>
+
+
+
+                <!-- CHAT MESSAGES -->
+
+                <div class="chat-messages" id="chatMessages">
+
+
+                    <div class="date-divider">
+                        <span>
+                            TODAY
+                        </span>
+                    </div>
+
+
+                    <div class="message received">
+
+                        <div class="message-bubble">
+
+                            Hi there, I need help
+                            repairing my kitchen sink.
+
+                        </div>
+
+                        <time>
+                            10:21 AM
+                        </time>
+
+                    </div>
+
+
+                    <div class="message received">
+
+                        <div class="message-bubble">
+
+                            Can you come tomorrow
+                            around 11 AM?
+
+                        </div>
+
+                        <time>
+                            10:22 AM
+                        </time>
+
+                    </div>
+
+
+                    <div class="message sent">
+
+                        <div class="message-bubble">
+
+                            Yes, I can come at 11 AM.
+                            My starting price is ₹500.
+
+                        </div>
+
+                        <time>
+                            10:28 AM · Seen
+                        </time>
+
+                    </div>
+
+
+                    <div class="message received">
+
+                        <div class="message-bubble">
+
+                            Can you do it for ₹400?
+
+                        </div>
+
+                        <time>
+                            10:35 AM
+                        </time>
+
+                    </div>
+
+
+                    <div class="message sent">
+
+                        <div class="message-bubble">
+
+                            I can do ₹450 as the final price.
+
+                        </div>
+
+                        <time>
+                            10:39 AM · Seen
+                        </time>
+
+                    </div>
+
+
+                    <div class="message received">
+
+                        <div class="message-bubble">
+
+                            Can you do it for ₹450?
+
+                        </div>
+
+                        <time>
+                            10:42 AM
+                        </time>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- NEGOTIATION -->
+
+                <div class="negotiation-box">
+
+
+                    <div class="negotiation-heading">
+
+                        <div>
+
+                            <span>
+                                PRICE NEGOTIATION
+                            </span>
+
+                            <strong>
+                                Current offer
+                            </strong>
+
+                        </div>
+
+
+                        <strong class="current-price" id="currentPrice">
+                            ₹450
+                        </strong>
+
+                    </div>
+
+
+                    <div class="offer-row">
+
+
+                        <div class="offer-item">
+
+                            <span>
+                                YOUR PRICE
+                            </span>
+
+                            <strong>
+                                ₹450
+                            </strong>
+
+                        </div>
+
+
+                        <div class="offer-arrow">
+                            →
+                        </div>
+
+
+                        <div class="offer-item customer-offer">
+
+                            <span>
+                                CUSTOMER OFFER
+                            </span>
+
+                            <strong id="customerOffer">
+                                ₹450
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="negotiation-actions">
+
+                        <button class="counter-btn" onclick="openCounterOffer()">
+                            Make Counter Offer
+                        </button>
+
+
+                        <button class="accept-btn" onclick="acceptDeal()">
+                            Accept ₹450
+                        </button>
+
+                    </div>
+
+
+                    <!-- COUNTER FORM -->
+
+                    <div class="counter-form" id="counterForm">
+
+                        <input type="number" id="counterPrice" placeholder="Enter your price" min="1">
+
+
+                        <button onclick="sendCounterOffer()">
+                            Send Offer
+                        </button>
+
+
+                        <button onclick="closeCounterOffer()" class="cancel-counter">
+                            Cancel
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MESSAGE INPUT -->
+
+                <div class="message-input-area">
+
+                    <button class="attach-btn" onclick="showToast('Attachment feature coming soon')">
+                        +
+                    </button>
+
+
+                    <input type="text" id="messageInput" placeholder="Type a message..."
+                        onkeydown="handleMessageKey(event)">
+
+
+                    <button class="send-btn" onclick="sendMessage()">
+                        →
+                    </button>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- OVERLAY -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+
+    <!-- TOAST -->
+
+    <div class="toast" id="toast"></div>
+
+
+    <!-- LOAD ACTUAL LOGGED-IN PROVIDER -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let userData =
+                localStorage.getItem("KAMSETUUser");
+
+            if (!userData) {
+                userData =
+                    sessionStorage.getItem("KAMSETUUser");
+            }
+
+            if (!userData) {
+                return;
+            }
+
+            try {
+
+                const user =
+                    JSON.parse(userData);
+
+                const cleanName =
+                    String(user.name || "User").trim();
+
+                const firstLetter =
+                    cleanName.charAt(0).toUpperCase();
+
+                const topUserName =
+                    document.getElementById("topUserName");
+
+                const topUserAvatar =
+                    document.getElementById("topUserAvatar");
+
+                const providerSidebarName =
+                    document.getElementById("providerSidebarName");
+
+                const providerSidebarAvatar =
+                    document.getElementById("providerSidebarAvatar");
+
+                if (topUserName) {
+                    topUserName.textContent = cleanName;
+                }
+
+                if (topUserAvatar) {
+                    topUserAvatar.textContent = firstLetter;
+                }
+
+                if (providerSidebarName) {
+                    providerSidebarName.textContent = cleanName;
+                }
+
+                if (providerSidebarAvatar) {
+                    providerSidebarAvatar.textContent = firstLetter;
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Could not load logged-in provider:",
+                    error
+                );
+
+            }
+
+        });
+    </script>
+
+
+    <script src="provider-message.js"></script>
+
+    <script src="../ai-assistant.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+KAMSETU RENDER DEPLOYMENT SETUP
+================================
+
+1. GitHub repository
+   Repository: KAMSETU-FINAL-PROJECT
+   Branch: main
+
+2. Backend Render Web Service
+   Name: kamsetu-backend
+   Root Directory: backend
+   Build Command: npm install
+   Start Command: npm start
+   Plan: Free
+
+3. Backend Environment Variables
+   MONGO_URI       = your MongoDB Atlas connection string
+   JWT_SECRET      = your strong JWT secret
+   GEMINI_API_KEY  = your Gemini API key
+   GEMINI_MODEL    = gemini-3.6-flash
+
+   Do not commit backend/.env.
+
+4. Frontend Render Static Site
+   Root Directory: .
+   Build Command: leave blank
+   Publish Directory: .
+   Plan: Free
+
+5. Frontend backend URL
+   config.js contains:
+   https://kamsetu-backend.onrender.com
+
+   This assumes the Render backend service is named:
+   kamsetu-backend
+
+   If Render gives you a different URL, change ONLY that URL in config.js.
+   Do not put secrets in config.js.
+
+6. Local development
+   When opened from localhost, config.js automatically uses:
+   http://localhost:5000
+
+7. Production
+   When opened from the Render frontend, config.js automatically uses the
+   Render backend URL.
+
+8. Socket.IO
+   Tracking pages use the Socket.IO CDN client and connect to
+   window.KAMSETU_SOCKET_URL, so localhost is no longer hard-coded.
+
+9. Important
+   The current tracking UI contains demo coordinates. Deploying it does not
+   make those coordinates real GPS. Real provider GPS requires browser
+   geolocation updates over Socket.IO and appropriate user permissions.
+
+10. Security
+    If any real MongoDB or Gemini credentials were previously exposed in
+    chat, screenshots, GitHub, or a ZIP, rotate them and use new values in
+    Render Environment Variables.

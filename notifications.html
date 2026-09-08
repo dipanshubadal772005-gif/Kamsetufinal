@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Notifications</title>
+
+    <link
+        rel="stylesheet"
+        href="notifications.css"
+    >
+
+        <link rel="stylesheet" href="theme-light.css">
+<link rel="stylesheet" href="customer/customer-sidebar.css">
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+<!-- =====================================================
+         MOBILE HEADER
+    ====================================================== -->
+
+    <header class="mobile-header">
+
+
+        <button
+            class="menu-btn"
+            onclick="toggleSidebar()"
+        >
+            ☰
+        </button>
+
+
+        <strong>
+            KAMSETU
+        </strong>
+
+
+        <button
+            class="mobile-notification"
+            onclick="showNotifications()"
+        >
+            🔔
+        </button>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <div class="page-heading">
+
+                <span>
+                    KAMSETU ACCOUNT
+                </span>
+
+                <h1>
+                    Notifications
+                </h1>
+
+            </div>
+
+
+
+            <div class="top-profile">
+
+
+                <!-- NOTIFICATION BUTTON -->
+
+                <button
+                    class="notification"
+                    onclick="showNotifications()"
+                >
+
+                    🔔
+
+                    <small id="notificationCount">
+                        3
+                    </small>
+
+                </button>
+
+
+
+                <!-- USER PROFILE -->
+
+                <button
+                    class="user-profile"
+                    onclick="openProfile()"
+                >
+
+                    <div class="user-avatar" id="topUserAvatar">
+                        U
+                    </div>
+
+
+                    <div>
+
+                        <strong id="topUserName">
+                            User
+                        </strong>
+
+                        <span>
+                            Customer
+                        </span>
+
+                    </div>
+
+
+                    <i>
+                        ▾
+                    </i>
+
+                </button>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             NOTIFICATION PAGE
+        ================================================== -->
+
+        <section class="notification-page">
+
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="notification-heading">
+
+
+                <div>
+
+                    <span>
+                        ACCOUNT ACTIVITY
+                    </span>
+
+
+                    <h2>
+                        Notifications
+                    </h2>
+
+
+                    <p>
+                        Stay updated about your bookings,
+                        messages and service requests.
+                    </p>
+
+                </div>
+
+
+
+                <button
+                    class="mark-all"
+                    onclick="markAllRead()"
+                >
+
+                    Mark all as read
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FILTER TABS
+            ================================================== -->
+
+            <div class="notification-tabs">
+
+
+                <button
+                    class="tab active"
+                    onclick="filterNotifications('all', this)"
+                >
+                    All
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="filterNotifications('booking', this)"
+                >
+                    Bookings
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="filterNotifications('message', this)"
+                >
+                    Messages
+                </button>
+
+
+                <button
+                    class="tab"
+                    onclick="filterNotifications('offer', this)"
+                >
+                    Offers
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 NOTIFICATION LIST
+            ================================================== -->
+
+            <div
+                class="notification-list"
+                id="notificationList"
+            >
+
+
+
+                <!-- =================================================
+                     TODAY
+                ================================================== -->
+
+                <div class="section-label">
+                    TODAY
+                </div>
+
+
+
+                <!-- NOTIFICATION 1 -->
+
+                <article
+                    class="notification-card unread"
+                    data-type="offer"
+                >
+
+
+                    <div class="notification-icon orange">
+                        ₹
+                    </div>
+
+
+
+                    <div class="notification-content">
+
+
+                        <div class="notification-top">
+
+                            <h3>
+                                New offer received
+                            </h3>
+
+                            <span>
+                                10 min ago
+                            </span>
+
+                        </div>
+
+
+
+                        <p>
+                            Rahul Kumar has accepted your
+                            negotiated offer of ₹350 for
+                            electrical repair.
+                        </p>
+
+
+
+                        <div class="notification-actions">
+
+
+                            <button
+                                onclick="openMessages()"
+                            >
+                                View Conversation
+                            </button>
+
+
+                            <button
+                                class="dismiss"
+                                onclick="markRead(this)"
+                            >
+                                Mark as read
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <i class="unread-dot"></i>
+
+
+                </article>
+
+
+
+                <!-- =================================================
+                     NOTIFICATION 2
+                ================================================== -->
+
+                <article
+                    class="notification-card unread"
+                    data-type="booking"
+                >
+
+
+                    <div class="notification-icon green">
+                        ✓
+                    </div>
+
+
+
+                    <div class="notification-content">
+
+
+                        <div class="notification-top">
+
+                            <h3>
+                                Booking confirmed
+                            </h3>
+
+                            <span>
+                                1 hour ago
+                            </span>
+
+                        </div>
+
+
+
+                        <p>
+                            Your service booking with Amit
+                            Sharma has been confirmed for
+                            tomorrow at 10:00 AM.
+                        </p>
+
+
+
+                        <div class="notification-actions">
+
+
+                            <button
+                                onclick="openBookings()"
+                            >
+                                View Booking
+                            </button>
+
+
+                            <button
+                                class="dismiss"
+                                onclick="markRead(this)"
+                            >
+                                Mark as read
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <i class="unread-dot"></i>
+
+
+                </article>
+
+
+
+                <!-- =================================================
+                     NOTIFICATION 3
+                ================================================== -->
+
+                <article
+                    class="notification-card unread"
+                    data-type="message"
+                >
+
+
+                    <div class="notification-icon blue">
+                        ◌
+                    </div>
+
+
+
+                    <div class="notification-content">
+
+
+                        <div class="notification-top">
+
+                            <h3>
+                                New message from Rahul
+                            </h3>
+
+                            <span>
+                                2 hours ago
+                            </span>
+
+                        </div>
+
+
+
+                        <p>
+                            "I can reach your location
+                            around 11 AM. Does that work?"
+                        </p>
+
+
+
+                        <div class="notification-actions">
+
+
+                            <button
+                                onclick="openMessages()"
+                            >
+                                Reply
+                            </button>
+
+
+                            <button
+                                class="dismiss"
+                                onclick="markRead(this)"
+                            >
+                                Mark as read
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <i class="unread-dot"></i>
+
+
+                </article>
+
+
+
+                <!-- =================================================
+                     YESTERDAY
+                ================================================== -->
+
+                <div class="section-label yesterday">
+                    YESTERDAY
+                </div>
+
+
+
+                <!-- NOTIFICATION 4 -->
+
+                <article
+                    class="notification-card"
+                    data-type="booking"
+                >
+
+
+                    <div class="notification-icon purple">
+                        ★
+                    </div>
+
+
+
+                    <div class="notification-content">
+
+
+                        <div class="notification-top">
+
+                            <h3>
+                                Service completed
+                            </h3>
+
+                            <span>
+                                Yesterday
+                            </span>
+
+                        </div>
+
+
+
+                        <p>
+                            Your AC repair service with
+                            RK Cooling Services has been
+                            marked as completed.
+                        </p>
+
+
+
+                        <div class="notification-actions">
+
+
+                            <button
+                                onclick="openBookings()"
+                            >
+                                View Booking
+                            </button>
+
+
+                            <button
+                                class="rate-button"
+                                onclick="rateService()"
+                            >
+                                Rate Service
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- NOTIFICATION 5 -->
+
+                <article
+                    class="notification-card"
+                    data-type="offer"
+                >
+
+
+                    <div class="notification-icon orange">
+                        %
+                    </div>
+
+
+
+                    <div class="notification-content">
+
+
+                        <div class="notification-top">
+
+                            <h3>
+                                Special KAMSETU offer
+                            </h3>
+
+                            <span>
+                                Yesterday
+                            </span>
+
+                        </div>
+
+
+
+                        <p>
+                            Get up to ₹200 off on your next
+                            household service booking.
+                        </p>
+
+
+
+                        <div class="notification-actions">
+
+
+                            <button
+                                onclick="showOffer()"
+                            >
+                                View Offer
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- =================================================
+                     EARLIER
+                ================================================== -->
+
+                <div class="section-label yesterday">
+                    EARLIER
+                </div>
+
+
+
+                <!-- NOTIFICATION 6 -->
+
+                <article
+                    class="notification-card"
+                    data-type="message"
+                >
+
+
+                    <div class="notification-icon gray">
+                        ◌
+                    </div>
+
+
+
+                    <div class="notification-content">
+
+
+                        <div class="notification-top">
+
+                            <h3>
+                                Message delivered
+                            </h3>
+
+                            <span>
+                                28 Aug
+                            </span>
+
+                        </div>
+
+
+
+                        <p>
+                            Your message to Mohit Singh
+                            was successfully delivered.
+                        </p>
+
+
+                    </div>
+
+
+                </article>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EMPTY STATE
+            ================================================== -->
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+
+                <div>
+                    🔔
+                </div>
+
+
+                <h3>
+                    No notifications
+                </h3>
+
+
+                <p>
+                    There are no notifications in
+                    this category.
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+    ====================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+        onclick="toggleSidebar()"
+    ></div>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <!-- LOAD ACTUAL LOGGED-IN CUSTOMER -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let userData =
+                localStorage.getItem("KAMSETUUser");
+
+            if (!userData) {
+                userData =
+                    sessionStorage.getItem("KAMSETUUser");
+            }
+
+            if (!userData) {
+                return;
+            }
+
+            try {
+
+                const user =
+                    JSON.parse(userData);
+
+                const topUserName =
+                    document.getElementById("topUserName");
+
+                const topUserAvatar =
+                    document.getElementById("topUserAvatar");
+
+                if (topUserName) {
+                    topUserName.textContent =
+                        user.name || "User";
+                }
+
+                if (topUserAvatar) {
+                    topUserAvatar.textContent =
+                        (user.name || "U")
+                            .charAt(0)
+                            .toUpperCase();
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Could not load logged-in customer:",
+                    error
+                );
+
+            }
+
+        });
+    </script>
+
+
+    <script src="notifications.js"></script>
+
+
+<script src="customer/customer-sidebar.js"></script>
+</body>
+
+</html>

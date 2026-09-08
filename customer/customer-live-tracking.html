@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Live Tracking</title>
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- Tracking CSS -->
+    <link
+        rel="stylesheet"
+        href="customer-live-tracking.css"
+    >
+
+        <link rel="stylesheet" href="../theme-light.css">
+<link rel="stylesheet" href="customer-sidebar.css">
+</head>
+
+
+<body>
+
+
+    <!-- =================================================
+         PAGE
+    ================================================== -->
+
+    <div class="tracking-page">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="tracking-header">
+
+            <div class="header-left">
+
+                <button
+                    type="button"
+                    class="back-btn"
+                    onclick="goBack()"
+                >
+                    ←
+                </button>
+
+                <div>
+
+                    <h1>
+                        Live Tracking
+                    </h1>
+
+                    <p>
+                        Track your service provider
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="live-status">
+
+                <span class="live-dot"></span>
+
+                LIVE
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             PROVIDER INFORMATION
+        ================================================== -->
+
+        <section class="provider-info">
+
+            <div class="provider-avatar">
+                AS
+            </div>
+
+
+            <div class="provider-details">
+
+                <h2 id="providerName">
+                    Service Provider
+                </h2>
+
+                <p id="serviceName">
+                    Your service provider is on the way
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAP
+        ================================================== -->
+
+        <section class="map-section">
+
+            <div id="providerMap"></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DISTANCE + ETA
+        ================================================== -->
+
+        <section class="tracking-info">
+
+
+            <div class="tracking-card">
+
+                <div class="tracking-icon">
+                    📍
+                </div>
+
+                <div class="tracking-text">
+
+                    <span>
+                        Distance
+                    </span>
+
+                    <strong id="providerDistance">
+                        Calculating...
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="tracking-card">
+
+                <div class="tracking-icon">
+                    🚗
+                </div>
+
+                <div class="tracking-text">
+
+                    <span>
+                        Estimated Arrival
+                    </span>
+
+                    <strong id="providerETA">
+                        Calculating...
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATUS
+        ================================================== -->
+
+        <section class="arrival-status">
+
+            <div class="status-icon">
+                🚗
+            </div>
+
+            <div>
+
+                <strong id="arrivalMessage">
+                    Provider is on the way
+                </strong>
+
+                <p>
+                    Location updates automatically
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOOKING INFORMATION
+        ================================================== -->
+
+        <section class="booking-info">
+
+            <div>
+
+                <span>
+                    Booking
+                </span>
+
+                <strong id="bookingCode">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Service
+                </span>
+
+                <strong id="bookingService">
+                    --
+                </strong>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         LEAFLET
+    ================================================== -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+
+    <!-- =================================================
+         SOCKET.IO
+    ================================================== -->
+
+    <script
+        src="https://cdn.socket.io/4.8.1/socket.io.min.js"
+    ></script>
+
+
+    <!-- =================================================
+         TRACKING JAVASCRIPT
+    ================================================== -->
+
+    <script
+        src="customer-live-tracking.js"
+    ></script>
+
+
+    <script src="../ai-assistant.js"></script>
+
+<script src="customer-sidebar.js"></script>
+</body>
+
+</html>

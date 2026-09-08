@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KAMSETU - My Profile</title>
+
+    <link rel="stylesheet" href="customer-profile.css">
+
+    <link rel="stylesheet" href="../theme-light.css">
+
+<link rel="stylesheet" href="customer-sidebar.css">
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ===================================================== -->
+<!-- =====================================================
+         MOBILE HEADER
+    ===================================================== -->
+
+    <header class="mobile-header">
+
+
+        <button
+            class="menu-btn"
+            onclick="toggleSidebar()"
+        >
+            ☰
+        </button>
+
+
+        <strong>
+            KAMSETU
+        </strong>
+
+
+        <button
+            class="mobile-notification"
+            onclick="showNotifications()"
+        >
+            🔔
+        </button>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================= -->
+
+        <header class="topbar">
+
+
+            <div class="page-heading">
+
+                <span>
+                    KAMSETU ACCOUNT
+                </span>
+
+
+                <h1>
+                    My Profile
+                </h1>
+
+            </div>
+
+
+            <div class="top-profile">
+
+
+                <button
+                    class="notification"
+                    onclick="showNotifications()"
+                >
+
+                    🔔
+
+                    <small>
+                        3
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="user-profile"
+                    onclick="enableEditing()"
+                >
+
+                    <div
+                        class="user-avatar"
+                        id="topUserAvatar"
+                    >
+                        U
+                    </div>
+
+
+                    <div>
+
+                        <strong id="topUserName">
+                            User
+                        </strong>
+
+                        <span>
+                            Customer
+                        </span>
+
+                    </div>
+
+
+                    <i>
+                        ▾
+                    </i>
+
+                </button>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             PROFILE PAGE
+        ================================================== -->
+
+        <section class="profile-page">
+
+
+            <!-- =================================================
+                 PROFILE HERO
+            ================================================= -->
+
+            <div class="profile-hero">
+
+
+                <!-- LARGE CUSTOMER AVATAR -->
+
+                <div
+                    class="large-avatar"
+                    id="largeUserAvatar"
+                >
+                    U
+                </div>
+
+
+                <!-- CUSTOMER INFORMATION -->
+
+                <div class="profile-intro">
+
+
+                    <span>
+                        KAMSETU CUSTOMER
+                    </span>
+
+
+                    <h2 id="displayName">
+                        User
+                    </h2>
+
+
+                    <p>
+                        Member since August 2026
+                    </p>
+
+
+                </div>
+
+
+                <!-- EDIT PROFILE BUTTON -->
+
+                <button
+                    type="button"
+                    class="edit-profile-btn"
+                    onclick="enableEditing()"
+                >
+                    Edit Profile
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROFILE GRID
+            ================================================== -->
+
+            <div class="profile-grid">
+
+
+                <!-- =================================================
+                     PERSONAL INFORMATION
+                ================================================== -->
+
+                <section class="profile-card">
+
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span>
+                                ACCOUNT
+                            </span>
+
+
+                            <h3>
+                                Personal Information
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+
+                        <!-- FULL NAME -->
+
+                        <div class="form-group">
+
+                            <label>
+                                FULL NAME
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                disabled
+                            >
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label>
+                                EMAIL
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                disabled
+                            >
+
+                        </div>
+
+
+                        <!-- PHONE -->
+
+                        <div class="form-group">
+
+                            <label>
+                                PHONE NUMBER
+                            </label>
+
+                            <input
+                                type="text"
+                                id="phone"
+                                disabled
+                            >
+
+                        </div>
+
+
+                        <!-- CITY -->
+
+                        <div class="form-group">
+
+                            <label>
+                                CITY
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                value="Gurgaon"
+                                disabled
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- SAVE AREA -->
+
+                    <div
+                        class="save-area"
+                        id="saveArea"
+                    >
+
+                        <button onclick="saveProfile()">
+                            Save Changes
+                        </button>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     ACCOUNT SUMMARY
+                ================================================== -->
+
+                <section class="profile-card">
+
+
+                    <div class="card-heading">
+
+                        <div>
+
+                            <span>
+                                ACTIVITY
+                            </span>
+
+
+                            <h3>
+                                Account Summary
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="summary-list">
+
+
+                        <!-- TOTAL BOOKINGS -->
+
+                        <div class="summary-item">
+
+                            <span>
+                                Total Bookings
+                            </span>
+
+
+                            <strong>
+                                20
+                            </strong>
+
+                        </div>
+
+
+                        <!-- COMPLETED SERVICES -->
+
+                        <div class="summary-item">
+
+                            <span>
+                                Completed Services
+                            </span>
+
+
+                            <strong>
+                                18
+                            </strong>
+
+                        </div>
+
+
+                        <!-- ACTIVE BOOKINGS -->
+
+                        <div class="summary-item">
+
+                            <span>
+                                Active Bookings
+                            </span>
+
+
+                            <strong>
+                                2
+                            </strong>
+
+                        </div>
+
+
+                        <!-- TOTAL SPENT -->
+
+                        <div class="summary-item">
+
+                            <span>
+                                Total Spent
+                            </span>
+
+
+                            <strong>
+                                ₹8,450
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     SAVED ADDRESSES
+                ================================================== -->
+
+                <section class="profile-card addresses-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <span>
+                                LOCATIONS
+                            </span>
+
+
+                            <h3>
+                                Saved Addresses
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addAddress()"
+                        >
+                            + Add
+                        </button>
+
+
+                    </div>
+
+
+                    <div class="address-list">
+
+
+                        <!-- HOME -->
+
+                        <div class="address-item">
+
+
+                            <div class="address-icon">
+                                ⌂
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Home
+                                </strong>
+
+
+                                <p>
+                                    Sector 34, Gurgaon,
+                                    Haryana 122001
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                onclick="editAddress('Home')"
+                            >
+                                Edit
+                            </button>
+
+
+                        </div>
+
+
+
+                        <!-- WORK -->
+
+                        <div class="address-item">
+
+
+                            <div class="address-icon">
+                                ◈
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Work
+                                </strong>
+
+
+                                <p>
+                                    Sector 44, Gurgaon,
+                                    Haryana 122003
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                onclick="editAddress('Work')"
+                            >
+                                Edit
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     PREFERENCES
+                ================================================== -->
+
+                <section class="profile-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <span>
+                                PREFERENCES
+                            </span>
+
+
+                            <h3>
+                                Service Preferences
+                            </h3>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="preference-list">
+
+
+                        <!-- BOOKING NOTIFICATIONS -->
+
+                        <label class="preference">
+
+
+                            <div>
+
+                                <strong>
+                                    Booking Notifications
+                                </strong>
+
+
+                                <span>
+                                    Receive updates about
+                                    your bookings.
+                                </span>
+
+                            </div>
+
+
+                            <input
+                                type="checkbox"
+                                id="bookingNotifications"
+                                checked
+                                onchange="updatePreference()"
+                            >
+
+
+                        </label>
+
+
+
+                        <!-- NEGOTIATION ALERTS -->
+
+                        <label class="preference">
+
+
+                            <div>
+
+                                <strong>
+                                    Price Negotiation Alerts
+                                </strong>
+
+
+                                <span>
+                                    Get notified when a
+                                    provider responds.
+                                </span>
+
+                            </div>
+
+
+                            <input
+                                type="checkbox"
+                                id="negotiationAlerts"
+                                checked
+                                onchange="updatePreference()"
+                            >
+
+
+                        </label>
+
+
+
+                        <!-- PROMOTIONAL UPDATES -->
+
+                        <label class="preference">
+
+
+                            <div>
+
+                                <strong>
+                                    Promotional Updates
+                                </strong>
+
+
+                                <span>
+                                    Receive offers and
+                                    KAMSETU promotions.
+                                </span>
+
+                            </div>
+
+
+                            <input
+                                type="checkbox"
+                                id="promotionalUpdates"
+                                onchange="updatePreference()"
+                            >
+
+
+                        </label>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     SECURITY
+                ================================================== -->
+
+                <section class="profile-card security-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <span>
+                                SECURITY
+                            </span>
+
+
+                            <h3>
+                                Account Security
+                            </h3>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="security-list">
+
+
+                        <!-- CHANGE PASSWORD -->
+
+                        <button
+                            onclick="changePassword()"
+                        >
+
+                            <div>
+
+                                <strong>
+                                    Change Password
+                                </strong>
+
+
+                                <span>
+                                    Update your account
+                                    password
+                                </span>
+
+                            </div>
+
+
+                            <b>
+                                →
+                            </b>
+
+                        </button>
+
+
+
+                        <!-- LOGIN ACTIVITY -->
+
+                        <button
+                            onclick="manageDevices()"
+                        >
+
+                            <div>
+
+                                <strong>
+                                    Login Activity
+                                </strong>
+
+
+                                <span>
+                                    Review active sessions
+                                </span>
+
+                            </div>
+
+
+                            <b>
+                                →
+                            </b>
+
+                        </button>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- =================================================
+                     DANGER ZONE
+                ================================================== -->
+
+                <section class="profile-card danger-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <span>
+                                ACCOUNT
+                            </span>
+
+
+                            <h3>
+                                Account Actions
+                            </h3>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button
+                        class="delete-btn"
+                        onclick="deleteAccount()"
+                    >
+                        Delete Account
+                    </button>
+
+
+                </section>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         OVERLAY
+    ===================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+        onclick="toggleSidebar()"
+    ></div>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ===================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script src="customer-profile.js"></script>
+
+    <script src="../ai-assistant.js"></script>
+
+
+<script src="customer-sidebar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="en"><head>
+    <script src="../config.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>KAMSETU - Negotiation</title><link rel="stylesheet" href="customer-negotiation.css">        <link rel="stylesheet" href="../theme-light.css">
+<link rel="stylesheet" href="customer-sidebar.css">
+</head><body>
+<header class="topbar"><a href="customer-dashboard.html" class="back">← Dashboard</a><div><span>PRICE NEGOTIATION</span><h1>Find the right price</h1></div></header>
+<main class="page"><section class="card" id="bookingCard"><div class="loading">Loading booking...</div></section><section class="card"><span>YOUR OFFER</span><h2>Make an offer</h2><div class="form-grid"><label>Proposed Price<input id="offerPrice" type="number" min="0" placeholder="500"></label><label>Message<textarea id="offerMessage" placeholder="Can you do it for this price?"></textarea></label></div><button id="sendOffer" class="primary">Send Offer →</button><p id="result" class="result"></p></section><section class="card"><span>NEGOTIATION HISTORY</span><h2>Offers</h2><div id="history"><div class="loading">Loading...</div></div></section></main><script src="customer-negotiation.js"></script>    <script src="../ai-assistant.js"></script>
+
+<script src="customer-sidebar.js"></script>
+</body></html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Provider Profile</title>
+
+    <link
+        rel="stylesheet"
+        href="provider-profile.css"
+    >
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+        <link rel="stylesheet" href="../theme-light.css">
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+
+    <!-- LOGO -->
+
+    <a
+        href="../index.html"
+        class="logo"
+    >
+
+        <div class="logo-icon">
+            ⌂
+        </div>
+
+        <div>
+
+            <strong>
+                KAMSETU
+            </strong>
+
+            <span>
+                Get Things Done
+            </span>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- PROVIDER -->
+
+    <div class="provider-mini">
+
+        <div class="mini-avatar" id="providerSidebarAvatar">
+            U
+        </div>
+
+        <div>
+
+            <strong id="providerSidebarName">
+                Provider
+            </strong>
+
+            <span id="providerSidebarService">
+                Service Provider
+            </span>
+
+        </div>
+
+        <i></i>
+
+    </div>
+
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+
+        <a
+            href="provider-dashboard.html"
+            class="nav-item"
+        >
+            <span>▦</span>
+            Dashboard
+        </a>
+
+
+        <a
+            href="provider-requests.html"
+            class="nav-item"
+        >
+            <span>◈</span>
+            Service Requests
+            <b>5</b>
+        </a>
+
+
+        <a
+            href="provider-bookings.html"
+            class="nav-item"
+        >
+            <span>◫</span>
+            My Bookings
+            <b>2</b>
+        </a>
+
+
+        <!-- CORRECT MESSAGE FILE -->
+
+        <a
+            href="provider-message.html"
+            class="nav-item"
+        >
+            <span>◌</span>
+            Messages
+            <b>3</b>
+        </a>
+
+
+        <a
+            href="provider-services.html"
+            class="nav-item"
+        >
+            <span>⚒</span>
+            My Services
+        </a>
+
+
+        <!-- NEGOTIATIONS -->
+
+        
+
+
+        <a
+            href="provider-earnings.html"
+            class="nav-item"
+        >
+            <span>₹</span>
+            Earnings
+        </a>
+
+
+        <a
+            href="provider-profile.html"
+            class="nav-item active"
+        >
+            <span>◎</span>
+            Profile
+        </a>
+
+<a
+            href="provider-negotiations.html"
+            class="nav-item"
+        >
+            <span>⇄</span>
+            Negotiations
+            <b>2</b>
+        </a>
+          
+    </nav>
+
+
+
+    <!-- SIDEBAR BOTTOM -->
+
+    <div class="sidebar-bottom">
+
+
+        <a
+            href="#"
+            class="nav-item"
+            onclick="showToast('Settings coming soon'); return false;"
+        >
+
+            <span>⚙</span>
+            Settings
+
+        </a>
+
+
+        <button
+            type="button"
+            class="nav-item logout"
+            onclick="logoutProvider()"
+        >
+
+            <span>↪</span>
+            Logout
+
+        </button>
+
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MOBILE HEADER
+===================================================== -->
+
+<header class="mobile-header">
+
+    <button
+        type="button"
+        onclick="toggleSidebar()"
+    >
+        ☰
+    </button>
+
+
+    <strong>
+        KAMSETU
+    </strong>
+
+
+    <button
+        type="button"
+        onclick="showToast('3 new notifications')"
+    >
+        🔔
+    </button>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main-content">
+
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+
+        <div>
+
+            <span>
+                PROFESSIONAL PANEL
+            </span>
+
+            <h1>
+                My Profile
+            </h1>
+
+        </div>
+
+
+
+        <div class="top-actions">
+
+
+            <!-- AVAILABILITY -->
+
+            <button
+                type="button"
+                class="availability"
+                onclick="toggleAvailability()"
+                id="availability"
+            >
+
+                <i></i>
+
+                Available
+
+            </button>
+
+
+
+            <!-- NOTIFICATION -->
+
+            <button
+                type="button"
+                class="notification"
+                onclick="showToast('3 new notifications')"
+            >
+
+                🔔
+
+                <small>
+                    3
+                </small>
+
+            </button>
+
+
+
+            <!-- USER -->
+
+            <button
+                type="button"
+                class="user-profile"
+                onclick="showToast('You are viewing your profile')"
+            >
+
+                <div class="avatar" id="topUserAvatar">
+                    U
+                </div>
+
+                <div>
+
+                    <strong id="topUserName">
+                        User
+                    </strong>
+
+                    <span>
+                        Provider
+                    </span>
+
+                </div>
+
+            </button>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         PAGE
+    ================================================= -->
+
+    <section class="page">
+
+
+        <!-- INTRO -->
+
+        <div class="page-intro">
+
+
+            <div>
+
+                <span>
+                    PROFESSIONAL IDENTITY
+                </span>
+
+                <h2>
+                    Build your profile.
+                </h2>
+
+                <p>
+                    Give customers the information they
+                    need to trust and hire you.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="save-btn"
+                onclick="saveProfile()"
+            >
+                Save Changes →
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROFILE LAYOUT
+        ================================================= -->
+
+        <div class="profile-layout">
+
+
+            <!-- PROFILE CARD -->
+
+            <section class="profile-card">
+
+
+                <div class="profile-cover"></div>
+
+
+                <div class="profile-main">
+
+
+                    <div class="large-avatar" id="largeUserAvatar">
+
+                        U
+
+                        <button
+                            type="button"
+                            onclick="changePhoto()"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <div class="profile-name">
+
+                        <h2 id="displayName">
+                            User
+                        </h2>
+
+                        <span>
+                            ✓ Verified Professional
+                        </span>
+
+                        <p>
+                            Electrician · Gurgaon
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- STATS -->
+
+                <div class="profile-stats">
+
+
+                    <div>
+
+                        <strong>
+                            4.8
+                        </strong>
+
+                        <span>
+                            Rating
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            120
+                        </strong>
+
+                        <span>
+                            Jobs
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            5 yrs
+                        </strong>
+
+                        <span>
+                            Experience
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            98%
+                        </strong>
+
+                        <span>
+                            Response
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SERVICE LOCATION
+            ================================================= -->
+            <section class="edit-card location-profile-card">
+                <div class="card-title"><span>SERVICE LOCATION</span><h3>Customer Service Area</h3></div>
+                <p id="profileMapLocation">Sector 45, Gurgaon</p>
+                <div id="providerProfileMap" class="provider-profile-map"></div>
+            </section>
+
+
+            <!-- =================================================
+                 PERSONAL INFORMATION
+            ================================================= -->
+
+            <section class="edit-card">
+
+
+                <div class="card-title">
+
+                    <span>
+                        PERSONAL INFORMATION
+                    </span>
+
+                    <h3>
+                        Profile Details
+                    </h3>
+
+                </div>
+
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            FULL NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            value=""
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            PHONE
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            value=""
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            EMAIL
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            value=""
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            PROFESSION
+                        </label>
+
+                        <select id="profession">
+
+                            <option>
+                                Electrician
+                            </option>
+
+                            <option>
+                                Plumber
+                            </option>
+
+                            <option>
+                                Carpenter
+                            </option>
+
+                            <option>
+                                Painter
+                            </option>
+
+                            <option>
+                                AC Repair
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            CITY
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            value="Gurgaon"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            SERVICE AREA
+                        </label>
+
+                        <input
+                            type="text"
+                            id="serviceArea"
+                            value="Sector 21 - Sector 60"
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            PROFESSIONAL BIO
+                        </label>
+
+                        <textarea
+                            id="bio"
+                        >Experienced electrician providing reliable home electrical repair, installation and maintenance services.</textarea>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 EXPERIENCE & PRICING
+            ================================================= -->
+
+            <section class="edit-card">
+
+
+                <div class="card-title">
+
+                    <span>
+                        PROFESSIONAL EXPERIENCE
+                    </span>
+
+                    <h3>
+                        Experience & Pricing
+                    </h3>
+
+                </div>
+
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            EXPERIENCE
+                        </label>
+
+                        <select id="experience">
+
+                            <option>
+                                5 - 10 years
+                            </option>
+
+                            <option>
+                                1 - 3 years
+                            </option>
+
+                            <option>
+                                3 - 5 years
+                            </option>
+
+                            <option>
+                                10+ years
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            BASE HOURLY RATE
+                        </label>
+
+                        <input
+                            type="number"
+                            id="hourlyRate"
+                            value="400"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 VERIFICATION
+            ================================================= -->
+
+            <section class="verification-card">
+
+
+                <div class="verification-icon">
+                    ✓
+                </div>
+
+
+                <div>
+
+                    <span>
+                        VERIFIED PROFESSIONAL
+                    </span>
+
+                    <h3>
+                        Your identity is verified.
+                    </h3>
+
+                    <p>
+                        Verified profiles receive more
+                        visibility and customer trust.
+                    </p>
+
+                </div>
+
+
+                <strong>
+                    VERIFIED
+                </strong>
+
+
+            </section>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     OVERLAY
+===================================================== -->
+
+<div
+    class="sidebar-overlay"
+    id="overlay"
+    onclick="toggleSidebar()"
+></div>
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let user = null;
+
+        /*
+         * Provider signup stores the entered provider in "servioProvider".
+         * Use that first so the name entered by the provider is shown.
+         */
+        const storageKeys = [
+            "servioProvider",
+            "servioUser",
+            "KAMSETUUser"
+        ];
+
+        for (const key of storageKeys) {
+            let data = localStorage.getItem(key);
+
+            if (!data) {
+                data = sessionStorage.getItem(key);
+            }
+
+            if (data) {
+                try {
+                    const parsed = JSON.parse(data);
+
+                    if (parsed && parsed.role === "provider") {
+                        user = parsed;
+                        break;
+                    }
+                } catch (error) {
+                    console.warn("Invalid provider data in", key);
+                }
+            }
+        }
+
+        if (!user) {
+            console.warn("Provider profile data not found.");
+            return;
+        }
+
+        const name = String(user.name || "Provider").trim();
+        const service = String(
+            user.service ||
+            user.profession ||
+            "Service Provider"
+        ).trim();
+
+        const firstLetter = name.charAt(0).toUpperCase();
+
+        const sidebarName =
+            document.getElementById("providerSidebarName");
+
+        const sidebarService =
+            document.getElementById("providerSidebarService");
+
+        const sidebarAvatar =
+            document.getElementById("providerSidebarAvatar");
+
+        const topName =
+            document.getElementById("topUserName");
+
+        const topAvatar =
+            document.getElementById("topUserAvatar");
+
+        const largeAvatar =
+            document.getElementById("largeUserAvatar");
+
+        const displayName =
+            document.getElementById("displayName");
+
+        if (sidebarName) {
+            sidebarName.textContent = name;
+        }
+
+        if (sidebarService) {
+            sidebarService.textContent = service;
+        }
+
+        if (sidebarAvatar) {
+            sidebarAvatar.textContent = firstLetter;
+        }
+
+        if (topName) {
+            topName.textContent = name;
+        }
+
+        if (topAvatar) {
+            topAvatar.textContent = firstLetter;
+        }
+
+        if (largeAvatar) {
+            largeAvatar.textContent = firstLetter;
+        }
+
+        if (displayName) {
+            displayName.textContent = name;
+        }
+    });
+</script>
+
+<script src="provider-profile.js"></script>
+
+    <script src="../ai-assistant.js"></script>
+
+</body>
+
+</html>

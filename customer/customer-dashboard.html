@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Customer Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="customer-dashboard.css"
+    >
+
+        <link rel="stylesheet" href="../theme-light.css">
+<link rel="stylesheet" href="customer-sidebar.css">
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+<!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =====================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="topbar">
+
+
+            <div class="mobile-menu-btn"
+                 onclick="toggleSidebar()">
+
+                ☰
+
+            </div>
+
+
+            <div class="page-title">
+
+                <span>
+                    CUSTOMER DASHBOARD
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <!-- NOTIFICATION -->
+
+                <button
+                    class="notification-btn"
+                    onclick="showNotifications()"
+                >
+
+                    🔔
+
+                    <span>
+                        3
+                    </span>
+
+                </button>
+
+
+                <!-- PROFILE -->
+
+                <button
+                    class="profile-mini"
+                    onclick="openProfile()"
+                >
+
+                    <div class="profile-avatar" id="topUserAvatar">
+                        U
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong id="userName">
+                            User
+                        </strong>
+
+                        <span>
+                            Customer
+                        </span>
+
+                    </div>
+
+                    <span class="profile-arrow">
+                        ▾
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =====================================
+             DASHBOARD CONTENT
+        ====================================== -->
+
+        <div class="dashboard-content">
+
+
+            <!-- =================================
+                 WELCOME
+            ================================== -->
+
+            <section class="welcome-section">
+
+
+                <div>
+
+                    <span class="welcome-small">
+                        WELCOME BACK 👋
+                    </span>
+
+                    <h2>
+                        What can we help you
+                        <span>with?</span>
+                    </h2>
+
+                    <p>
+                        Find trusted professionals for
+                        your everyday household needs.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="find-service-btn"
+                    onclick="openServiceSearch()"
+                >
+
+                    Find a Service
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 SEARCH
+            ================================== -->
+
+            <section class="dashboard-search">
+
+
+                <div class="search-heading">
+
+                    <h3>
+                        Find a Professional
+                    </h3>
+
+                    <span>
+                        Search from thousands of
+                        verified professionals
+                    </span>
+
+                </div>
+
+
+                <div class="search-box">
+
+
+                    <div class="dashboard-search-field">
+
+                        <span>
+                            ⚒
+                        </span>
+
+                        <div>
+
+                            <label>
+                                SERVICE
+                            </label>
+
+                            <input
+                                type="text"
+                                id="dashboardService"
+                                placeholder="Electrician, Plumber, Carpenter..."
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="search-divider"></div>
+
+
+                    <div class="dashboard-search-field">
+
+                        <span>
+                            📍
+                        </span>
+
+                        <div>
+
+                            <label>
+                                LOCATION
+                            </label>
+
+                            <input
+                                type="text"
+                                id="dashboardLocation"
+                                placeholder="Enter your location"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="dashboard-search-btn"
+                        onclick="searchServices()"
+                    >
+
+                        Search
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 QUICK SERVICES
+            ================================== -->
+
+            <section class="quick-services">
+
+
+                <div class="section-heading-row">
+
+                    <div>
+
+                        <span>
+                            POPULAR SERVICES
+                        </span>
+
+                        <h3>
+                            What do you need?
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        onclick="showAllServices()"
+                    >
+                        View all →
+                    </button>
+
+                </div>
+
+
+
+                <div class="quick-service-grid">
+
+
+                    <button
+                        class="quick-service-card"
+                        onclick="selectDashboardService('Electrician')"
+                    >
+
+                        <div class="quick-icon">
+                            ⚡
+                        </div>
+
+                        <strong>
+                            Electrician
+                        </strong>
+
+                        <span>
+                            Wiring & Repairs
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-service-card"
+                        onclick="selectDashboardService('Plumber')"
+                    >
+
+                        <div class="quick-icon">
+                            🚰
+                        </div>
+
+                        <strong>
+                            Plumber
+                        </strong>
+
+                        <span>
+                            Pipes & Leakage
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-service-card"
+                        onclick="selectDashboardService('AC Repair')"
+                    >
+
+                        <div class="quick-icon">
+                            ❄
+                        </div>
+
+                        <strong>
+                            AC Repair
+                        </strong>
+
+                        <span>
+                            Service & Repair
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-service-card"
+                        onclick="selectDashboardService('Carpenter')"
+                    >
+
+                        <div class="quick-icon">
+                            🪚
+                        </div>
+
+                        <strong>
+                            Carpenter
+                        </strong>
+
+                        <span>
+                            Furniture & Woodwork
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-service-card"
+                        onclick="selectDashboardService('Cleaning')"
+                    >
+
+                        <div class="quick-icon">
+                            🧹
+                        </div>
+
+                        <strong>
+                            Cleaning
+                        </strong>
+
+                        <span>
+                            Home Cleaning
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="quick-service-card"
+                        onclick="selectDashboardService('Painter')"
+                    >
+
+                        <div class="quick-icon">
+                            🎨
+                        </div>
+
+                        <strong>
+                            Painter
+                        </strong>
+
+                        <span>
+                            Interior & Exterior
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 GROUP / SOCIETY BOOKING
+            ================================== -->
+
+            <section class="group-booking-banner">
+
+                <div class="group-booking-copy">
+
+                    <span>
+                        KAMSETU SMART BOOKING
+                    </span>
+
+                    <h3>
+                        Book together with your neighbours.
+                    </h3>
+
+                    <p>
+                        Need the same service in your society? Create a group, invite nearby households and let one professional handle multiple jobs in one visit.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="openGroupBooking()"
+                    >
+                        Create Group Booking
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+                <div class="group-booking-visual">
+                    <div class="group-house">🏠</div>
+                    <div class="group-house">🏠</div>
+                    <div class="group-house">🏠</div>
+                    <div class="group-provider">⚒</div>
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================
+                 DASHBOARD GRID
+            ================================== -->
+
+            <section class="dashboard-grid">
+
+
+                <!-- UPCOMING BOOKING -->
+
+                <div class="dashboard-card upcoming-card">
+
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span>
+                                UPCOMING
+                            </span>
+
+                            <h3>
+                                Next Booking
+                            </h3>
+
+                        </div>
+
+                        <button
+                            onclick="viewAllBookings()"
+                        >
+                            View all →
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="booking-provider">
+
+
+                        <div class="provider-avatar">
+                            RK
+                        </div>
+
+
+                        <div class="provider-details">
+
+                            <strong>
+                                Rahul Kumar
+                            </strong>
+
+                            <span>
+                                ⚡ Electrician
+                            </span>
+
+                            <div class="rating">
+                                ★ 4.8
+                            </div>
+
+                        </div>
+
+
+                        <span class="verified">
+                            ✓ Verified
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="booking-info">
+
+
+                        <div>
+
+                            <span>
+                                DATE
+                            </span>
+
+                            <strong>
+                                15 Sept 2026
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                TIME
+                            </span>
+
+                            <strong>
+                                10:00 AM
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                AGREED PRICE
+                            </span>
+
+                            <strong class="price">
+                                ₹550
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="booking-actions">
+
+                        <button
+                            onclick="openBooking()"
+                            class="primary-small-btn"
+                        >
+                            View Booking
+                        </button>
+
+                        <button
+                            onclick="openChat()"
+                            class="secondary-small-btn"
+                        >
+                            Message
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- RECENT ACTIVITY -->
+
+                <div class="dashboard-card activity-card">
+
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span>
+                                ACTIVITY
+                            </span>
+
+                            <h3>
+                                Recent Services
+                            </h3>
+
+                        </div>
+
+                        <button
+                            onclick="viewAllBookings()"
+                        >
+                            View all →
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="activity-list">
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon electrician">
+                                ⚡
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Electrician
+                                </strong>
+
+                                <span>
+                                    Rahul Kumar · 12 Sept
+                                </span>
+
+                            </div>
+
+                            <div class="activity-status completed">
+                                Completed
+                            </div>
+
+                            <strong class="activity-price">
+                                ₹550
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon plumber">
+                                🚰
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    Plumbing
+                                </strong>
+
+                                <span>
+                                    Amit Sharma · 8 Sept
+                                </span>
+
+                            </div>
+
+                            <div class="activity-status completed">
+                                Completed
+                            </div>
+
+                            <strong class="activity-price">
+                                ₹700
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="activity-item">
+
+                            <div class="activity-icon ac">
+                                ❄
+                            </div>
+
+                            <div class="activity-info">
+
+                                <strong>
+                                    AC Repair
+                                </strong>
+
+                                <span>
+                                    RK Cooling · 4 Sept
+                                </span>
+
+                            </div>
+
+                            <div class="activity-status pending">
+                                Pending
+                            </div>
+
+                            <strong class="activity-price">
+                                ₹900
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 NEGOTIATION CARD
+            ================================== -->
+
+            <section class="negotiation-dashboard">
+
+
+                <div class="negotiation-info">
+
+
+                    <span>
+                        KAMSETU DIFFERENCE
+                    </span>
+
+
+                    <h3>
+                        Don't just book.
+                        <strong>
+                            Negotiate.
+                        </strong>
+                    </h3>
+
+
+                    <p>
+                        Discuss the work directly with
+                        professionals and agree on a price
+                        that works for both of you.
+                    </p>
+
+
+                    <button
+                        onclick="openChat()"
+                    >
+
+                        Open Messages
+
+                        <span>
+                            →
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="mini-chat">
+
+
+                    <div class="mini-chat-header">
+
+                        <div class="mini-avatar">
+                            RK
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Rahul Kumar
+                            </strong>
+
+                            <span>
+                                ● Online
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="mini-messages">
+
+
+                        <div class="mini-message provider">
+
+                            I can do it for ₹600.
+
+                        </div>
+
+
+                        <div class="mini-message customer">
+
+                            Can you do ₹500?
+
+                        </div>
+
+
+                        <div class="mini-message provider">
+
+                            How about ₹550?
+
+                        </div>
+
+
+                        <div class="mini-deal">
+
+                            ✓ Deal agreed · ₹550
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================
+                 TRUST
+            ================================== -->
+
+            <section class="dashboard-trust">
+
+
+                <div>
+
+                    <strong>
+                        10,000+
+                    </strong>
+
+                    <span>
+                        Verified Professionals
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        50,000+
+                    </strong>
+
+                    <span>
+                        Jobs Completed
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        4.8/5
+                    </strong>
+
+                    <span>
+                        Average Rating
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        100+
+                    </strong>
+
+                    <span>
+                        Service Categories
+                    </span>
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- MOBILE OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+        onclick="toggleSidebar()"
+    ></div>
+
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+
+    <!-- LOAD ACTUAL LOGGED-IN CUSTOMER -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let userData =
+                localStorage.getItem("KAMSETUUser");
+
+            if (!userData) {
+                userData =
+                    sessionStorage.getItem("KAMSETUUser");
+            }
+
+            if (!userData) {
+                return;
+            }
+
+            try {
+
+                const user =
+                    JSON.parse(userData);
+
+                const userName =
+                    document.getElementById("userName");
+
+                const topUserAvatar =
+                    document.getElementById("topUserAvatar");
+
+                if (userName) {
+                    userName.textContent =
+                        user.name || "User";
+                }
+
+                if (topUserAvatar) {
+                    topUserAvatar.textContent =
+                        (user.name || "U")
+                            .charAt(0)
+                            .toUpperCase();
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Could not load logged-in customer:",
+                    error
+                );
+
+            }
+
+        });
+    </script>
+
+
+    <script src="customer-dashboard.js"></script>
+
+    <script src="../ai-assistant.js"></script>
+
+<script src="customer-sidebar.js"></script>
+</body>
+
+</html>

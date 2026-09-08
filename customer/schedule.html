@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../config.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMSETU - Schedule Service</title>
+    <link rel="stylesheet" href="schedule.css">
+    <link rel="stylesheet" href="../theme-light.css">
+<link rel="stylesheet" href="customer-sidebar.css">
+</head>
+<body>
+    <main class="feature-page">
+        <a class="back" href="../service.html">← Find Services</a>
+        <header class="feature-header">
+            <span>SMART SCHEDULING</span>
+            <h1>Schedule a service</h1>
+            <p>Choose a provider, date and available time slot.</p>
+        </header>
+
+        <section class="feature-card">
+            <div id="modeNotice" class="notice hidden"></div>
+            <label>Service
+                <select id="serviceSelect" required>
+                    <option value="">Loading services...</option>
+                </select>
+            </label>
+            <label>Provider
+                <select id="providerSelect" required>
+                    <option value="">Select a service first</option>
+                </select>
+            </label>
+            <label>Date
+                <input id="bookingDate" type="date" required>
+            </label>
+            <label>Available time
+                <select id="bookingTime" required>
+                    <option value="">Choose a date first</option>
+                </select>
+            </label>
+            <label>Location
+                <input id="bookingLocation" placeholder="Sector / area / full address" required>
+            </label>
+            <label>Description
+                <textarea id="description" placeholder="Describe the work you need"></textarea>
+            </label>
+            <label>Agreed / starting price
+                <input id="price" type="number" min="0" placeholder="Optional">
+            </label>
+            <button id="confirmBooking" class="primary">Confirm Booking</button>
+            <p id="result" class="result"></p>
+        </section>
+    </main>
+    <script src="schedule.js"></script>
+<script src="customer-sidebar.js"></script>
+</body>
+</html>

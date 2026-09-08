@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KAMSETU - Messages</title>
+
+    <link rel="stylesheet" href="customer-messages.css">
+        <link rel="stylesheet" href="../theme-light.css">
+<link rel="stylesheet" href="customer-sidebar.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+<!-- MOBILE HEADER -->
+
+    <header class="mobile-header">
+
+        <button class="menu-btn" onclick="toggleSidebar()">
+            ☰
+        </button>
+
+        <strong>KAMSETU</strong>
+
+        <button
+            class="mobile-notification"
+            onclick="showNotifications()"
+        >
+            🔔
+        </button>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="page-heading">
+
+                <span>KAMSETU MARKETPLACE</span>
+
+                <h1>Messages</h1>
+
+            </div>
+
+
+            <div class="top-profile">
+
+                <button
+                    class="notification"
+                    onclick="showNotifications()"
+                >
+
+                    🔔
+
+                    <small>3</small>
+
+                </button>
+
+
+                <button
+                    class="user-profile"
+                    onclick="openProfile()"
+                >
+
+                    <div class="user-avatar" id="topUserAvatar">
+                        U
+                    </div>
+
+                    <div>
+
+                        <strong id="topUserName">User</strong>
+
+                        <span>Customer</span>
+
+                    </div>
+
+                    <i>▾</i>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- MESSAGES PAGE -->
+
+        <section class="messages-page">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="messages-heading">
+
+                <div>
+
+                    <span>COMMUNICATION</span>
+
+                    <h2>
+                        Your conversations
+                    </h2>
+
+                    <p>
+                        Chat with professionals,
+                        discuss your requirements
+                        and negotiate prices.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CHAT CONTAINER -->
+
+            <div class="chat-container">
+
+
+                <!-- CONVERSATION LIST -->
+
+                <aside class="conversation-list">
+
+
+                    <div class="conversation-header">
+
+                        <h3>
+                            Messages
+                        </h3>
+
+                        <span>
+                            3 unread
+                        </span>
+
+                    </div>
+
+
+                    <!-- SEARCH -->
+
+                    <div class="message-search">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            id="messageSearch"
+                            placeholder="Search conversations..."
+                            oninput="searchMessages()"
+                        >
+
+                    </div>
+
+
+                    <!-- CONVERSATION 1 -->
+
+                    <button
+                        class="conversation active"
+                        onclick="openChat('rahul')"
+                        data-name="Rahul Kumar"
+                    >
+
+                        <div class="conversation-avatar orange">
+                            RK
+
+                            <i></i>
+                        </div>
+
+
+                        <div class="conversation-info">
+
+                            <div>
+
+                                <strong>
+                                    Rahul Kumar
+                                </strong>
+
+                                <small>
+                                    10:42 AM
+                                </small>
+
+                            </div>
+
+                            <p>
+                                I can do it for ₹350.
+                            </p>
+
+                        </div>
+
+
+                        <b class="unread">
+                            2
+                        </b>
+
+                    </button>
+
+
+
+                    <!-- CONVERSATION 2 -->
+
+                    <button
+                        class="conversation"
+                        onclick="openChat('amit')"
+                        data-name="Amit Sharma"
+                    >
+
+                        <div class="conversation-avatar blue">
+                            AS
+
+                            <i></i>
+                        </div>
+
+
+                        <div class="conversation-info">
+
+                            <div>
+
+                                <strong>
+                                    Amit Sharma
+                                </strong>
+
+                                <small>
+                                    Yesterday
+                                </small>
+
+                            </div>
+
+                            <p>
+                                What time would work for you?
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- CONVERSATION 3 -->
+
+                    <button
+                        class="conversation"
+                        onclick="openChat('mohit')"
+                        data-name="Mohit Singh"
+                    >
+
+                        <div class="conversation-avatar green">
+                            MS
+
+                            <i></i>
+                        </div>
+
+
+                        <div class="conversation-info">
+
+                            <div>
+
+                                <strong>
+                                    Mohit Singh
+                                </strong>
+
+                                <small>
+                                    28 Aug
+                                </small>
+
+                            </div>
+
+                            <p>
+                                Thank you for choosing KAMSETU.
+                            </p>
+
+                        </div>
+
+                    </button>
+
+
+                </aside>
+
+
+
+                <!-- CHAT AREA -->
+
+                <section class="chat-area">
+
+
+                    <!-- CHAT HEADER -->
+
+                    <header class="chat-header">
+
+
+                        <div class="chat-person">
+
+
+                            <div class="chat-avatar">
+                                RK
+
+                                <i></i>
+                            </div>
+
+
+                            <div>
+
+                                <strong id="chatName">
+                                    Rahul Kumar
+                                </strong>
+
+                                <span id="chatService">
+                                    Electrician · Online
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="chat-header-actions">
+
+                            <button
+                                onclick="viewProvider()"
+                                title="View Profile"
+                            >
+                                ◎
+                            </button>
+
+                            <button
+                                onclick="showToast('More options coming soon')"
+                                title="More"
+                            >
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                    </header>
+
+
+
+                    <!-- SERVICE SUMMARY -->
+
+                    <div class="service-summary">
+
+
+                        <div>
+
+                            <span>
+                                CURRENT NEGOTIATION
+                            </span>
+
+                            <strong>
+                                Home Electrical Repair
+                            </strong>
+
+                            <small>
+                                Sector 34, Gurgaon
+                            </small>
+
+                        </div>
+
+
+                        <div class="negotiation-price">
+
+                            <span>
+                                CURRENT OFFER
+                            </span>
+
+                            <strong id="currentOffer">
+                                ₹350
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            onclick="openOfferBox()"
+                        >
+                            Make Offer
+                        </button>
+
+
+                    </div>
+
+
+
+                    <!-- CHAT MESSAGES -->
+
+                    <div
+                        class="chat-messages"
+                        id="chatMessages"
+                    >
+
+
+                        <div class="date-divider">
+                            Today
+                        </div>
+
+
+                        <div class="message received">
+
+                            <div class="message-avatar">
+                                RK
+                            </div>
+
+                            <div>
+
+                                <div class="message-bubble">
+
+                                    Hi Dipanshu, I can help
+                                    with the electrical repair.
+
+                                </div>
+
+                                <span>
+                                    10:35 AM
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="message sent">
+
+                            <div>
+
+                                <div class="message-bubble">
+
+                                    Hi Rahul. What would be
+                                    your final price for the job?
+
+                                </div>
+
+                                <span>
+                                    10:38 AM
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="message received">
+
+                            <div class="message-avatar">
+                                RK
+                            </div>
+
+                            <div>
+
+                                <div class="message-bubble">
+
+                                    The listed price is ₹400,
+                                    but I can negotiate it.
+
+                                </div>
+
+                                <span>
+                                    10:40 AM
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="message sent">
+
+                            <div>
+
+                                <div class="message-bubble">
+
+                                    Can you do ₹350?
+
+                                </div>
+
+                                <span>
+                                    10:41 AM
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="message received">
+
+                            <div class="message-avatar">
+                                RK
+                            </div>
+
+                            <div>
+
+                                <div class="message-bubble offer-message">
+
+                                    <strong>
+                                        ₹350
+                                    </strong>
+
+                                    <span>
+                                        Final service offer
+                                    </span>
+
+                                    <button
+                                        onclick="acceptOffer()"
+                                    >
+                                        Accept Offer
+                                    </button>
+
+                                </div>
+
+                                <span>
+                                    10:42 AM
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- OFFER BOX -->
+
+                    <div
+                        class="offer-box"
+                        id="offerBox"
+                    >
+
+                        <div>
+
+                            <span>
+                                YOUR OFFER
+                            </span>
+
+                            <input
+                                type="number"
+                                id="offerInput"
+                                value="350"
+                                min="1"
+                            >
+
+                        </div>
+
+                        <button onclick="sendOffer()">
+                            Send Offer
+                        </button>
+
+                        <button
+                            class="close-offer"
+                            onclick="closeOfferBox()"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE INPUT -->
+
+                    <div class="message-input-area">
+
+
+                        <button
+                            class="attach-btn"
+                            onclick="showToast('Attachment feature coming soon')"
+                        >
+                            +
+                        </button>
+
+
+                        <input
+                            type="text"
+                            id="messageInput"
+                            placeholder="Type your message..."
+                            onkeydown="handleMessageKey(event)"
+                        >
+
+
+                        <button
+                            class="send-btn"
+                            onclick="sendMessage()"
+                        >
+                            →
+                        </button>
+
+
+                    </div>
+
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+        onclick="toggleSidebar()"
+    ></div>
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <!-- LOAD ACTUAL LOGGED-IN CUSTOMER -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            let userData =
+                localStorage.getItem("KAMSETUUser");
+
+            if (!userData) {
+                userData =
+                    sessionStorage.getItem("KAMSETUUser");
+            }
+
+            if (!userData) {
+                return;
+            }
+
+            try {
+
+                const user =
+                    JSON.parse(userData);
+
+                const topUserName =
+                    document.getElementById("topUserName");
+
+                const topUserAvatar =
+                    document.getElementById("topUserAvatar");
+
+                if (topUserName) {
+                    topUserName.textContent =
+                        user.name || "User";
+                }
+
+                if (topUserAvatar) {
+                    topUserAvatar.textContent =
+                        (user.name || "U")
+                            .charAt(0)
+                            .toUpperCase();
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Could not load logged-in customer:",
+                    error
+                );
+
+            }
+
+        });
+    </script>
+
+
+    <script src="customer-messages.js"></script>
+
+    <script src="../ai-assistant.js"></script>
+
+<script src="customer-sidebar.js"></script>
+</body>
+
+</html>

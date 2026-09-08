@@ -1,0 +1,1699 @@
+/* =====================================================
+   KAMSETU - PROVIDER BOOKINGS
+   LIGHT SAAS THEME
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #F5F9FD;
+    --bg-secondary: #EEF5FC;
+    --card: #FFFFFF;
+    --card-soft: #F8FBFF;
+
+    --primary: #0077B6;
+    --primary-light: #2196F3;
+    --primary-soft: rgba(22, 131, 232, 0.08);
+
+    --navy: #0B1F44;
+    --text: #14213D;
+    --text-secondary: #64748B;
+    --muted: #94A3B8;
+
+    --border: #E2EAF3;
+    --border-light: #EDF2F7;
+
+    --success: #16A34A;
+    --success-soft: rgba(22, 163, 74, 0.08);
+
+    --info: #3B82F6;
+    --info-soft: rgba(59, 130, 246, 0.08);
+
+    --shadow-sm: 0 2px 8px rgba(11, 31, 68, 0.04);
+    --shadow-md: 0 10px 30px rgba(11, 31, 68, 0.07);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+
+    padding: 25px 14px;
+
+    background: #FFFFFF;
+    border-right: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0 10px;
+    margin-bottom: 25px;
+}
+
+.logo-icon {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+
+    color: var(--primary);
+    background: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+.logo strong {
+    display: block;
+    font-size: 17px;
+    color: var(--primary);
+}
+
+.logo span {
+    display: block;
+    margin-top: 3px;
+
+    color: var(--text-secondary);
+    font-size: 8px;
+}
+
+.provider-mini {
+    margin: 0 4px 25px;
+    padding: 11px;
+
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.provider-mini:hover {
+    background: #F8FBFF;
+    border-color: #D6E7F7;
+    box-shadow: var(--shadow-md);
+}
+
+.mini-avatar {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #0077B6,
+        #5DAEF1
+    );
+
+    color: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.provider-mini strong {
+    display: block;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    color: var(--text);
+}
+
+.provider-mini span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text-secondary);
+    font-size: 8px;
+}
+
+.provider-mini i {
+    margin-left: auto;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--success);
+
+    box-shadow:
+        0 0 0 3px rgba(22, 163, 74, 0.10);
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.nav-item {
+    width: 100%;
+    min-height: 42px;
+
+    padding: 0 12px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    background: transparent;
+    color: var(--text-secondary);
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 10px;
+    text-align: left;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.nav-item:hover {
+    background: #F1F7FD;
+    color: var(--text);
+    border-color: #E3EEF8;
+}
+
+.nav-item.active {
+    background: rgba(22, 131, 232, 0.08);
+    border-color: rgba(22, 131, 232, 0.20);
+    color: var(--primary);
+}
+
+.nav-item.active span {
+    color: var(--primary);
+}
+
+.nav-item b {
+    margin-left: auto;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+    color: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding-top: 17px;
+
+    border-top: 1px solid var(--border-light);
+}
+
+.logout {
+    border: none;
+    background: transparent;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main-content {
+    width: calc(100% - 220px);
+    margin-left: 220px;
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+    min-height: 75px;
+
+    padding: 0 35px;
+
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 500;
+
+    box-shadow:
+        0 1px 5px rgba(11, 31, 68, 0.03);
+}
+
+.topbar > div > span,
+.heading > div > span {
+    color: var(--primary);
+
+    font-size: 8px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.topbar h1 {
+    margin-top: 5px;
+
+    font-size: 21px;
+    font-weight: 500;
+
+    color: var(--navy);
+}
+
+
+/* =====================================================
+   TOPBAR ACTIONS
+===================================================== */
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* =====================================================
+   NOTIFICATION
+===================================================== */
+
+.notification {
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    color: var(--text);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.notification:hover {
+    background: #F1F7FD;
+    border-color: #CFE2F4;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.notification small {
+    position: absolute;
+
+    top: -5px;
+    right: -5px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+    color: #FFFFFF;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   USER PROFILE
+===================================================== */
+
+.user-profile {
+    min-height: 42px;
+
+    padding: 5px 9px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: #FFFFFF;
+    color: var(--text);
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.user-profile:hover {
+    background: #F7FBFF;
+    border-color: #CFE2F4;
+    box-shadow: var(--shadow-sm);
+}
+
+.user-profile > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-profile strong {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.user-profile span {
+    margin-top: 2px;
+
+    font-size: 8px;
+    color: var(--text-secondary);
+}
+
+.user-profile i {
+    font-style: normal;
+    font-size: 11px;
+
+    color: var(--muted);
+
+    margin-left: 3px;
+}
+
+.user-avatar {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0077B6,
+            #5DAEF1
+        );
+
+    color: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+    padding: 38px 35px 70px;
+    max-width: 1150px;
+}
+
+.heading {
+    margin-bottom: 25px;
+}
+
+.heading h2 {
+    margin-top: 7px;
+
+    font-size: 28px;
+    font-weight: 500;
+
+    color: var(--navy);
+}
+
+.heading p {
+    margin-top: 6px;
+
+    color: var(--text-secondary);
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+.booking-tabs {
+    display: flex;
+    gap: 6px;
+
+    margin-bottom: 15px;
+}
+
+.tab {
+    height: 35px;
+
+    padding: 0 15px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: #FFFFFF;
+    color: var(--text-secondary);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.tab:hover {
+    background: #F1F7FD;
+    border-color: #CFE2F4;
+    color: var(--primary);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.tab.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #FFFFFF;
+
+    box-shadow:
+        0 4px 12px
+        rgba(22, 131, 232, 0.18);
+}
+
+
+/* =====================================================
+   BOOKING LIST
+===================================================== */
+
+.booking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+/* =====================================================
+   BOOKING CARD
+===================================================== */
+
+.booking-card {
+    padding: 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    display: grid;
+
+    grid-template-columns:
+        58px
+        minmax(0, 1fr)
+        140px;
+
+    gap: 18px;
+
+    align-items: center;
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.booking-card:hover {
+    transform: translateY(-1px);
+
+    border-color: #D5E6F5;
+
+    box-shadow: var(--shadow-md);
+}
+
+
+/* =====================================================
+   DATE BOX
+===================================================== */
+
+.date-box {
+    width: 58px;
+    height: 64px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(22, 131, 232, 0.08);
+
+    border:
+        1px solid
+        rgba(22, 131, 232, 0.18);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-box span {
+    font-size: 20px;
+    font-weight: 500;
+
+    color: var(--primary);
+}
+
+.date-box small {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 7px;
+    font-weight: 700;
+}
+
+.date-box.blue {
+    background:
+        rgba(59, 130, 246, 0.08);
+
+    border-color:
+        rgba(59, 130, 246, 0.18);
+}
+
+.date-box.blue span {
+    color: var(--info);
+}
+
+.date-box.green {
+    background:
+        rgba(22, 163, 74, 0.08);
+
+    border-color:
+        rgba(22, 163, 74, 0.18);
+}
+
+.date-box.green span {
+    color: var(--success);
+}
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.booking-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.booking-title span {
+    color: var(--muted);
+
+    font-size: 6px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.booking-title h3 {
+    margin-top: 5px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: var(--navy);
+}
+
+.status {
+    padding: 6px 8px;
+
+    border-radius: 6px;
+
+    font-size: 6px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.status.today {
+    color: var(--primary);
+
+    background:
+        rgba(22, 131, 232, 0.08);
+}
+
+.status.upcoming {
+    color: var(--info);
+
+    background:
+        var(--info-soft);
+}
+
+.status.completed {
+    color: var(--success);
+
+    background:
+        var(--success-soft);
+}
+
+.customer-info {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 11px;
+}
+
+.customer-info span {
+    color: var(--text-secondary);
+
+    font-size: 8px;
+}
+
+.booking-details p {
+    margin-top: 10px;
+
+    color: var(--text-secondary);
+
+    font-size: 8px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+.booking-price {
+    text-align: right;
+}
+
+.booking-price span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 6px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.booking-price strong {
+    display: block;
+
+    margin: 5px 0 10px;
+
+    color: var(--primary);
+
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.booking-price button {
+    width: 100%;
+    height: 34px;
+
+    border:
+        1px solid
+        rgba(22, 131, 232, 0.30);
+
+    border-radius: 8px;
+
+    background:
+        rgba(22, 131, 232, 0.04);
+
+    color:
+        var(--primary);
+
+    font-size: 8px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.booking-price button:hover {
+
+    background:
+        rgba(22, 131, 232, 0.10);
+
+    border-color:
+        var(--primary);
+
+    color:
+        var(--primary);
+
+    box-shadow:
+        0 4px 12px
+        rgba(22, 131, 232, 0.10);
+}
+
+.booking-price button:disabled {
+
+    background:
+        #F1F5F9;
+
+    border-color:
+        #E2E8F0;
+
+    color:
+        #94A3B8;
+
+    cursor:
+        not-allowed;
+
+    box-shadow:
+        none;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty {
+    display: none;
+
+    padding: 60px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    background:
+        #FFFFFF;
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+.empty h3 {
+    font-size: 15px;
+    font-weight: 600;
+
+    color: var(--navy);
+}
+
+.empty p {
+    margin-top: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform:
+        translate(-50%, 20px);
+
+    padding:
+        12px 20px;
+
+    background:
+        #FFFFFF;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        9px;
+
+    color:
+        var(--text);
+
+    font-size:
+        9px;
+
+    box-shadow:
+        var(--shadow-md);
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    transition:
+        0.3s;
+
+    z-index:
+        5000;
+}
+
+.toast.show {
+    opacity:
+        1;
+
+    transform:
+        translate(-50%, 0);
+}
+
+
+/* =====================================================
+   MOBILE HEADER
+===================================================== */
+
+.mobile-header {
+    display: none;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .booking-card {
+
+        grid-template-columns:
+            58px
+            minmax(0, 1fr);
+
+    }
+
+    .booking-price {
+
+        grid-column:
+            2;
+
+        text-align:
+            left;
+
+        max-width:
+            180px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+
+        width:
+            250px;
+
+        transform:
+            translateX(-100%);
+
+        transition:
+            0.3s ease;
+
+        box-shadow:
+            10px 0 30px
+            rgba(11, 31, 68, 0.10);
+    }
+
+
+    .sidebar.open {
+
+        transform:
+            translateX(0);
+    }
+
+
+    .sidebar-overlay.show {
+
+        display:
+            block;
+
+        position:
+            fixed;
+
+        inset:
+            0;
+
+        background:
+            rgba(11, 31, 68, 0.18);
+
+        backdrop-filter:
+            blur(2px);
+
+        z-index:
+            900;
+    }
+
+
+    .main-content {
+
+        width:
+            100%;
+
+        margin-left:
+            0;
+    }
+
+
+    .mobile-header {
+
+        height:
+            64px;
+
+        padding:
+            0 18px;
+
+        background:
+            #FFFFFF;
+
+        border-bottom:
+            1px solid
+            var(--border);
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            space-between;
+
+        position:
+            sticky;
+
+        top:
+            0;
+
+        z-index:
+            800;
+
+        box-shadow:
+            0 1px 5px
+            rgba(11, 31, 68, 0.04);
+    }
+
+
+    .mobile-header button {
+
+        border:
+            none;
+
+        background:
+            transparent;
+
+        color:
+            var(--text);
+
+        font-size:
+            18px;
+    }
+
+
+    .mobile-header strong {
+
+        color:
+            var(--primary);
+
+        font-size:
+            16px;
+    }
+
+
+    .topbar {
+
+        display:
+            none;
+    }
+
+
+    .page {
+
+        padding:
+            30px 15px;
+    }
+
+
+    .booking-tabs {
+
+        overflow-x:
+            auto;
+
+        padding-bottom:
+            4px;
+    }
+
+
+    .tab {
+
+        flex-shrink:
+            0;
+    }
+
+
+    .booking-card {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            16px;
+    }
+
+
+    .date-box {
+
+        width:
+            100%;
+
+        height:
+            50px;
+
+        flex-direction:
+            row;
+
+        gap:
+            8px;
+    }
+
+
+    .date-box span {
+
+        font-size:
+            18px;
+    }
+
+
+    .booking-title {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+
+    .booking-price {
+
+        grid-column:
+            auto;
+
+        text-align:
+            left;
+
+        max-width:
+            none;
+    }
+
+
+    .booking-price button {
+
+        max-width:
+            220px;
+    }
+
+}
+
+
+
+/* =========================================================
+   KAMSETU MASTER UI — FINAL SHARED THEME
+   Applied uniformly across customer and provider pages.
+   ========================================================= */
+:root{
+  --kam-deep:#03045E;
+  --kam-blue:#0077B6;
+  --kam-cyan:#00B4D8;
+  --kam-light:#90E0EF;
+  --kam-pale:#CAF0F8;
+  --kam-page:#F7FCFE;
+  --kam-soft:#F1FAFC;
+  --kam-white:#FFFFFF;
+  --kam-text:#12304A;
+  --kam-muted:#5D7285;
+  --kam-border:#D7ECF3;
+}
+
+html,body{
+  background:var(--kam-page) !important;
+  color:var(--kam-text) !important;
+  font-family:Inter,Arial,sans-serif !important;
+}
+
+button,.btn,.button,input[type="submit"],input[type="button"]{
+  font-family:inherit !important;
+  font-weight:600 !important;
+}
+
+/* ---------- SHARED SIDEBAR ---------- */
+.sidebar{
+  position:fixed !important;
+  z-index:1000 !important;
+  top:0 !important;
+  left:0 !important;
+  bottom:0 !important;
+  width:225px !important;
+  min-width:225px !important;
+  height:100vh !important;
+  box-sizing:border-box !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:0 !important;
+  padding:18px 12px 14px !important;
+  margin:0 !important;
+  overflow:hidden !important;
+  background:var(--kam-white) !important;
+  color:var(--kam-text) !important;
+  border-right:1px solid var(--kam-border) !important;
+  box-shadow:2px 0 12px rgba(3,4,94,.04) !important;
+}
+
+.sidebar .logo,
+.sidebar-logo{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  width:100% !important;
+  min-height:48px !important;
+  flex:0 0 48px !important;
+  margin:0 0 12px !important;
+  padding:0 4px !important;
+  color:var(--kam-deep) !important;
+  text-decoration:none !important;
+  box-sizing:border-box !important;
+  overflow:hidden !important;
+}
+
+.sidebar .logo > div:last-child,
+.sidebar-logo > div:last-child{
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  line-height:1.1 !important;
+}
+
+.sidebar .logo strong,
+.sidebar-logo strong{
+  color:var(--kam-deep) !important;
+  font-size:18px !important;
+  font-weight:800 !important;
+  letter-spacing:.2px !important;
+  white-space:nowrap !important;
+}
+
+.sidebar .logo > div:last-child > span,
+.sidebar-logo > div:last-child > span{
+  color:var(--kam-muted) !important;
+  font-size:10px !important;
+  font-weight:500 !important;
+  margin-top:3px !important;
+  white-space:nowrap !important;
+}
+
+.logo-icon,
+.sidebar-logo .logo-icon{
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  flex:0 0 42px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:10px !important;
+  background:var(--kam-pale) !important;
+  color:var(--kam-deep) !important;
+  border:1px solid rgba(144,224,239,.65) !important;
+  font-size:21px !important;
+  font-weight:700 !important;
+}
+
+.sidebar-nav,
+.sidebar > nav{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:2px !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
+}
+
+.sidebar .nav-item,
+.sidebar-nav .nav-item,
+.sidebar > nav > .nav-item,
+.sidebar .logout-btn,
+.sidebar .logout{
+  width:100% !important;
+  min-width:0 !important;
+  height:42px !important;
+  min-height:42px !important;
+  flex:0 0 42px !important;
+  display:flex !important;
+  align-items:center !important;
+  box-sizing:border-box !important;
+  padding:0 11px !important;
+  margin:0 !important;
+  gap:10px !important;
+  border:1px solid transparent !important;
+  border-radius:9px !important;
+  background:transparent !important;
+  color:#5D7285 !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  line-height:1 !important;
+  text-decoration:none !important;
+  text-align:left !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  cursor:pointer !important;
+  box-shadow:none !important;
+}
+
+.sidebar .nav-item > span:first-child,
+.sidebar .logout-btn > span:first-child,
+.sidebar .logout > span:first-child{
+  width:20px !important;
+  min-width:20px !important;
+  flex:0 0 20px !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  color:#7A93A6 !important;
+  font-size:16px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+}
+
+.sidebar .nav-item > span:not(:first-child){
+  width:auto !important;
+  min-width:0 !important;
+  flex:1 1 auto !important;
+  display:inline !important;
+  color:inherit !important;
+  font-size:13px !important;
+  font-weight:600 !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+
+.sidebar .nav-item b,
+.sidebar .nav-count{
+  width:26px !important;
+  min-width:26px !important;
+  height:26px !important;
+  min-height:26px !important;
+  flex:0 0 26px !important;
+  margin-left:auto !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:0 !important;
+  border-radius:999px !important;
+  background:var(--kam-cyan) !important;
+  color:var(--kam-deep) !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  line-height:1 !important;
+}
+
+.sidebar .nav-item:hover,
+.sidebar .logout-btn:hover,
+.sidebar .logout:hover{
+  background:var(--kam-soft) !important;
+  color:var(--kam-blue) !important;
+  border-color:transparent !important;
+}
+
+.sidebar .nav-item:hover > span:first-child,
+.sidebar .logout-btn:hover > span:first-child,
+.sidebar .logout:hover > span:first-child{
+  color:var(--kam-blue) !important;
+}
+
+.sidebar .nav-item.active,
+.sidebar .nav-item[aria-current="page"]{
+  background:var(--kam-pale) !important;
+  color:var(--kam-blue) !important;
+  border-color:var(--kam-light) !important;
+  font-weight:700 !important;
+}
+
+.sidebar .nav-item.active > span:first-child,
+.sidebar .nav-item[aria-current="page"] > span:first-child{
+  color:var(--kam-blue) !important;
+}
+
+.sidebar .sidebar-bottom{
+  width:100% !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:2px !important;
+  margin-top:auto !important;
+  padding-top:12px !important;
+  flex-shrink:0 !important;
+  overflow:hidden !important;
+}
+
+.sidebar .sidebar-bottom .logout-btn,
+.sidebar .sidebar-bottom .logout{
+  color:#5D7285 !important;
+}
+
+.sidebar .sidebar-bottom .logout-btn:hover,
+.sidebar .sidebar-bottom .logout:hover{
+  background:#FFF5F5 !important;
+  color:#DC2626 !important;
+}
+
+/* Provider's optional identity row keeps the same compact system. */
+.sidebar .provider-mini{
+  display:flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 0 10px !important;
+  padding:7px 6px !important;
+  box-sizing:border-box !important;
+  border:1px solid var(--kam-border) !important;
+  border-radius:10px !important;
+  background:var(--kam-soft) !important;
+  overflow:hidden !important;
+}
+.sidebar .provider-mini .mini-avatar{
+  width:32px !important;
+  height:32px !important;
+  min-width:32px !important;
+  flex:0 0 32px !important;
+  display:grid !important;
+  place-items:center !important;
+  border-radius:50% !important;
+  background:var(--kam-pale) !important;
+  color:var(--kam-deep) !important;
+  font-weight:800 !important;
+}
+.sidebar .provider-mini > div:nth-child(2){
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.sidebar .provider-mini strong{
+  color:var(--kam-deep) !important;
+  font-size:12px !important;
+  font-weight:700 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+.sidebar .provider-mini span{
+  color:var(--kam-muted) !important;
+  font-size:10px !important;
+  margin-top:2px !important;
+  white-space:nowrap !important;
+}
+.sidebar .provider-mini i{
+  margin-left:auto !important;
+  width:7px !important;
+  height:7px !important;
+  border-radius:50% !important;
+  background:#16A34A !important;
+  flex:0 0 7px !important;
+}
+
+/* Main-content offset is always tied to the same 225px sidebar. */
+.main-content{
+  width:calc(100% - 225px) !important;
+  margin-left:225px !important;
+  box-sizing:border-box !important;
+}
+
+body:has(.sidebar) > .tracking-page,
+body:has(.sidebar) > .page,
+body:has(.sidebar) > .gb-main,
+body:has(.sidebar) > .p-main{
+  box-sizing:border-box !important;
+}
+
+/* Consistent topbar/header and action styling. */
+.topbar,
+.page-header,
+.main-header,
+.app-header{
+  background:#fff !important;
+  border-color:var(--kam-border) !important;
+  color:var(--kam-text) !important;
+}
+
+.primary,
+.primary-btn,
+.primary-button,
+.btn-primary,
+button.primary,
+button[type="submit"],
+input[type="submit"]{
+  background:var(--kam-blue) !important;
+  color:#fff !important;
+  border-color:var(--kam-blue) !important;
+  font-weight:600 !important;
+}
+
+.primary:hover,
+.primary-btn:hover,
+.primary-button:hover,
+.btn-primary:hover,
+button.primary:hover,
+button[type="submit"]:hover,
+input[type="submit"]:hover{
+  background:#00689F !important;
+  border-color:#00689F !important;
+  color:#fff !important;
+}
+
+.secondary,
+.secondary-btn,
+.secondary-button,
+.btn-secondary,
+button.secondary{
+  background:#fff !important;
+  color:var(--kam-blue) !important;
+  border:1px solid #BFE2EC !important;
+  font-weight:600 !important;
+}
+
+.secondary:hover,
+.secondary-btn:hover,
+.secondary-button:hover,
+.btn-secondary:hover,
+button.secondary:hover{
+  background:var(--kam-soft) !important;
+  color:var(--kam-deep) !important;
+  border-color:var(--kam-light) !important;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color:var(--kam-deep);
+}
+
+input,select,textarea{
+  color:var(--kam-text) !important;
+  background:#fff !important;
+  border-color:var(--kam-border) !important;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:var(--kam-blue) !important;
+  box-shadow:0 0 0 3px rgba(0,119,182,.10) !important;
+  outline:none !important;
+}
+
+/* ---------- MOBILE DRAWER ---------- */
+@media (max-width:900px){
+  .sidebar{
+    width:280px !important;
+    min-width:280px !important;
+  }
+  .main-content{
+    width:100% !important;
+    margin-left:0 !important;
+  }
+}
+
+
+/* Shared layout for pages that now use the master sidebar. */
+body:has(.sidebar) > .tracking-page,
+body:has(.sidebar) > .gb-main,
+body:has(.sidebar) > .p-main,
+body:has(.sidebar) > .page{
+  width:calc(100% - 225px) !important;
+  margin-left:225px !important;
+  box-sizing:border-box !important;
+}
+
+body:has(.sidebar) .main-content .page,
+body:has(.sidebar) .main-content > .page{
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  box-sizing:border-box !important;
+}
+
+@media (max-width:900px){
+  body:has(.sidebar) > .tracking-page,
+  body:has(.sidebar) > .gb-main,
+  body:has(.sidebar) > .p-main,
+  body:has(.sidebar) > .page{
+    width:100% !important;
+    margin-left:0 !important;
+  }
+}
+
+
+/* Header alignment on pages that have the shared sidebar. */
+body:has(.sidebar) > header{
+  width:calc(100% - 225px) !important;
+  margin-left:225px !important;
+  box-sizing:border-box !important;
+}
+
+@media (max-width:900px){
+  body:has(.sidebar) > header{
+    width:100% !important;
+    margin-left:0 !important;
+  }
+}
+
+/* Brand labels and page-specific legacy accents use the master palette. */
+.orange-label,
+.orange-text,
+.accent-orange,
+.eyebrow-accent{
+  color:var(--kam-blue) !important;
+}
+.orange-label{
+  background:var(--kam-pale) !important;
+  border-color:var(--kam-light) !important;
+}
+
+
+/* FINAL KAMSETU PROVIDER LAYOUT GUARD
+   Shared theme-light.css controls the common sidebar/main offset.
+   Keep page-specific content flexible and prevent horizontal clipping. */
+.main-content,
+.p-main,
+.tracking-page {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 700px) {
+    .main-content,
+    .p-main,
+    .tracking-page {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}

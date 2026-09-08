@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Get Things Done</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+        <link rel="stylesheet" href="theme-light.css">
+
+    <!-- MOBILE SIGN UP FIX -->
+    <style>
+        .mobile-signup-btn {
+            display: none;
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                position: relative;
+            }
+
+            .mobile-signup-btn {
+                display: inline-flex !important;
+                align-items: center;
+                justify-content: center;
+                height: 34px;
+                padding: 0 11px;
+                margin-left: 6px;
+                border: 1px solid #0077B6;
+                border-radius: 18px;
+                background: #0077B6;
+                color: #ffffff !important;
+                font-size: 10px;
+                font-weight: 700;
+                line-height: 1;
+                white-space: nowrap;
+                text-decoration: none !important;
+                box-shadow: 0 4px 12px rgba(0, 119, 182, 0.18);
+            }
+
+            .mobile-signup-btn:active {
+                transform: translateY(1px);
+            }
+        }
+
+        @media (max-width: 380px) {
+            .mobile-signup-btn {
+                height: 32px;
+                padding: 0 9px;
+                font-size: 9px;
+                margin-left: 4px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+
+        <div class="logo-symbol">
+            ⌂
+        </div>
+
+        <div>
+
+            <h2>
+               KAMSETU
+            </h2>
+
+            <span>
+                Get Things Done
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <nav class="nav-menu">
+
+
+        <a
+            href="index.html"
+            class="active"
+        >
+            Home
+        </a>
+
+
+        <a href="#services">
+            Services
+        </a>
+
+
+        <a href="#how">
+            How It Works
+        </a>
+
+
+        <a href="#providers">
+            Providers
+        </a>
+
+
+        <a href="#about">
+            About Us
+        </a>
+
+
+    </nav>
+
+
+    <div class="nav-right">
+
+
+        <button
+            type="button"
+            class="call-btn"
+            onclick="requestCall()"
+        >
+
+            ☎ Request Call
+
+        </button>
+
+
+        <a
+            href="login.html"
+            class="signin"
+        >
+
+            Sign In
+
+        </a>
+
+
+    </div>
+
+    <!-- MOBILE SIGN UP -->
+    <a
+        href="login.html"
+        class="mobile-signup-btn"
+        aria-label="Sign Up"
+    >
+        Sign Up
+    </a>
+
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<main id="home">
+
+
+    <section class="hero">
+
+
+        <div class="grid-left"></div>
+
+        <div class="grid-right"></div>
+
+        <div class="glow"></div>
+
+
+
+        <div class="hero-content">
+
+
+            <div class="tagline">
+
+                YOUR HOME. OUR EXPERTS.
+
+            </div>
+
+
+            <h1>
+
+                Find Trusted
+                <br>
+
+                Professionals.
+
+                <span>
+                    Negotiate.
+                </span>
+
+                <br>
+
+                <strong>
+                    Get It Done.
+                </strong>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Find skilled professionals for your
+                household needs, negotiate the best
+                price and get your work done
+                with confidence.
+
+            </p>
+
+
+
+            <!-- ================= SEARCH ================= -->
+
+            <div class="search-container">
+
+
+                <div class="search-item">
+
+                    <div class="search-icon">
+                        ⚒
+                    </div>
+
+                    <div>
+
+                        <label>
+                            SERVICE
+                        </label>
+
+                        <input
+                            id="service"
+                            type="text"
+                            placeholder="What service do you need?"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="divider"></div>
+
+
+
+                <div class="search-item">
+
+                    <div class="search-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <label>
+                            LOCATION
+                        </label>
+
+                        <input
+                            id="location"
+                            type="text"
+                            placeholder="Enter your location"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <button
+                    type="button"
+                    class="search-btn"
+                    onclick="findProfessional()"
+                >
+
+                    Find Professionals
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ================= TRUST ================= -->
+
+            <div class="trust">
+
+
+                <div class="avatar-group">
+
+                    <div class="avatar">
+                        R
+                    </div>
+
+                    <div class="avatar">
+                        A
+                    </div>
+
+                    <div class="avatar">
+                        P
+                    </div>
+
+                    <div class="avatar">
+                        S
+                    </div>
+
+                </div>
+
+
+                <div class="trust-text">
+
+                    <strong>
+                        50,000+
+                    </strong>
+
+                    <span>
+                        Happy Customers
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats-section">
+
+
+        <div class="stat-box">
+
+            <div class="stat-icon">
+                ♙
+            </div>
+
+            <strong>
+                10K+
+            </strong>
+
+            <span>
+                Verified Professionals
+            </span>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <div class="stat-icon">
+                ▣
+            </div>
+
+            <strong>
+                50K+
+            </strong>
+
+            <span>
+                Jobs Completed
+            </span>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <div class="stat-icon">
+                ☆
+            </div>
+
+            <strong>
+                4.8/5
+            </strong>
+
+            <span>
+                Average Rating
+            </span>
+
+        </div>
+
+
+        <div class="stat-box">
+
+            <div class="stat-icon">
+                ♢
+            </div>
+
+            <strong>
+                100+
+            </strong>
+
+            <span>
+                Service Categories
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section
+        class="services"
+        id="services"
+    >
+
+
+        <div class="section-title">
+
+            <span>
+                WHAT WE OFFER
+            </span>
+
+            <h2>
+                Everything your home needs.
+            </h2>
+
+            <p>
+                One platform. Skilled professionals.
+                Thousands of household solutions.
+            </p>
+
+        </div>
+
+
+
+        <div class="service-grid">
+
+
+            <div
+                class="service-card"
+                onclick="chooseService('Electrician')"
+            >
+
+                <div class="service-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Electrician
+                </h3>
+
+                <p>
+                    Wiring, repairs, installations
+                    and electrical maintenance.
+                </p>
+
+                <span>
+                    Find Electricians →
+                </span>
+
+            </div>
+
+
+
+            <div
+                class="service-card"
+                onclick="chooseService('Plumber')"
+            >
+
+                <div class="service-icon">
+                    🚰
+                </div>
+
+                <h3>
+                    Plumber
+                </h3>
+
+                <p>
+                    Pipes, leakage, taps,
+                    fittings and repairs.
+                </p>
+
+                <span>
+                    Find Plumbers →
+                </span>
+
+            </div>
+
+
+
+            <div
+                class="service-card"
+                onclick="chooseService('Carpenter')"
+            >
+
+                <div class="service-icon">
+                    🪚
+                </div>
+
+                <h3>
+                    Carpenter
+                </h3>
+
+                <p>
+                    Furniture repair,
+                    installation and custom work.
+                </p>
+
+                <span>
+                    Find Carpenters →
+                </span>
+
+            </div>
+
+
+
+            <div
+                class="service-card"
+                onclick="chooseService('Cleaner')"
+            >
+
+                <div class="service-icon">
+                    🧹
+                </div>
+
+                <h3>
+                    Home Cleaning
+                </h3>
+
+                <p>
+                    Deep cleaning, regular cleaning
+                    and home maintenance.
+                </p>
+
+                <span>
+                    Find Cleaners →
+                </span>
+
+            </div>
+
+
+
+            <div
+                class="service-card"
+                onclick="chooseService('Painter')"
+            >
+
+                <div class="service-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Painter
+                </h3>
+
+                <p>
+                    Interior, exterior and
+                    decorative painting.
+                </p>
+
+                <span>
+                    Find Painters →
+                </span>
+
+            </div>
+
+
+
+            <div
+                class="service-card"
+                onclick="chooseService('AC Repair')"
+            >
+
+                <div class="service-icon">
+                    ❄
+                </div>
+
+                <h3>
+                    AC Repair
+                </h3>
+
+                <p>
+                    Servicing, installation
+                    and AC maintenance.
+                </p>
+
+                <span>
+                    Find Technicians →
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= HOW IT WORKS ================= -->
+
+    <section
+        class="how"
+        id="how"
+    >
+
+
+        <div class="section-title">
+
+            <span>
+                HOW KAMSETU WORKS
+            </span>
+
+            <h2>
+                From problem to solution.
+            </h2>
+
+        </div>
+
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Search
+                </h3>
+
+                <p>
+                    Tell us what service
+                    you need.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Compare
+                </h3>
+
+                <p>
+                    Check professionals,
+                    ratings and experience.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Negotiate
+                </h3>
+
+                <p>
+                    Discuss the work and
+                    negotiate the price.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    Get It Done
+                </h3>
+
+                <p>
+                    Hire the professional
+                    and complete the job.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= NEGOTIATION ================= -->
+
+    <section class="negotiation">
+
+
+        <div class="negotiation-content">
+
+
+            <span>
+                KAMSETU DIFFERENCE
+            </span>
+
+
+            <h2>
+
+                Don't just
+                <br>
+
+                <span>
+                    book.
+                </span>
+
+                Negotiate.
+
+            </h2>
+
+
+            <p>
+
+                Unlike fixed-price service platforms,
+                KAMSETU lets customers and professionals
+                discuss the job and agree on a price
+                that works for both.
+
+            </p>
+
+
+            <button
+                type="button"
+                onclick="startNegotiation()"
+            >
+
+                Start Negotiating →
+
+            </button>
+
+
+        </div>
+
+
+
+        <div class="chat-box">
+
+
+            <div class="chat-header">
+
+
+                <div class="chat-avatar">
+                    RK
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Rahul Kumar
+                    </strong>
+
+                    <span>
+                        ● Online
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="messages">
+
+
+                <div class="message provider">
+
+                    I can complete the work
+                    for ₹600.
+
+                </div>
+
+
+                <div class="message customer">
+
+                    Can you do it for ₹500?
+
+                </div>
+
+
+                <div class="message provider">
+
+                    How about ₹550?
+
+                </div>
+
+
+                <div class="message customer">
+
+                    Sounds good 👍
+
+                </div>
+
+
+                <div class="deal">
+
+                    ✓ Deal agreed · ₹550
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= PROVIDER ================= -->
+
+    <section
+        class="provider"
+        id="providers"
+    >
+
+
+        <div>
+
+
+            <span class="section-small">
+                FOR PROFESSIONALS
+            </span>
+
+
+            <h2>
+
+                Turn your
+                <span>
+                    skills
+                </span>
+
+                into income.
+
+            </h2>
+
+
+            <p>
+
+                Join KAMSETU as a professional.
+                Create your profile, choose your
+                availability and connect with customers
+                near you.
+
+            </p>
+
+
+            <button
+                type="button"
+                onclick="becomeProvider()"
+            >
+
+                Become a Provider →
+
+            </button>
+
+
+        </div>
+
+
+
+        <div class="earning-card">
+
+
+            <span>
+                MONTHLY EARNINGS
+            </span>
+
+
+            <strong>
+                ₹28,450
+            </strong>
+
+
+            <p>
+                +18.4% this month
+            </p>
+
+
+            <div class="bars">
+
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= CTA ================= -->
+
+    <section
+        class="final-cta"
+        id="about"
+    >
+
+
+        <span>
+            READY WHEN YOU ARE
+        </span>
+
+
+        <h2>
+
+            Your next task
+            <br>
+
+            <strong>
+                starts here.
+            </strong>
+
+        </h2>
+
+
+        <p>
+            Find the right professional
+            for whatever your home needs.
+        </p>
+
+
+        <button
+            type="button"
+            onclick="goToSearch()"
+        >
+
+            Find a Professional →
+
+        </button>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+
+    <div class="footer-top">
+
+
+        <div class="footer-brand">
+
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+
+                <div class="logo-symbol">
+                    ⌂
+                </div>
+
+                <div>
+
+                    <h2>
+                        KAMSETU
+                    </h2>
+
+                    <span>
+                        Get Things Done
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <p>
+                Connecting households with
+                skilled local professionals.
+            </p>
+
+
+        </div>
+
+
+
+        <!-- SERVICES -->
+
+        <div>
+
+            <h4>
+                SERVICES
+            </h4>
+
+
+            <a href="#services">
+                Electrician
+            </a>
+
+
+            <a href="#services">
+                Plumber
+            </a>
+
+
+            <a href="#services">
+                Carpenter
+            </a>
+
+
+            <a href="#services">
+                Cleaning
+            </a>
+
+        </div>
+
+
+
+        <!-- COMPANY -->
+
+        <div>
+
+            <h4>
+                COMPANY
+            </h4>
+
+
+            <a href="#about">
+                About Us
+            </a>
+
+
+            <a href="#providers">
+                Providers
+            </a>
+
+
+            <a href="provider/provider-register.html">
+    Become a Provider
+</a>
+
+
+            <a href="mailto:support@KAMSETU.com">
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <!-- SUPPORT -->
+
+        <div>
+
+            <h4>
+                SUPPORT
+            </h4>
+
+
+            <a href="#">
+                Help Center
+            </a>
+
+
+            <a href="#">
+                Safety
+            </a>
+
+
+            <a href="#">
+                Privacy
+            </a>
+
+
+            <a href="#">
+                Terms
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 KAMSETU. All rights reserved.
+        </span>
+
+
+        <span>
+            Made for better everyday services.
+        </span>
+
+    </div>
+
+
+</footer>
+
+
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+
+<script src="script.js"></script>
+
+    <script src="ai-assistant.js"></script>
+
+</body>
+
+</html>

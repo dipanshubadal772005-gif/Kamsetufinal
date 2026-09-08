@@ -1,0 +1,86 @@
+KAMSETU GROUP / SOCIETY BOOKING FEATURE
+=======================================
+
+WHAT WAS ADDED
+---------------
+1. Customer group booking page:
+   customer/group-booking.html
+   customer/group-booking.css
+   customer/group-booking.js
+
+2. Provider group request page:
+   provider/group-booking-requests.html
+   provider/group-booking-requests.css
+   provider/group-booking-requests.js
+
+3. Backend models:
+   backend/models/groupBooking.js
+   backend/models/groupBookingMember.js
+
+4. Backend controller and routes:
+   backend/controllers/groupBookingController.js
+   backend/routes/groupBookingRoutes.js
+
+5. Existing booking model now supports:
+   booking.groupBooking
+
+6. Existing booking status updates synchronize group/member progress.
+
+7. Customer dashboard has a Group Booking navigation item and a Book Together banner.
+
+8. Provider dashboard has a Group Requests navigation item.
+
+BACKEND ROUTES
+--------------
+POST   /api/group-bookings
+GET    /api/group-bookings/customer
+GET    /api/group-bookings/invite/:code
+POST   /api/group-bookings/:id/join
+POST   /api/group-bookings/:id/request-provider
+POST   /api/group-bookings/:id/accept-quote
+POST   /api/group-bookings/:id/cancel
+GET    /api/group-bookings/provider
+POST   /api/group-bookings/:id/quote
+GET    /api/group-bookings/:id
+
+WORKFLOW
+--------
+Customer creates a group and becomes the organizer.
+Organizer shares the generated invite code/link.
+Neighbours join and enter their own flat + work requirement.
+Organizer requests a provider after at least 2 households join.
+Matching providers see the group request.
+Provider submits one total group quote.
+Organizer accepts a quote.
+KAMSETU creates one normal Booking for every household and links each booking to the GroupBooking.
+Existing booking, payment, tracking and review workflows can continue from those individual bookings.
+
+IMPORTANT
+---------
+The provider must already have an active Service whose serviceName matches the group service name.
+The group quote is divided equally among participating households in this first implementation.
+No new npm dependency was added.
+The feature uses the existing KAMSETU JWT authentication and MongoDB setup.
+
+RUN
+---
+Start the backend using the existing command:
+cd backend
+npm install
+npm start
+
+Then open the frontend using the same method you already use for KAMSETU.
+
+For a demo:
+1. Login as a customer.
+2. Open Customer Dashboard -> Group Booking.
+3. Create an Electrician group for a future date.
+4. Copy the invite link/code.
+5. Login as another customer in a separate browser/session and join the group.
+6. Add at least 2 households.
+7. Organizer clicks Find a Provider.
+8. Login as a provider who has an active Electrician service.
+9. Open Provider Dashboard -> Group Requests.
+10. Send a group quote.
+11. Return to organizer and accept the quote.
+12. Check My Bookings: individual bookings will be created for all group members.

@@ -1,0 +1,28 @@
+services:
+  - type: web
+    runtime: node
+    name: kamsetu-backend
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+  
+    healthCheckPath: /
+    autoDeployTrigger: commit
+    envVars:
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.6-flash
+
+  - type: web
+    runtime: static
+    name: kamsetu-frontend
+    rootDir: .
+    buildCommand: echo "KAMSETU static frontend - no build required"
+    staticPublishPath: .
+    plan: free
+    autoDeployTrigger: commit

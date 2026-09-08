@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../config.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMSETU - Group Booking</title>
+    <link rel="stylesheet" href="group-booking.css">
+        <link rel="stylesheet" href="../theme-light.css">
+<link rel="stylesheet" href="customer-sidebar.css">
+</head>
+<body>
+    <header class="gb-header">
+        <a class="gb-brand" href="customer-dashboard.html">
+            <span class="gb-logo">⌂</span>
+            <span><strong>KAMSETU</strong><small>Book together. Get it done.</small></span>
+        </a>
+        <a class="back-link" href="customer-dashboard.html">← Dashboard</a>
+    </header>
+
+    <main class="gb-main">
+        <section class="gb-hero">
+            <div>
+                <span class="eyebrow">GROUP / SOCIETY BOOKING</span>
+                <h1>Book one professional for multiple nearby homes.</h1>
+                <p>Coordinate with neighbours, reduce repeated travel and let the provider send one group quote.</p>
+            </div>
+            <div class="hero-stat"><strong>4–5</strong><span>homes can share<br>one service visit</span></div>
+        </section>
+
+        <div class="gb-layout">
+            <section class="panel form-panel" id="createPanel">
+                <div class="panel-title"><span class="step">01</span><div><span class="eyebrow">CREATE</span><h2>Start a group booking</h2></div></div>
+                <form id="createForm">
+                    <div class="form-grid">
+                        <label>Service<input id="serviceName" required placeholder="Electrician, Plumber, Cleaning..." list="serviceOptions"></label>
+                        <datalist id="serviceOptions"><option value="Electrician"><option value="Plumber"><option value="AC Repair"><option value="Carpenter"><option value="Cleaning"><option value="Painter"></datalist>
+                        <label>Service type <input id="serviceType" placeholder="Repair, installation, inspection..."></label>
+                        <label>Society / locality <input id="societyName" required placeholder="ABC Residency"></label>
+                        <label>Address <input id="address" required placeholder="Street, area, city"></label>
+                        <label>Flat / house number <input id="flatNumber" required placeholder="A-101"></label>
+                        <label>Building (optional) <input id="building" placeholder="Tower A"></label>
+                        <label>Date <input id="bookingDate" type="date" required></label>
+                        <label>Preferred time <input id="bookingTime" required placeholder="10:00 AM - 2:00 PM"></label>
+                        <label>Maximum households <select id="maxMembers"><option value="5">5 households</option><option value="4">4 households</option><option value="6">6 households</option><option value="8">8 households</option><option value="10">10 households</option></select></label>
+                    </div>
+                    <label class="full-field">What work do you need?<textarea id="requirement" required maxlength="2000" placeholder="Example: Fan installation and two switch replacements"></textarea></label>
+                    <div class="coord-row"><label>Latitude (optional)<input id="latitude" type="number" step="any" placeholder="28.61"></label><label>Longitude (optional)<input id="longitude" type="number" step="any" placeholder="77.23"></label></div>
+                    <button class="primary-btn" type="submit">Create Group Booking <span>→</span></button>
+                </form>
+            </section>
+
+            <section class="panel join-panel" id="joinPanel">
+                <div class="panel-title"><span class="step">02</span><div><span class="eyebrow">JOIN</span><h2>Join your neighbour's group</h2></div></div>
+                <p class="panel-copy">Have an invite code or link? Enter the code and add your own household's work requirement.</p>
+                <form id="lookupForm" class="lookup-form">
+                    <input id="inviteCode" required placeholder="Enter invite code, e.g. 7A3F9C12B0">
+                    <button class="secondary-btn" type="submit">Find Group</button>
+                </form>
+                <div id="invitePreview" class="invite-preview hidden"></div>
+                <form id="joinForm" class="hidden">
+                    <div class="form-grid two">
+                        <label>Flat / house number<input id="joinFlat" required placeholder="B-204"></label>
+                        <label>Building (optional)<input id="joinBuilding" placeholder="Tower B"></label>
+                    </div>
+                    <label>What work do you need?<textarea id="joinRequirement" required maxlength="2000" placeholder="Describe your work"></textarea></label>
+                    <button class="primary-btn" type="submit">Join This Group <span>→</span></button>
+                </form>
+            </section>
+        </div>
+
+        <section class="panel current-panel">
+            <div class="panel-title row"><div><span class="eyebrow">MY GROUPS</span><h2>Group bookings</h2></div><button class="secondary-btn small" id="refreshGroups">Refresh</button></div>
+            <div id="groupList" class="group-list"><div class="empty-state">Loading your group bookings...</div></div>
+        </section>
+
+        <section id="groupDetail" class="panel detail-panel hidden"></section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+    <script src="group-booking.js"></script>
+<script src="customer-sidebar.js"></script>
+</body>
+</html>

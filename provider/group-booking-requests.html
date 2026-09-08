@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../config.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMSETU - Group Requests</title>
+    <link rel="stylesheet" href="group-booking-requests.css">
+        <link rel="stylesheet" href="../theme-light.css">
+</head>
+<body>
+    <header class="p-header">
+        <a href="provider-dashboard.html" class="brand"><span class="brand-icon">⌂</span><span><strong>KAMSETU</strong><small>Provider Panel</small></span></a>
+        <a href="provider-dashboard.html" class="back">← Dashboard</a>
+    </header>
+    <main class="p-main">
+        <section class="p-hero">
+            <div><span class="eyebrow">BULK / SOCIETY REQUESTS</span><h1>Serve multiple nearby homes in one visit.</h1><p>Group jobs can reduce repeated travel and give you a larger, more efficient service visit.</p></div>
+            <div class="hero-icon">👥</div>
+        </section>
+        <section class="panel">
+            <div class="section-head"><div><span class="eyebrow">MATCHING REQUESTS</span><h2>Available group bookings</h2></div><button class="secondary-btn" id="refresh">Refresh</button></div>
+            <div id="requestList" class="request-list"><div class="empty">Loading group requests...</div></div>
+        </section>
+    </main>
+    <div id="toast" class="toast"></div>
+    <script src="group-booking-requests.js"></script>
+</body>
+</html>

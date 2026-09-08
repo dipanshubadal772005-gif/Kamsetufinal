@@ -1,0 +1,18 @@
+KAMSETU POST-COMPLETION PAYMENT (PROTOTYPE)
+
+Flow:
+1. Provider completes the job.
+2. Customer opens My Bookings.
+3. A completed booking shows "Pay Provider".
+4. Customer selects UPI or Cash.
+5. For UPI, customer enters the transaction/reference ID after paying through their chosen UPI app.
+6. KAMSETU records the booking as paid in MongoDB.
+7. The Pay Provider button changes to Payment Completed.
+
+Backend endpoints:
+PATCH /api/bookings/:id/request-payment
+PATCH /api/bookings/:id/payment
+
+Important:
+This is a payment-status/confirmation flow for the prototype. It does NOT process card/bank/UPI money itself.
+A real payment gateway (such as Razorpay) is required for automated payment processing and verification.

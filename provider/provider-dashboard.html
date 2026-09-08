@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../config.js"></script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KAMSETU - Provider Dashboard</title>
+
+    <link rel="stylesheet" href="provider-dashboard.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+        <link rel="stylesheet" href="../theme-light.css">
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <a href="../index.html" class="logo">
+
+            <div class="logo-icon">
+                ⌂
+            </div>
+
+            <div>
+
+                <strong>
+                    KAMSETU
+                </strong>
+
+                <span>
+                    Get Things Done
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- PROVIDER INFO -->
+
+        <div class="provider-mini">
+
+            <div class="mini-avatar" id="providerSidebarAvatar">
+                U
+            </div>
+
+            <div>
+
+                <strong id="providerSidebarName">
+                    User
+                </strong>
+
+                <span id="providerSidebarService">
+                    Service Provider
+                </span>
+
+            </div>
+
+            <i class="online"></i>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <!-- DASHBOARD -->
+
+            <a href="provider-dashboard.html" class="nav-item active">
+
+                <span>
+                    ▦
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+
+            <!-- SERVICE REQUESTS -->
+
+            <a href="provider-requests.html" class="nav-item">
+
+                <span>
+                    ◈
+                </span>
+
+                Service Requests
+
+                <b>
+                    5
+                </b>
+
+            </a>
+
+
+
+            <!-- GROUP BOOKINGS -->
+
+            <a href="group-booking-requests.html" class="nav-item">
+
+                <span>
+                    👥
+                </span>
+
+                Group Requests
+
+            </a>
+
+
+            <!-- BOOKINGS -->
+
+            <a href="provider-bookings.html" class="nav-item">
+
+                <span>
+                    ◫
+                </span>
+
+                My Bookings
+
+                <b>
+                    2
+                </b>
+
+            </a>
+
+
+
+            <!-- MESSAGES -->
+
+            <a href="provider-message.html" class="nav-item">
+
+                <span>
+                    ◌
+                </span>
+
+                Messages
+
+                <b>
+                    3
+                </b>
+
+            </a>
+
+
+
+            <!-- SERVICES -->
+
+            <a href="provider-services.html" class="nav-item">
+
+                <span>
+                    ⚒
+                </span>
+
+                My Services
+
+            </a>
+
+
+
+            <!-- EARNINGS -->
+
+            <a href="provider-earnings.html" class="nav-item">
+
+                <span>
+                    ₹
+                </span>
+
+                Earnings
+
+            </a>
+
+
+
+            <!-- PROFILE -->
+
+            <a href="provider-profile.html" class="nav-item">
+
+                <span>
+                    ◎
+                </span>
+
+                Profile
+
+            </a>
+
+
+
+            <!-- NEGOTIATIONS -->
+
+            <a href="provider-negotiations.html" class="nav-item">
+
+                <span>
+                    ⇄
+                </span>
+
+                Negotiations
+
+                <b>
+                    2
+                </b>
+
+            </a>
+
+            <!-- WORK HISTORY: DASHBOARD ONLY -->
+            <a href="provider-history.html" class="nav-item">
+                <span>▣</span>
+                <span>Work History</span>
+            </a>
+</nav>
+
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+
+            <!-- SETTINGS -->
+
+            <a href="#" class="nav-item" onclick="showComingSoon(event)">
+
+                <span>
+                    ⚙
+                </span>
+
+                Settings
+
+            </a>
+
+
+
+            <!-- LOGOUT -->
+
+            <button type="button" class="nav-item logout-btn" onclick="logoutProvider()">
+
+                <span>
+                    ↪
+                </span>
+
+                Logout
+
+            </button>
+
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MOBILE HEADER
+    ====================================================== -->
+
+    <header class="mobile-header">
+
+
+        <button type="button" class="menu-btn" onclick="toggleSidebar()">
+            ☰
+        </button>
+
+
+        <strong>
+            KAMSETU
+        </strong>
+
+
+        <button type="button" class="mobile-notification" onclick="showNotifications()">
+            🔔
+        </button>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div class="page-heading">
+
+                <span>
+                    PROFESSIONAL PANEL
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+
+            <div class="top-actions">
+
+
+                <!-- AVAILABILITY -->
+
+                <button type="button" class="availability-toggle" id="availabilityButton"
+                    onclick="toggleAvailability()">
+
+                    <i></i>
+
+                    <span>
+                        Available
+                    </span>
+
+                </button>
+
+
+
+                <!-- NOTIFICATION -->
+
+                <button type="button" class="notification" onclick="showNotifications()">
+
+                    🔔
+
+                    <small>
+                        3
+                    </small>
+
+                </button>
+
+
+
+                <!-- PROFILE -->
+
+                <button type="button" class="user-profile" onclick="openProfile()">
+
+                    <div class="user-avatar" id="topUserAvatar">
+                        U
+                    </div>
+
+                    <div>
+
+                        <strong id="topUserName">
+                            User
+                        </strong>
+
+                        <span id="topUserService">
+                            Service Provider
+                        </span>
+
+                    </div>
+
+                    <i>
+                        ▾
+                    </i>
+
+                </button>
+
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             DASHBOARD
+        ====================================================== -->
+
+        <section class="dashboard-page">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome-section">
+
+                <div>
+
+                    <span>
+                        MONDAY, 31 AUGUST 2026
+                    </span>
+
+                    <h2>
+                        Good evening, <span id="welcomeProviderName">User</span>.
+                    </h2>
+
+                    <p>
+                        Here's what's happening
+                        with your KAMSETU business.
+                    </p>
+
+                </div>
+
+
+                <button type="button" class="add-service-btn" onclick="addService()">
+                    + Add Service
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ◈
+                    </div>
+
+                    <div>
+
+                        <span>
+                            NEW REQUESTS
+                        </span>
+
+                        <strong>
+                            5
+                        </strong>
+
+                        <small>
+                            +2 since yesterday
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            ACTIVE BOOKINGS
+                        </span>
+
+                        <strong>
+                            2
+                        </strong>
+
+                        <small>
+                            1 today
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ₹
+                    </div>
+
+                    <div>
+
+                        <span>
+                            THIS MONTH
+                        </span>
+
+                        <strong>
+                            ₹24,850
+                        </strong>
+
+                        <small>
+                            +18.4% from last month
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ★
+                    </div>
+
+                    <div>
+
+                        <span>
+                            RATING
+                        </span>
+
+                        <strong>
+                            4.8
+                        </strong>
+
+                        <small>
+                            From 120 reviews
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DASHBOARD GRID
+            ================================================== -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- SERVICE REQUESTS -->
+
+                <section class="dashboard-card requests-card">
+
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span>
+                                OPPORTUNITIES
+                            </span>
+
+                            <h3>
+                                New Service Requests
+                            </h3>
+
+                        </div>
+
+                        <a href="provider-requests.html">
+                            View all →
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- REQUEST 1 -->
+
+                    <article class="request-item">
+
+                        <div class="request-icon">
+                            ⚡
+                        </div>
+
+                        <div class="request-info">
+
+                            <div class="request-title">
+
+                                <h4>
+                                    Electrical Repair
+                                </h4>
+
+                                <span>
+                                    8 min ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Fan and switchboard
+                                repair required
+                            </p>
+
+                            <small>
+                                📍 Sector 45, Gurgaon
+                            </small>
+
+                        </div>
+
+                        <div class="request-price">
+
+                            <span>
+                                CUSTOMER BUDGET
+                            </span>
+
+                            <strong>
+                                ₹500
+                            </strong>
+
+                        </div>
+
+                        <div class="request-actions">
+
+                            <button type="button" class="decline-btn" onclick="declineRequest(this)">
+                                Decline
+                            </button>
+
+                            <button type="button" class="accept-btn" onclick="acceptRequest(this)">
+                                View Request
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- REQUEST 2 -->
+
+                    <article class="request-item">
+
+                        <div class="request-icon blue">
+                            ❄
+                        </div>
+
+                        <div class="request-info">
+
+                            <div class="request-title">
+
+                                <h4>
+                                    AC Installation
+                                </h4>
+
+                                <span>
+                                    24 min ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Split AC installation
+                                and testing
+                            </p>
+
+                            <small>
+                                📍 DLF Phase 3, Gurgaon
+                            </small>
+
+                        </div>
+
+                        <div class="request-price">
+
+                            <span>
+                                CUSTOMER BUDGET
+                            </span>
+
+                            <strong>
+                                ₹900
+                            </strong>
+
+                        </div>
+
+                        <div class="request-actions">
+
+                            <button type="button" class="decline-btn" onclick="declineRequest(this)">
+                                Decline
+                            </button>
+
+                            <button type="button" class="accept-btn" onclick="acceptRequest(this)">
+                                View Request
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- REQUEST 3 -->
+
+                    <article class="request-item">
+
+                        <div class="request-icon green">
+                            ◉
+                        </div>
+
+                        <div class="request-info">
+
+                            <div class="request-title">
+
+                                <h4>
+                                    Wiring Inspection
+                                </h4>
+
+                                <span>
+                                    41 min ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Complete home wiring
+                                inspection
+                            </p>
+
+                            <small>
+                                📍 Sector 21, Gurgaon
+                            </small>
+
+                        </div>
+
+                        <div class="request-price">
+
+                            <span>
+                                CUSTOMER BUDGET
+                            </span>
+
+                            <strong>
+                                ₹700
+                            </strong>
+
+                        </div>
+
+                        <div class="request-actions">
+
+                            <button type="button" class="decline-btn" onclick="declineRequest(this)">
+                                Decline
+                            </button>
+
+                            <button type="button" class="accept-btn" onclick="acceptRequest(this)">
+                                View Request
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                </section>
+
+
+
+               <!-- =================================================
+     SERVICE LOCATION
+================================================== -->
+
+<section class="dashboard-card schedule-card location-dashboard-card">
+
+    <div class="card-header">
+
+        <div>
+
+            <span>
+                SERVICE LOCATION
+            </span>
+
+            <h3>
+                Customer Location
+            </h3>
+
+        </div>
+
+        <a href="provider-bookings.html">
+            My Bookings →
+        </a>
+
+    </div>
+
+
+    <div class="map-meta">
+
+        <div>
+
+            <strong id="mapServiceName">
+                Electrical Repair
+            </strong>
+
+            <span id="mapLocationText">
+                Sector 45, Gurgaon
+            </span>
+
+        </div>
+
+        <div class="demo-location-badge">
+            DEMO LOCATION
+        </div>
+
+    </div>
+
+
+    <div
+        id="providerDashboardMap"
+        class="provider-dashboard-map">
+    </div>
+
+
+    <div class="tracking-summary">
+
+        <div class="tracking-info">
+
+            <span>
+                PROVIDER
+            </span>
+
+            <strong>
+                Amit Sharma
+            </strong>
+
+            <small>
+                📍 Sector 52, Gurgaon
+            </small>
+
+        </div>
+
+
+        <div class="tracking-info">
+
+            <span>
+                CUSTOMER
+            </span>
+
+            <strong>
+                Rahul Kumar
+            </strong>
+
+            <small>
+                📍 Sector 45, Gurgaon
+            </small>
+
+        </div>
+
+
+        <div class="tracking-info">
+
+            <span>
+                DISTANCE
+            </span>
+
+            <strong id="providerDashboardDistance">
+                Calculating...
+            </strong>
+
+        </div>
+
+
+        <div class="tracking-info">
+
+            <span>
+                ESTIMATED ARRIVAL
+            </span>
+
+            <strong id="providerDashboardETA">
+                Calculating...
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+                <!-- EARNINGS -->
+
+                <section class="dashboard-card earnings-card">
+
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span>
+                                FINANCIAL OVERVIEW
+                            </span>
+
+                            <h3>
+                                Earnings
+                            </h3>
+
+                        </div>
+
+                        <a href="provider-earnings.html">
+                            View details →
+                        </a>
+
+                    </div>
+
+
+                    <div class="earning-main">
+
+                        <div>
+
+                            <span>
+                                THIS MONTH
+                            </span>
+
+                            <strong>
+                                ₹24,850
+                            </strong>
+
+                        </div>
+
+                        <div class="earning-change">
+                            ↑ 18.4%
+                        </div>
+
+                    </div>
+
+
+                    <div class="earning-bar">
+
+                        <div style="width: 74%;"></div>
+
+                    </div>
+
+
+                    <div class="earning-footer">
+
+                        <span>
+                            ₹24,850 earned
+                        </span>
+
+                        <span>
+                            Goal ₹33,500
+                        </span>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- RECENT BOOKINGS -->
+
+                <section class="dashboard-card bookings-card">
+
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span>
+                                ACTIVITY
+                            </span>
+
+                            <h3>
+                                Recent Bookings
+                            </h3>
+
+                        </div>
+
+                        <a href="provider-bookings.html">
+                            View all →
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="booking-row">
+
+                        <div class="booking-avatar">
+                            AS
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Amit Sharma
+                            </strong>
+
+                            <span>
+                                Electrical Repair
+                            </span>
+
+                        </div>
+
+                        <div class="booking-status completed">
+                            Completed
+                        </div>
+
+                        <strong class="booking-amount">
+                            ₹450
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="booking-row">
+
+                        <div class="booking-avatar blue">
+                            NG
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Neha Gupta
+                            </strong>
+
+                            <span>
+                                Wiring Inspection
+                            </span>
+
+                        </div>
+
+                        <div class="booking-status upcoming">
+                            Upcoming
+                        </div>
+
+                        <strong class="booking-amount">
+                            ₹700
+                        </strong>
+
+                    </div>
+
+
+
+                    <div class="booking-row">
+
+                        <div class="booking-avatar purple">
+                            RM
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Rohan Mehta
+                            </strong>
+
+                            <span>
+                                Fan Installation
+                            </span>
+
+                        </div>
+
+                        <div class="booking-status upcoming">
+                            Upcoming
+                        </div>
+
+                        <strong class="booking-amount">
+                            ₹600
+                        </strong>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================== -->
+
+            <section class="quick-actions">
+
+
+                <button type="button" onclick="addService()">
+
+                    <span>
+                        +
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Add Service
+                        </strong>
+
+                        <small>
+                            Create a new service
+                        </small>
+
+                    </div>
+
+                </button>
+
+
+
+                <button type="button" onclick="openRequests()">
+
+                    <span>
+                        ◈
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            View Requests
+                        </strong>
+
+                        <small>
+                            5 new opportunities
+                        </small>
+
+                    </div>
+
+                </button>
+
+
+
+                <button type="button" onclick="openMessages()">
+
+                    <span>
+                        ◌
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Messages
+                        </strong>
+
+                        <small>
+                            3 unread messages
+                        </small>
+
+                    </div>
+
+                </button>
+
+
+
+                <button type="button" onclick="openProfile()">
+
+                    <span>
+                        ◎
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Edit Profile
+                        </strong>
+
+                        <small>
+                            Update your information
+                        </small>
+
+                    </div>
+
+                </button>
+
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- MOBILE OVERLAY -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+
+
+    <!-- TOAST -->
+
+    <div class="toast" id="toast"></div>
+
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- LOAD ACTUAL LOGGED-IN PROVIDER -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const raw =
+                localStorage.getItem("servioProvider") ||
+                localStorage.getItem("servioUser") ||
+                localStorage.getItem("KAMSETUUser") ||
+                sessionStorage.getItem("servioProvider") ||
+                sessionStorage.getItem("servioUser") ||
+                sessionStorage.getItem("KAMSETUUser");
+
+            if (!raw) {
+                console.log("No logged-in provider found.");
+                return;
+            }
+
+            try {
+                const user = JSON.parse(raw);
+
+                const cleanName =
+                    String(user.name || user.fullName || "User").trim();
+
+                const service =
+                    String(
+                        user.service ||
+                        user.profession ||
+                        user.category ||
+                        "Service Provider"
+                    ).trim();
+
+                const topUserName =
+                    document.getElementById("topUserName");
+
+                const topUserAvatar =
+                    document.getElementById("topUserAvatar");
+
+                const topUserService =
+                    document.getElementById("topUserService");
+
+                const providerSidebarName =
+                    document.getElementById("providerSidebarName");
+
+                const providerSidebarAvatar =
+                    document.getElementById("providerSidebarAvatar");
+
+                const providerSidebarService =
+                    document.getElementById("providerSidebarService");
+
+                const welcomeProviderName =
+                    document.getElementById("welcomeProviderName");
+
+                const firstLetter =
+                    cleanName.charAt(0).toUpperCase() || "U";
+
+                if (topUserName) {
+                    topUserName.textContent = cleanName;
+                }
+
+                if (topUserAvatar) {
+                    topUserAvatar.textContent = firstLetter;
+                }
+
+                if (topUserService) {
+                    topUserService.textContent = service;
+                }
+
+                if (providerSidebarName) {
+                    providerSidebarName.textContent = cleanName;
+                }
+
+                if (providerSidebarAvatar) {
+                    providerSidebarAvatar.textContent = firstLetter;
+                }
+
+                if (providerSidebarService) {
+                    providerSidebarService.textContent = service;
+                }
+
+                if (welcomeProviderName) {
+                    welcomeProviderName.textContent =
+                        cleanName.split(/\s+/)[0] || "User";
+                }
+
+                console.log(
+                    "Logged-in provider loaded:",
+                    cleanName,
+                    "|",
+                    service
+                );
+            } catch (error) {
+                console.error(
+                    "Could not load logged-in provider:",
+                    error
+                );
+            }
+        });
+    </script>
+
+    <script src="provider-dashboard.js"></script>
+    <script src="../ai-assistant.js"></script>
+
+</body>
+
+</html>

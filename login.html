@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="config.js"></script>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAMSETU - Login</title>
+
+    <link
+        rel="stylesheet"
+        href="login.css"
+    >
+        <link rel="stylesheet" href="theme-light.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- MAIN -->
+
+    <main class="auth-page">
+
+        <!-- LEFT SIDE -->
+
+        <section class="brand-section">
+
+            <a href="index.html" class="logo">
+                <div class="logo-box">S</div>
+
+                <div>
+                    <strong>KAMSETU</strong>
+                    <span>GET THINGS DONE</span>
+                </div>
+            </a>
+
+
+            <div class="brand-content">
+
+                <span class="eyebrow">
+                    ONE PLATFORM. EVERY SERVICE.
+                </span>
+
+                <h1>
+                    Your home.
+                    <br>
+                    <span>Our professionals.</span>
+                </h1>
+
+                <p>
+                    Find trusted electricians, plumbers,
+                    carpenters, cleaners and other skilled
+                    professionals near you.
+                </p>
+
+
+                <div class="features">
+
+                    <div class="feature">
+                        <div class="feature-icon">✓</div>
+
+                        <div>
+                            <strong>Verified Professionals</strong>
+                            <span>Find trusted service providers.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-icon">₹</div>
+
+                        <div>
+                            <strong>Negotiate Your Price</strong>
+                            <span>Discuss and agree on your budget.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="feature">
+                        <div class="feature-icon">★</div>
+
+                        <div>
+                            <strong>Real Customer Reviews</strong>
+                            <span>Choose professionals with confidence.</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+                © 2026 KAMSETU. All rights reserved.
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+
+        <section class="auth-section">
+
+            <div class="auth-card">
+
+
+                <!-- TABS -->
+
+                <div class="tabs">
+
+                    <button
+                        type="button"
+                        id="loginTab"
+                        class="tab active"
+                        onclick="showLogin()"
+                    >
+                        LOGIN
+                    </button>
+
+                    <button
+                        type="button"
+                        id="signupTab"
+                        class="tab"
+                        onclick="showSignup()"
+                    >
+                        SIGN UP
+                    </button>
+
+                </div>
+
+
+                <!-- ROLE -->
+
+                <div class="role-section">
+
+                    <span class="section-label">
+                        I AM A
+                    </span>
+
+
+                    <div class="role-buttons">
+
+                        <button
+                            type="button"
+                            id="customerBtn"
+                            class="role-btn active"
+                            onclick="selectUserType('customer')"
+                        >
+
+                            <span class="role-icon">◉</span>
+
+                            <span>
+                                <strong>Customer</strong>
+                                <small>Find services</small>
+                            </span>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="providerBtn"
+                            class="role-btn"
+                            onclick="selectUserType('provider')"
+                        >
+
+                            <span class="role-icon">⚒</span>
+
+                            <span>
+                                <strong>Provider</strong>
+                                <small>Offer services</small>
+                            </span>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOGIN FORM -->
+
+                <div
+                    id="loginForm"
+                    class="form-container active"
+                >
+
+                    <div class="form-heading">
+
+                        <span>WELCOME BACK</span>
+
+                        <h2>Login to KAMSETU</h2>
+
+                        <p>
+                            Enter your details to continue.
+                        </p>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="loginEmail">
+                            EMAIL ADDRESS
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="you@example.com"
+                        >
+
+                        <small
+                            id="loginEmailError"
+                            class="error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <div class="label-row">
+
+                            <label for="loginPassword">
+                                PASSWORD
+                            </label>
+
+                            <button
+                                type="button"
+                                class="forgot-btn"
+                                onclick="forgotPassword()"
+                            >
+                                Forgot password?
+                            </button>
+
+                        </div>
+
+
+                        <div class="password-box">
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword('loginPassword', this)"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                        <small
+                            id="loginPasswordError"
+                            class="error"
+                        ></small>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="submit-btn"
+                        onclick="loginUser()"
+                    >
+                        LOGIN TO KAMSETU
+                        <span>→</span>
+                    </button>
+
+
+                    <div class="demo-area">
+
+                        <span>OR</span>
+
+                        <button
+                            type="button"
+                            onclick="demoLogin()"
+                            class="demo-btn"
+                        >
+                            Continue with Demo Account
+                        </button>
+
+                    </div>
+
+
+                    <div class="form-footer">
+
+                        Don't have an account?
+
+                        <button
+                            type="button"
+                            onclick="showSignup()"
+                        >
+                            Create one
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SIGNUP FORM -->
+
+                <div
+                    id="signupForm"
+                    class="form-container"
+                >
+
+                    <div class="form-heading">
+
+                        <span>JOIN KAMSETU</span>
+
+                        <h2>Create your account</h2>
+
+                        <p>
+                            Choose your role and get started.
+                        </p>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="signupName">
+                            FULL NAME
+                        </label>
+
+                        <input
+                            type="text"
+                            id="signupName"
+                            placeholder="Your full name"
+                        >
+
+                        <small
+                            id="signupNameError"
+                            class="error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="signupEmail">
+                            EMAIL ADDRESS
+                        </label>
+
+                        <input
+                            type="email"
+                            id="signupEmail"
+                            placeholder="you@example.com"
+                        >
+
+                        <small
+                            id="signupEmailError"
+                            class="error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="signupPhone">
+                            PHONE NUMBER
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="signupPhone"
+                            placeholder="10 digit mobile number"
+                            maxlength="10"
+                        >
+
+                        <small
+                            id="signupPhoneError"
+                            class="error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="signupPassword">
+                            PASSWORD
+                        </label>
+
+                        <div class="password-box">
+
+                            <input
+                                type="password"
+                                id="signupPassword"
+                                placeholder="Minimum 6 characters"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword('signupPassword', this)"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                        <small
+                            id="signupPasswordError"
+                            class="error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="confirmPassword">
+                            CONFIRM PASSWORD
+                        </label>
+
+                        <div class="password-box">
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Repeat your password"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                onclick="togglePassword('confirmPassword', this)"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                        <small
+                            id="confirmPasswordError"
+                            class="error"
+                        ></small>
+
+                    </div>
+
+
+                    <label class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                        >
+
+                        <span>
+                            I agree to the
+                            <a href="#">Terms & Conditions</a>
+                            and
+                            <a href="#">Privacy Policy</a>.
+                        </span>
+
+                    </label>
+
+                    <small
+                        id="termsError"
+                        class="error"
+                    ></small>
+
+
+                    <button
+                        type="button"
+                        class="submit-btn"
+                        onclick="signupUser()"
+                    >
+                        CREATE ACCOUNT
+                        <span>→</span>
+                    </button>
+
+
+                    <div class="form-footer">
+
+                        Already have an account?
+
+                        <button
+                            type="button"
+                            onclick="showLogin()"
+                        >
+                            Login
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOAST -->
+
+                <div
+                    id="toast"
+                    class="toast"
+                ></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>
