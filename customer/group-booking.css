@@ -1697,8 +1697,8 @@ body:has(.sidebar)>.tracking-page,
 body:has(.sidebar)>.gb-main,
 body:has(.sidebar)>.p-main,
 body:has(.sidebar)>.page {
-    width: calc(100% - 225px) !important;
-    margin-left: 225px !important;
+    width: 100% !important;
+    margin-left: 0 !important;
     box-sizing: border-box !important;
 }
 
@@ -1726,8 +1726,8 @@ body:has(.sidebar) .main-content > .page {
 
 /* Header alignment on pages that have the shared sidebar. */
 body:has(.sidebar)>header {
-    width: calc(100% - 225px) !important;
-    margin-left: 225px !important;
+    width: 100% !important;
+    margin-left: 0 !important;
     box-sizing: border-box !important;
 }
 

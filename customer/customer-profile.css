@@ -3471,9 +3471,9 @@ body:has(.sidebar) > header{
    ========================================================= */
 body:has(.customer-sidebar) .main-content,
 body:has(.customer-sidebar) > main.main-content {
-    width: calc(100% - 252px) !important;
+    width: 100% !important;
     max-width: none !important;
-    margin-left: 252px !important;
+    margin-left: 0 !important;
     margin-right: 0 !important;
     box-sizing: border-box !important;
 }
